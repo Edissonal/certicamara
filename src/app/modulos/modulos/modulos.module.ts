@@ -6,6 +6,7 @@ import { HomeComponent } from '../home/home.component';
 import { CertimailHomeComponent } from '../certimail/certimail-home/certimail-home.component';
 import { ValidacionesComponent } from '../validaciones/validaciones.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { PlanescertiComponent } from '../planescerti/planescerti.component';
 
 @NgModule({
   declarations: [
@@ -13,15 +14,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CertimailHomeComponent,
     SspsComponent,
     HomeComponent,
-    ValidacionesComponent
+    ValidacionesComponent,
+    PlanescertiComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule
-    
-
-
   ],exports:[
     ReactiveFormsModule,
     FormsModule

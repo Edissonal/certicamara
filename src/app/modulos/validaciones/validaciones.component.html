@@ -1,5 +1,7 @@
+
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true" >
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -7,8 +9,16 @@
                 <h5 class="textomodal lh-1">Estás a un paso de asegurar los envíos digitales de tu compañía.</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form [formGroup]="formaForm" (ngSubmit)="ngsubmit()">
+           
                 <div class="modal-body">
+                    <form [formGroup]="formaForm" (ngSubmit)="ngsubmit()">
+                    <div [class]="validar()" 
+                         role="alert" 
+                         *ngIf="estados">
+                         <i class="fas fa-cog fa-spin  fa-3x icon-menu"></i>
+                         <br>   
+                        <p>validando...</p>
+                      </div>
                     <div class="margen1">
 
                         <div class="mb-3">
@@ -79,17 +89,23 @@
                                     política de protección </span> de  datos personales </label>
                         </div>
                     </div>
+
+                    <div class="modal-footer">
+                        <button type="button" 
+                             class="btn btn-secondary"
+                         (click)="cerrarmodal()">cancelar</button>
+                         <button type="submit"  
+                                 class="btn btn-primary"
+                                 >siguiente</button>
+                     </div>
+                </form>
                 </div>
 
 
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-                    <button type="submit"  
-                            class="btn btn-primary"
-                            >siguiente</button>
-                </div>
-            </form>
+             
+           
         </div>
     </div>
 </div>
+

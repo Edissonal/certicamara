@@ -15,7 +15,9 @@
           Enviá uno o cientos de correos electrónicos  certificados con tranquilidad de que estos llegan son leídos  por el destinatario 
     </h4>
     <div class="row"></div>
-    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">adquierelo aquí</button>&nbsp;
+    <button type="button" 
+                class="btn btn-primary" 
+                (click)="abrirmodal()" >adquierelo aquí</button>&nbsp;
     <button type="button" class="btn btn-secondary">otras consultas</button>
 
     </div>
@@ -58,4 +60,8 @@
 </div>
 
 <!--Implementacion de modal validaciones-->
-<app-validaciones></app-validaciones>
+
+
+<app-validaciones
+                [formModal]="formModal"
+                ></app-validaciones>
