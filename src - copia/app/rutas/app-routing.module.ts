@@ -9,12 +9,14 @@ import { ValidacionesComponent } from '../modulos/validaciones/validaciones.comp
 
 
 
+
 const routes: Routes = [
 {path:'home' ,component:HomeComponent},
 {path:'certimail' ,component:CertimailHomeComponent},
 {path:'ssps' ,component:SspsComponent},
 {path:'planes' ,component:PlanescertiComponent},
-{path:'validaciones' ,component:ValidacionesComponent},
+{path:'validaciones' ,component:ValidacionesComponent
+},
 {path:'**' ,component:HomeComponent},
 
 ];
@@ -23,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class RutasRoutingModule { }
+export class AppRoutingModule { }

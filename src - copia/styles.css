@@ -228,41 +228,16 @@ padding-top: 0rem !important;
 }*/
 
 
-.margen2{
-   padding-left: 1rem  !important;
+.margen1{
+    padding-left: 1rem  !important;
     padding-right: 1rem !important;
     padding-top:10px;
     padding-bottom:10px;
     margin-left: 1rem;
     margin-right: 1rem;
     background-color: #ffffff;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 15px;
 
-}
-
-.margen1{
-    padding-left: 1rem  !important;
-     padding-right: 1rem !important;
-   /*  padding-top:10px;
-     padding-bottom:10px;*/
-     margin-left: 1rem;
-     margin-right: 1rem;
-     background-color: #ffffff;
-    /* border-radius: 15px;*/
-    border-radius: 15px 15px 0px 0px;
- 
- }
-
-
- .bolistas{
-
-    border-radius: 15px 15px 0px 0px !important;
-
-}
-
-.iconos{
-margin-left: 0px !important;
-padding-left: 0px !important;
 }
 
 /*texto modal*/
@@ -272,18 +247,7 @@ color:#34393e ;
 }
 .check{
     margin-left: 2rem;
-   background-color: #f8f7f5;
-   
 }
-.fondo{
-    background-color: aqua;    
-    padding-left: inherit !important;
-    padding-right: inherit!important;
-    margin-left: inherit !important;
-    margin-right: inherit !important;
-}
-
-
 /*.form-control.is-invalid, .was-validated .form-control:invalid {
     border-color: #ff4d4d;
     padding-right: calc(1.5em + 0.75rem);

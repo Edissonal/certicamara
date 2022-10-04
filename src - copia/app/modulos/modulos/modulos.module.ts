@@ -7,10 +7,8 @@ import { CertimailHomeComponent } from '../certimail/certimail-home/certimail-ho
 import { ValidacionesComponent } from '../validaciones/validaciones.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PlanescertiComponent } from '../planescerti/planescerti.component';
-import { AppRoutingModule } from 'src/app/rutas/app-routing.module';
-import { PersonaNComponent } from '../validaciones/persona-n/persona-n.component';
-import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component';
 
+import { AppRoutingModule } from 'src/app/rutas/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +18,7 @@ import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component
     HomeComponent,
     ValidacionesComponent,
     PlanescertiComponent,
-    PersonaNComponent,
-    PersonaJComponent,
+
   ],
   imports: [
     CommonModule,

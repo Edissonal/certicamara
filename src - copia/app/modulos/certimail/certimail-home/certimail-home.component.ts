@@ -23,8 +23,6 @@ export class CertimailHomeComponent implements OnInit {
   
   );
    
-  console.log('cargada');
-  
 
   }
 

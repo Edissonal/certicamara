@@ -1,7 +1,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true" >
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true"  >
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -9,97 +9,28 @@
                 <h5 class="textomodal lh-1">Estás a un paso de asegurar los envíos digitales de tu compañía.</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-           
+        
                 <div class="modal-body">
-                    <form [formGroup]="formaForm" (ngSubmit)="ngsubmit()">
-                    <div [class]="validar()" 
-                         role="alert" 
-                         *ngIf="estados">
-                         <i class="fas fa-cog fa-spin  fa-3x icon-menu"></i>
-                         <br>   
-                        <p>validando...</p>
-                      </div>
-                    <div class="margen1">
-
-                        <div class="mb-3">
-                            <label class="form-label">tipo de identificación</label>
-                            <select class="form-select" 
-                                    formControlName="tipo"
-                                    [class.is-invalid]="camposvalidos('tipo')">
-                                <option class="form-control">cedula</option>
-                                <option class="form-control">cedula extranjera</option>
-
-                            </select>
-                            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                  *ngIf="camposvalidos('tipo')">tipo de documento invalido</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">numero de identificación</label>
-                            <input type="number" 
-                                   class="form-control" 
-                                   placeholder="numero de identificación"
-                                   formControlName="numero"
-                                   [class.is-invalid]="camposvalidos('numero')"
-                                   >
-                            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                  *ngIf="camposvalidos('numero')">cedula invalida</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">nombres completos</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   placeholder="nombres completos"
-                                   formControlName="nombres"
-                                   [class.is-invalid]="camposvalidos('nombres')"
-                                   >
-                                   <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                   *ngIf="camposvalidos('nombres')">los nombres no son validos</div>
-                        </div>
-                    </div>
-                    <!--[class.is.invalid]="camposvalidos('nombres')">-->
-                    <div class="check">
-                        <div class="mb-1 form-check">
-                            <input type="checkbox" 
-                                   class="form-check-input"
-                                   formControlName="terminosp"
-                                   [class.is-invalid]="camposvalidos('terminosp')"
-                                   >
-                            <label class="form-check-label"
-                                    ><span class="politicas">politica de
-                                    proteccion</span> los términos y condiciones </label>
-                        </div>
-
-                        <div class="mb-1 form-check">
-                            <input type="checkbox"
-                                   class="form-check-input"
-                                   formControlName="terminost"
-                                   [class.is-invalid]="camposvalidos('terminost')">
-                            <label class="form-check-label" ><span class="politicas">acepto  
-                                    política de protección </span> y tratamientos de datos </label>
-                        </div>
-
-                        <div class="mb-1 form-check">
-                            <input type="checkbox" 
-                                   class="form-check-input"
-                                   formControlName="terminostpro"
-                                   [class.is-invalid]="camposvalidos('terminostpro')">
-                            <label class="form-check-label" for="exampleCheck1"><span class="politicas">acepto  
-                                    política de protección </span> de  datos personales </label>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" 
-                             class="btn btn-secondary"
-                         (click)="cerrarmodal()">cancelar</button>
-                         <button type="submit"  
-                                 class="btn btn-primary"
-                                 >siguiente</button>
-                     </div>
-                </form>
+                    <div class="margen1 animate__animated animate__fadeIn animate__fast">
+                    <div class="row">
+                        <div class="col iconos">
+                    <button                              
+                                class="btn btn-primary bolistas"
+                                [routerLink]="['/certimail/natural']"
+                               ><i class="fa-regular fa-user"></i>&nbsp;persona natural</button>
+                            </div>
+                            <div class="col iconos">
+                    <button  class="btn btn-secondary bolistas"
+                            [routerLink]="['/certimail/juridica']"><i class="fa-regular fa-handshake"></i>&nbsp;persona juridica</button>
                 </div>
+                
+                    </div>
+                </div>
+       
+                <router-outlet 
+                                ></router-outlet>
+            </div>
+       
 
 
 

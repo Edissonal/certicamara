@@ -15,13 +15,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
+
   ],
   imports: [
     BrowserModule,
