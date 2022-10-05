@@ -1,6 +1,6 @@
 <div class="animate__animated animate__fadeIn animate__fast">
 <form [formGroup]="formaForm" 
-(ngSubmit)="ngsubmit()" id="form1">
+(ngSubmit)="ngsubmit()">
 <div [class]="validar()" 
 role="alert" 
 *ngIf="estados">
@@ -23,30 +23,20 @@ role="alert"
         *ngIf="camposvalidos('tipo')">tipo de documento invalido</div>
 </div>
 
-<div class="mb-3">
-  <label class="form-label">numero de identificación</label>
-  <input type="number" 
-         class="form-control" 
-         placeholder="numero de identificación"
-         formControlName="numero"
-         [class.is-invalid]="camposvalidos('numero')"
-         >
-  <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-        *ngIf="camposvalidos('numero')">cedula invalida</div>
-</div>
 
 <div class="mb-3">
-  <label class="form-label">nombres completos</label>
-  <input type="text" 
-         class="form-control" 
-         placeholder="nombres completos"
-         formControlName="nombres"
-         [class.is-invalid]="camposvalidos('nombres')"
-         >
-         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-         *ngIf="camposvalidos('nombres')">los nombres no son validos</div>
+       <label class="form-label">numero de identificación</label>
+       <input type="number" 
+              class="form-control" 
+              placeholder="numero de identificación"
+              formControlName="numero"
+              [class.is-invalid]="camposvalidos('numero')"
+              >
+       <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+             *ngIf="camposvalidos('numero')">cedula invalida</div>
+     </div>
 </div>
-</div>
+
 <!--[class.is.invalid]="camposvalidos('nombres')">-->
 <div class="check">
 <div class="mb-1 form-check">
@@ -81,12 +71,10 @@ role="alert"
 
 <div class="modal-footer">
 <button type="button" 
-       class="btn btn-secondary"
-       (click)="cerrarmodal()"
->cancelar</button>
+   class="btn btn-secondary"
+(click)="cerrarmodal()">cancelar</button>
 <button type="submit"  
        class="btn btn-primary"
-       (click)="abrirmodal()"
        >siguiente</button>
 </div>
 </form>

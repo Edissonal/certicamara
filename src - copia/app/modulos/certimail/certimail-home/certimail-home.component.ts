@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ComponentesService } from '../../../servicios/componentes.service';
 declare var window: any;
 
 @Component({
@@ -9,9 +10,11 @@ declare var window: any;
 })
 export class CertimailHomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private ComponentesService:ComponentesService) { }
 
   formModal: any;
+  //@ViewChild('exampleModal',{static: false} ) exampleModal: any;
 
 
 
@@ -22,7 +25,9 @@ export class CertimailHomeComponent implements OnInit {
     document.getElementById('exampleModal')
   
   );
-   
+
+
+  console.log('cargada');
 
   }
 
@@ -31,11 +36,18 @@ export class CertimailHomeComponent implements OnInit {
   /*cerra Modal*/ 
   abrirmodal() {
     this.formModal.show();
+    console.log(this.formModal);
+    this.ComponentesService.cerrarModal(this.formModal);
    
    // this.router.navigate(['planes']);
 
+   
+  }
 
 
+  cerrarmodal(estado:boolean) {
+    console.log(estado);
+    this.formModal.hide();
   }
   
 }

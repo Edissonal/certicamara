@@ -11,12 +11,12 @@ declare var window: any;
 export class ValidacionesComponent implements OnInit {
 
 
-  formaForm!:FormGroup;
-  estados:boolean=false;
-@Input ()formModal:any;
+ formaForm!:FormGroup;
+ estados:boolean=false;
+ formModal:any;
+/*@Input ()formModal:any;*/
 
 
-  //formModal: any;
 
   constructor(private fb:FormBuilder,
               private router:Router) { 
@@ -32,19 +32,17 @@ export class ValidacionesComponent implements OnInit {
 });
 
 
-
   }
 
 
 
   ngOnInit(): void {
 
-   /* this.formModal = new window.bootstrap.Modal(
+    this.formModal = new window.bootstrap.Modal(
     
-   //   document.getElementById('exampleModal')
-    
-    );*/
-
+      document.getElementById('exampleModal')
+     
+     );
 
   }
 
@@ -65,13 +63,10 @@ abrirmodal() {
 //}
 }
 
-
-
 cerrarmodal() {
   // confirm or save something
   this.formModal.hide();
   console.log('cierra');
-
   console.log(this.formModal);
   
 }
@@ -98,10 +93,6 @@ cerrarmodal() {
     }, 2500);
 
   }
-
-
-
-
 
 
   validar(){

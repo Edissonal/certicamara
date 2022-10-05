@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef }
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ComponentesService } from '../../../servicios/componentes.service';
-declare var window: any;
+//declare var window: any;
 
 @Component({
   selector: 'app-persona-n',
@@ -15,13 +15,13 @@ export class PersonaNComponent implements OnInit {
 
   formaForm!:FormGroup;
   estados:boolean=false;
-  //formModal:any;
+  formModal:any;
 
 
 
   constructor(private fb:FormBuilder,
               private router:Router,
-              private componentesService:ComponentesService) { 
+              private ComponentesService:ComponentesService) { 
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
                   numero:['',[Validators.required,Validators.minLength(4)]],
@@ -71,12 +71,10 @@ abrirmodal() {
 
 cerrarmodal() {
   // confirm or save something
- // this.formModal.hide();
-
-    this.componentesService.cerrarModal();
+  this.formModal.hide();
   console.log('cierra');
 
- // console.log(this.formModal);
+  console.log(this.formModal);
  // this.estados = true;
  // this.onvalida.emit(this.estados);
 //this.formModal.hide();

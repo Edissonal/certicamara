@@ -5,17 +5,24 @@ import { HomeComponent } from '../modulos/home/home.component';
 import { SspsComponent } from '../modulos/ssps/ssps.component';
 import { PlanescertiComponent } from '../modulos/planescerti/planescerti.component';
 import { ValidacionesComponent } from '../modulos/validaciones/validaciones.component';
-
+import { PersonaNComponent } from '../modulos/validaciones/persona-n/persona-n.component';
+import { PersonaJComponent } from '../modulos/validaciones/persona-j/persona-j.component';
 
 
 
 
 const routes: Routes = [
-{path:'home' ,component:HomeComponent},
+{path:'home' ,component:HomeComponent,},
 {path:'certimail' ,component:CertimailHomeComponent},
+
 {path:'ssps' ,component:SspsComponent},
 {path:'planes' ,component:PlanescertiComponent},
-{path:'validaciones' ,component:ValidacionesComponent
+{path:'validaciones' ,component:ValidacionesComponent,
+children: [
+  {path: 'natural', component:PersonaNComponent},
+  {path: 'juridica', component:PersonaJComponent}
+  
+  ]
 },
 {path:'**' ,component:HomeComponent},
 

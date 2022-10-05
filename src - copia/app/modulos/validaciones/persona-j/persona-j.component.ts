@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ComponentesService } from '../../../servicios/componentes.service';
 
 @Component({
   selector: 'app-persona-j',
@@ -12,11 +11,10 @@ export class PersonaJComponent implements OnInit {
 
 formaForm!:FormGroup;
 estados:boolean=false;
-
+@Input ()formModal:any;
 
   constructor(private fb:FormBuilder,
-              private router:Router,
-              private componentesService:ComponentesService) { 
+              private router:Router) { 
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
                   numero:['',[Validators.required,Validators.minLength(4)]],
@@ -28,7 +26,9 @@ estados:boolean=false;
             }
 
   ngOnInit(): void {
-    console.log('juridica');
+    console.log('natural');
+
+                   
 
 }
 
@@ -40,9 +40,9 @@ camposvalidos(campo:any){
 abrirmodal() {
 
   //if(this.evento){
-
+  this.formModal.show();
   console.log('log abre');
-
+  console.log(this.formModal);
 
 //}
 }
@@ -51,9 +51,10 @@ abrirmodal() {
 
 cerrarmodal() {
   // confirm or save something
-  this.componentesService.cerrarModal();
+  this.formModal.hide();
+  console.log('cierra');
 
-
+  console.log(this.formModal);
   
 }
 

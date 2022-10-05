@@ -6209,10 +6209,11 @@ fieldset:disabled .btn {
     position: relative;
     flex: 1 1 auto;
    /* padding: var(--bs-modal-padding);*/
-background-color: #f8f7f5;
+/*background-color: #f8f7f5;*/
 padding-left: 0rem  !important;
 padding-right: 0rem !important;
 padding-top: 0rem !important;
+overflow: hidden;
 }
 
 .modal-footer {

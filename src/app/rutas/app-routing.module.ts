@@ -14,17 +14,23 @@ import { PersonaJComponent } from '../modulos/validaciones/persona-j/persona-j.c
 const routes: Routes = [
 {path:'home' ,component:HomeComponent,},
 {path:'certimail' ,component:CertimailHomeComponent,
-children:[
-  {path:'juridica' ,component:PersonaJComponent,},
-  {path:'natural' ,component:PersonaNComponent,},
-  {path:'**' ,component:PersonaNComponent,},
+children: [
+  {path: 'natural', component:PersonaNComponent},
+  {path: 'juridica', component:PersonaJComponent},
+  {path:'**' ,component:PersonaNComponent},
+  
+  ]},
 
-]},
 {path:'ssps' ,component:SspsComponent},
 {path:'planes' ,component:PlanescertiComponent},
-/*{path:'validaciones' ,component:ValidacionesComponent,
- 
-},*/
+{path:'validaciones' ,component:ValidacionesComponent,
+children: [
+  {path: 'natural', component:PersonaNComponent},
+  {path: 'juridica', component:PersonaJComponent},
+  {path:'**' ,component:PersonaNComponent},
+  
+  ]
+},
 {path:'**' ,component:HomeComponent},
 
 ];
