@@ -7,6 +7,7 @@ import { PlanescertiComponent } from '../modulos/planescerti/planescerti.compone
 import { ValidacionesComponent } from '../modulos/validaciones/validaciones.component';
 import { PersonaNComponent } from '../modulos/validaciones/persona-n/persona-n.component';
 import { PersonaJComponent } from '../modulos/validaciones/persona-j/persona-j.component';
+import { IngresocertimailComponent } from '../modulos/ingresocertimail/ingresocertimail.component';
 
 
 
@@ -23,6 +24,7 @@ children: [
 
 {path:'ssps' ,component:SspsComponent},
 {path:'planes' ,component:PlanescertiComponent},
+{path: 'ingresocert', component:IngresocertimailComponent},
 {path:'validaciones' ,component:ValidacionesComponent,
 children: [
   {path: 'natural', component:PersonaNComponent},
@@ -32,7 +34,7 @@ children: [
   ]
 },
 {path:'**' ,component:HomeComponent},
-
+  {path: 'ingreso', component:IngresocertimailComponent},
 ];
 
 @NgModule({

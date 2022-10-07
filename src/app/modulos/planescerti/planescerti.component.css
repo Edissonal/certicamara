@@ -1,0 +1,23 @@
+h5,h2{
+    font-family: CalibriBold;
+    margin-bottom: 0.1rem;
+}
+
+h1{
+    font-family: corisandebold;
+    color: #20191e;
+}
+
+h2{
+color: #838281;
+}
+
+.row > .col > h1{
+    color: #838281 !important;
+}
+
+p{
+    font-family: CalibriRegular;
+    font-size: 1.10rem;
+    color: #20191e;
+}

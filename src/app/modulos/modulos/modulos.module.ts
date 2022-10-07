@@ -10,6 +10,7 @@ import { PlanescertiComponent } from '../planescerti/planescerti.component';
 import { AppRoutingModule } from 'src/app/rutas/app-routing.module';
 import { PersonaNComponent } from '../validaciones/persona-n/persona-n.component';
 import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component';
+import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.component';
 
 
 @NgModule({
@@ -22,6 +23,8 @@ import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component
     PlanescertiComponent,
     PersonaNComponent,
     PersonaJComponent,
+    IngresocertimailComponent 
+
   ],
   imports: [
     CommonModule,

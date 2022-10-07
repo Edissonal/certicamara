@@ -26,12 +26,27 @@ export class ValidacionesComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+/*implementacion de modals a servicio componentes*/
     this.componentesService.formModal = new window.bootstrap.Modal(
     
-      document.getElementById('exampleModal')
-     
+      document.getElementById('principal')
      );
+
+     this.componentesService.acuerdos = new window.bootstrap.Modal(
+    
+      document.getElementById('acuerdos')
+     );
+
+     this.componentesService.acuerdos2 = new window.bootstrap.Modal(
+    
+      document.getElementById('acuerdos2')
+     );
+
+     this.componentesService.acuerdos3 = new window.bootstrap.Modal(
+    
+      document.getElementById('acuerdos3')
+     );
+
 
   }
 
@@ -40,9 +55,6 @@ abrirmodal() {
 
   console.log('log abre');
   this.componentesService.abrirmodal();
-
-
 }
-
 
 }

@@ -15,17 +15,30 @@ export class PersonaNComponent implements OnInit {
 
   formaForm!:FormGroup;
   estados:boolean=false;
-  //formModal:any;
-
+  estados2:boolean=false;
+  listas:boolean=true;
 
 
   constructor(private fb:FormBuilder,
               private router:Router,
-              private componentesService:ComponentesService) { 
+              private componentesService:ComponentesService) {
+                
+                /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
-                  numero:['',[Validators.required,Validators.minLength(4)]],
-                  nombres:['',[Validators.required,Validators.minLength(4)]],
+                  numero:[0,[Validators.required,
+                              Validators.min(999),
+                              Validators.max(999999999),
+                              
+                              ]],
+                  nombres:['',[Validators.required,
+                              Validators.minLength(3),
+                              Validators.maxLength(60),
+                              Validators.pattern("[a-zA-Z ]{2,254}")]],
+                  apellidos:['',[Validators.required,
+                                  Validators.minLength(3),
+                                  Validators.maxLength(60),
+                                  Validators.pattern("[a-zA-Z ]{2,254}")]],
                   terminosp:['',[Validators.required]],
                   terminost:['',[Validators.required]],
                   terminostpro:['',[Validators.required]],
@@ -34,24 +47,16 @@ export class PersonaNComponent implements OnInit {
 
 
             
-   /*   this.formModal = new window.bootstrap.Modal(
-        document.getElementById('exampleModal')
-      
-      );*/
-    
+
             }
 
-          /* get datos() {
-              return this.ComponentesService.formModal;
-            }
-
-*/
+/* funcion para validacion de campos*/
 camposvalidos(campo:any){
   return this.formaForm.controls[campo].errors && this.formaForm.controls[campo].touched;
 }
 
 
-/*implementacion eventos modal */
+
 
 ngOnInit(): void {
   console.log('natural');
@@ -60,35 +65,18 @@ ngOnInit(): void {
 
 }
 
-abrirmodal() {
-
-//this.ComponentesService.cerrarModal();
-
-//}
-}
 
 
-
+/*implementacion eventos modal */
 cerrarmodal() {
-  // confirm or save something
- // this.formModal.hide();
 
     this.componentesService.cerrarModal();
   console.log('cierra');
 
- // console.log(this.formModal);
- // this.estados = true;
- // this.onvalida.emit(this.estados);
-//this.formModal.hide();
-//console.log(this.formModal);
-
-//this.datos.hide();
-//this.formModal.hide();
-
-
   
 }
 
+/*ingreso y validacion de datos de formulario*/
 ngsubmit() {
   
   if(this.formaForm.invalid){
@@ -104,30 +92,44 @@ ngsubmit() {
     
     this.cerrarmodal();
     this.router.navigate(['planes']);
+
     
   }, 2500);
 
 }
 
 
-
-
-
-
+/* estilos alertas */
 validar(){
 
-  return (this.estados) ? 'alert alert-light animate__animated animate__fadeIn animate__faster text-center ':'';
+  return (this.estados) ? 'alert alert-light animate__animated animate__fadeIn animate__faster text-center ':'animate__animated animate__fadeOut';
 }
 
+negras(){
 
-
-natural(){
-  this.router.navigateByUrl('certimail/juridica')
-  console.log('ejecutado');
+  return (this.estados2) ? 'alert-malo animate__animated animate__fadeIn animate__faster text-center':'animate__animated animate__fadeOut';
 }
 
-juridica(){
-  this.router.navigate(['/certimail/juridica']);
-}
+/*politicas de implementacion terminos y condiciones alertas*/
 
-}
+condiciones(){
+  // let elemento = this.componentesService.acuerdos._element.id;
+   this.componentesService.terminos();
+   
+ }
+ 
+ condiciones1(){
+ 
+   this.componentesService.terminos1();
+ }
+ 
+ condiciones2(){
+ 
+   this.componentesService.terminos2();
+ }
+ 
+ 
+ 
+ }
+ 
+

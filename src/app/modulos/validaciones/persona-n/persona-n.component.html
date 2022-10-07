@@ -9,14 +9,30 @@ role="alert"
 <p>validando...</p>
 </div>
 
+<!--listas negras alert -->
+<div 
+role="alert" 
+[class]="negras()"
+*ngIf="estados2"
+>
+<br>   
+<h3>señor usuario</h3>
+<p>En el momento presentamos fallas técnicas , lo invitamos a diligenciar el siguiente formulario para que un agente comercial pueda contactar con usted en el menor tiempo posible.
+</p>
+<button type="submit"  
+        class="btn btn-primary">aceptar</button>
+</div>
+
+
 <div class="margen2">
 <div class="mb-3">
   <label class="form-label">tipo de identificación</label>
   <select class="form-select" 
           formControlName="tipo"
           [class.is-invalid]="camposvalidos('tipo')">
-      <option class="form-control">cedula</option>
-      <option class="form-control">cedula extranjera</option>
+      <option class="form-control">Cédula de Ciudadanía</option>
+      <option class="form-control">Cédula de Extranjería</option>
+      <option class="form-control">Pasaporte</option>
 
   </select>
   <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
@@ -36,48 +52,70 @@ role="alert"
 </div>
 
 <div class="mb-3">
-  <label class="form-label">nombres completos</label>
-  <input type="text" 
-         class="form-control" 
-         placeholder="nombres completos"
-         formControlName="nombres"
-         [class.is-invalid]="camposvalidos('nombres')"
-         >
-         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-         *ngIf="camposvalidos('nombres')">los nombres no son validos</div>
+       <div class="row">
+              <div class="col">
+                     <label class="form-label">nombres</label>
+                     <input type="text" 
+                            class="form-control" 
+                            placeholder="nombres completos"
+                            formControlName="nombres"
+                            [class.is-invalid]="camposvalidos('nombres')"
+                            >
+                            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                            *ngIf="camposvalidos('nombres')">los nombres no son validos</div>
+              </div>
+
+              <div class="col">
+                     <label class="form-label">apellidos</label>
+                     <input type="text" 
+                     class="form-control" 
+                     placeholder="apellidos completos"
+                     formControlName="apellidos"
+                     [class.is-invalid]="camposvalidos('apellidos')"
+                     >
+                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                     *ngIf="camposvalidos('apellidos')">los apellidos no son validos</div>
+              </div>
+
+       </div>
+
+     
+
 </div>
 </div>
 <!--[class.is.invalid]="camposvalidos('nombres')">-->
 <div class="check">
-<div class="mb-1 form-check">
-  <input type="checkbox" 
-         class="form-check-input"
-         formControlName="terminosp"
-         [class.is-invalid]="camposvalidos('terminosp')"
-         >
-  <label class="form-check-label"
-          ><span class="politicas">politica de
-          proteccion</span> los términos y condiciones </label>
-</div>
-
-<div class="mb-1 form-check">
-  <input type="checkbox"
-         class="form-check-input"
-         formControlName="terminost"
-         [class.is-invalid]="camposvalidos('terminost')">
-  <label class="form-check-label" ><span class="politicas">acepto  
-          política de protección </span> y tratamientos de datos </label>
-</div>
-
-<div class="mb-1 form-check">
-  <input type="checkbox" 
-         class="form-check-input"
-         formControlName="terminostpro"
-         [class.is-invalid]="camposvalidos('terminostpro')">
-  <label class="form-check-label" for="exampleCheck1"><span class="politicas">acepto  
-          política de protección </span> de  datos personales </label>
-</div>
-</div>
+       <div class="mb-1 form-check">
+         <input type="checkbox" 
+                class="form-check-input"
+                formControlName="terminosp"
+                [class.is-invalid]="camposvalidos('terminosp')"
+                >
+         <label class="form-check-label" 
+                (click)="condiciones()">he leído y acepto  <span class="politicas"> Política términos y condiciones.</span>
+              </label>
+       </div>
+       
+       <div class="mb-1 form-check">
+         <input type="checkbox"
+                class="form-check-input"
+                formControlName="terminost"
+                [class.is-invalid]="camposvalidos('terminost')">
+         <label class="form-check-label"
+                (click)="condiciones2()"
+                 >he leído y acepto  <span class="politicas">Política de Certificación.</span> </label>
+       </div>
+       
+       <div class="mb-1 form-check">
+         <input type="checkbox" 
+                class="form-check-input"
+                formControlName="terminostpro"
+                [class.is-invalid]="camposvalidos('terminostpro')">
+         <label class="form-check-label" 
+                for="exampleCheck1"
+                (click)="condiciones1()">he leído y acepto<span class="politicas"> Anexo Sagrilaf</span></label>
+       </div>
+       </div>
 
 <div class="modal-footer">
 <button type="button" 
@@ -86,7 +124,7 @@ role="alert"
 >cancelar</button>
 <button type="submit"  
        class="btn btn-primary"
-       (click)="abrirmodal()"
+       
        >siguiente</button>
 </div>
 </form>
