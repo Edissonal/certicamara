@@ -1,0 +1,15 @@
+{
+    "preguntas":[{
+            "id":1,
+            "pregunta":"Necesita un certificado para firmas documentos"
+        },
+        {
+            "id":2,
+            "pregunta":"Trabaja en una entidad bancaria"
+        },
+        {
+             "id":3,
+            "pregunta":"El tipo de token que necesita es fisico o virtual"
+        }
+    ]
+}

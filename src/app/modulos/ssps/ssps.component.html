@@ -90,43 +90,72 @@
                             </table>
                             <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
                             <br>
+                           
                             <div class="row">
                                 <div class="col">  
                                     <div class="mb-1 form-check">
                                     <input type="checkbox" 
                                            class="form-check-input"
+                                           [(ngModel)]="valores"
                                            >
                                     <label class="form-check-label" 
                                            for="exampleCheck1"
-                                          ><p><small>token físico funcionario Certicámara</small></p></label>
+                                          ><p data-bs-toggle="tooltip" 
+                                              data-bs-placement="top"
+                                              title="Mariana es la representante legal de una entidad financiera. 
+                                              Ella está de viaje, pero con su firma digital puede reportar 
+                                              los informes ante el órgano de control que los vigila."><small>token físico funcionario Certicámara</small></p></label>
                                   </div>
                                   <div class="mb-1 form-check">
                                     <input type="checkbox" 
                                            class="form-check-input"
+                                           [(ngModel)]="valores"
                                            >
                                            <label class="form-check-label" 
                                            for="exampleCheck1"
-                                          ><p><small>token físico  viaje  Ocasional Runt</small></p></label>
+                                          ><p
+                                              data-bs-toggle="tooltip" 
+                                              data-bs-placement="top"
+                                              title="Camilo es el contador de una entidad de salud y firma 
+                                              digitalmente los estados financieros para enviárselos 
+                                              al representante legal."
+                                          ><small>token físico  viaje  Ocasional Runt</small></p></label>
                                   </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-1 form-check">
-                                        <input type="checkbox" 
+                                        <input type="checkbox"
+                                               [(ngModel)]="valores" 
                                                class="form-check-input"
                                                >
                                                <label class="form-check-label" 
                                                for="exampleCheck1"
                                                
-                                              ><p ><small>token virtual  Certifirma web</small></p></label>
+                                              ><p 
+                                              
+                                              data-bs-toggle="tooltip" 
+                                              data-bs-placement="top"
+                                              title="Juan Pablo envía su recurso de apelación al Juzgado firmado 
+                                              digitalmente, sin necesidad de desplazarse hasta el lugar."
+                                              ><small>token virtual  Certifirma web</small></p></label>
                                               
                                       </div>
                                       <div class="mb-1 form-check">
                                         <input type="checkbox" 
                                                class="form-check-input"
+                                               [(ngModel)]="valores"
+                                               value="anr"
                                                >
                                                <label class="form-check-label" 
                                                for="exampleCheck1"
-                                              ><p>token virtual  Revisoria fisca</label>
+                                              ><p
+                                              data-bs-toggle="tooltip" 
+                                              data-bs-placement="top"
+                                              title="Hernán es funcionario público. Él es el encargado de manejar 
+                                              el presupuesto de la entidad. Para aprobar compras y 
+                                              proyectos usa su firma digital a fin de que éstos sean 
+                                              avalados ante el ente de control."
+                                              ><small>token virtual  Revisoria fisca</small></label>
                                       </div>
 
                                 </div>
@@ -145,10 +174,10 @@
             <!--(click)="cerrarmodal()"-->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"   data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">anterior</button>
-                <button type="submit" class="btn btn-primary"    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">siguiente</button>
+                <button type="submit"
+                        class="btn btn-primary"    
+                        data-bs-target="#carouselExampleControlsNoTouching" 
+                        data-bs-slide="next"
+                        (click)="datos()">siguiente</button>
             </div>
-
-        </div>
-    </div>
-</div>
 
