@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     NavbarComponent,
     FooterComponent,
+
   ],
   imports: [
     BrowserModule,

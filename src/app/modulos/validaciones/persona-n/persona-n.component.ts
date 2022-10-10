@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentesService } from '../../../servicios/componentes.service';
 declare var window: any;
 
@@ -17,18 +17,20 @@ export class PersonaNComponent implements OnInit {
   estados:boolean=false;
   estados2:boolean=false;
   listas:boolean=true;
+  rutasActivas:string;
 
 
   constructor(private fb:FormBuilder,
               private router:Router,
-              private componentesService:ComponentesService) {
+              private componentesService:ComponentesService,
+              private activateRoute:ActivatedRoute) {
                 
                 /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
                   numero:[0,[Validators.required,
                               Validators.min(999),
-                              Validators.max(999999999),
+                              Validators.max(9999999999),
                               
                               ]],
                   nombres:['',[Validators.required,
@@ -44,8 +46,13 @@ export class PersonaNComponent implements OnInit {
                   terminostpro:['',[Validators.required]],
                 
                 });    
+                /*captura de rutas activas*/
+                this.activateRoute.queryParams
+                .subscribe((res:any)=>{
+                this.rutasActivas = res.route;
+                console.log(this.rutasActivas);
 
-
+                });
             
 
             }
@@ -91,8 +98,8 @@ ngsubmit() {
   setTimeout(() => {
     
     this.cerrarmodal();
-    this.router.navigate(['planes']);
-
+    this.router.navigate([this.rutasActivas]);
+    
     
   }, 2500);
 

@@ -47,7 +47,10 @@ export class ValidacionesComponent implements OnInit {
       document.getElementById('acuerdos3')
      );
 
+     this.mostrarevento();
+     
 
+     
   }
 
 /*implementacion eventos modal */
@@ -55,6 +58,16 @@ abrirmodal() {
 
   console.log('log abre');
   this.componentesService.abrirmodal();
+}
+
+
+mostrarevento(){
+  let evento = this.componentesService.estados;
+
+  if(evento){
+    this.componentesService.abrirmodal();
+    this.componentesService.estados = false;
+  }
 }
 
 }

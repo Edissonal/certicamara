@@ -8,12 +8,14 @@ import { ValidacionesComponent } from '../modulos/validaciones/validaciones.comp
 import { PersonaNComponent } from '../modulos/validaciones/persona-n/persona-n.component';
 import { PersonaJComponent } from '../modulos/validaciones/persona-j/persona-j.component';
 import { IngresocertimailComponent } from '../modulos/ingresocertimail/ingresocertimail.component';
+import { ContactenosComponent } from '../modulos/contactenos/contactenos.component';
+import { NavbarComponent } from '../navbar/navbar/navbar.component';
 
 
 
 
 const routes: Routes = [
-{path:'home' ,component:HomeComponent,},
+{path:'home' ,component:HomeComponent},
 {path:'certimail' ,component:CertimailHomeComponent,
 children: [
   {path: 'natural', component:PersonaNComponent},
@@ -27,14 +29,15 @@ children: [
 {path: 'ingresocert', component:IngresocertimailComponent},
 {path:'validaciones' ,component:ValidacionesComponent,
 children: [
-  {path: 'natural', component:PersonaNComponent},
-  {path: 'juridica', component:PersonaJComponent},
+  {path: 'natural/:id', component:PersonaNComponent},
+  {path: 'juridica/:id', component:PersonaJComponent},
   {path:'**' ,component:PersonaNComponent},
   
   ]
 },
+{path: 'ingreso', component:IngresocertimailComponent},
+{path:'contacto' ,component:ContactenosComponent,},
 {path:'**' ,component:HomeComponent},
-  {path: 'ingreso', component:IngresocertimailComponent},
 ];
 
 @NgModule({

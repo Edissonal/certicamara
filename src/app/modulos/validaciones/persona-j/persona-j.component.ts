@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ComponentesService } from '../../../servicios/componentes.service';
 
 @Component({
@@ -16,17 +16,19 @@ estados:boolean=false;
 estados2:boolean=false;
 listas:boolean=true;
 mostrar:boolean= false;
+rutasActivas:string;
 
 /*validacion de campos y validastors */
   constructor(private fb:FormBuilder,
               private router:Router,
               private componentesService:ComponentesService,
+              private activateRoute:ActivatedRoute
               ) { 
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
                     numero:[0,[Validators.required,
                       Validators.min(999),
-                      Validators.max(999999999),
+                      Validators.max(9999999999),
                     ]],
                     codigo:[],
                     razon:['',[Validators.required,
@@ -37,7 +39,16 @@ mostrar:boolean= false;
                   terminost:['',[Validators.required]],
                   terminostpro:['',[Validators.required]],
                 
-                },{validators:[this.componentesService.codigonit('tipo','codigo')]});    
+                },{validators:[this.componentesService.codigonit('tipo','codigo')]});   
+                
+                       /*captura de rutas activas*/
+                       this.activateRoute.queryParams
+                       .subscribe((res:any)=>{
+                       this.rutasActivas = res.route;
+                       console.log(this.rutasActivas);
+       
+                       });
+                   
             }
 
   ngOnInit(): void {
@@ -153,6 +164,7 @@ redirecion(){
 
 this.estados2 = false;
 this.estados =false;
+this.router.navigate(['/contacto']);
 }
 
 /*eventos para alertas de terminos y condiciones*/

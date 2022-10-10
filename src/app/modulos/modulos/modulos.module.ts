@@ -11,6 +11,9 @@ import { AppRoutingModule } from 'src/app/rutas/app-routing.module';
 import { PersonaNComponent } from '../validaciones/persona-n/persona-n.component';
 import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component';
 import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.component';
+import { ContactenosComponent } from '../contactenos/contactenos.component';
+
+
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.
     PlanescertiComponent,
     PersonaNComponent,
     PersonaJComponent,
-    IngresocertimailComponent 
+    IngresocertimailComponent,
+    ContactenosComponent,
 
   ],
   imports: [
@@ -33,7 +37,8 @@ import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.
     AppRoutingModule
   ],exports:[
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ValidacionesComponent
     
   ]
 })

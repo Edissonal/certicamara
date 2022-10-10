@@ -1,1 +1,154 @@
-<p>ssps works!</p>
+
+<!--implementacion modal preguntas de caracterizacion-->
+<div class="modal fade animate__animated animate__fadeIn animate__fast" id="ssps1">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="textomodal textomodal">!Empieza tu camino hacia tu firma digital !</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+
+
+                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="margenuni animate__animated animate__fadeIn animate__fast">
+                            <h4 class="lh-1 text-center textomodal2">Preguntas de caracterización</h4>
+        
+                            <table class="table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th scope="col">SI</th>
+                                        <th scope="col">NO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
+                                        <td>Necesita un certificado para firmas documentos   </td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
+                                        <td>Trabaja en una entidad bancaria</td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
+                                        <td>El tipo de token que necesita es fisico o virtual</td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
+                                    </tr>
+        
+                                    
+                                    
+                                </tbody>
+                            </table>
+        
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="margenuni animate__animated animate__fadeIn animate__fast">
+                            <h4 class="textomodal lh-1" style="color:#999696 ;">Productos</h4>
+        
+                            <p class="lh-1"><small>La Opcion de  persona natural  permite solicitar  certificados de firma digital  a titulo personal , aqui
+                                podra solicitar certificados para personas natural  o solicitar el certificado  profesional para solicitantes.</small></p>
+                                <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Su historial de compra es</h4>
+                            <table class="table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">fecha de compra</th>
+                                        <th scope="col">Tipo de certificado comprado</th>
+                                        <th scope="col">politica</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+      
+                                        <td>13-04-1989</td>
+                                        <td>fisico</td>
+                                        <td>token virtual  Certifirma web</td>
+                
+                                    </tr>
+                                    <tr>
+                                        <td>13-04-1989</td>
+                                        <td>fisico</td>
+                                        <td>token virtual  Certifirma web</td>
+                                    </tr>
+                                    <tr>
+                               
+                                    
+                                </tbody>
+                            </table>
+                            <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
+                            <br>
+                            <div class="row">
+                                <div class="col">  
+                                    <div class="mb-1 form-check">
+                                    <input type="checkbox" 
+                                           class="form-check-input"
+                                           >
+                                    <label class="form-check-label" 
+                                           for="exampleCheck1"
+                                          ><p><small>token físico funcionario Certicámara</small></p></label>
+                                  </div>
+                                  <div class="mb-1 form-check">
+                                    <input type="checkbox" 
+                                           class="form-check-input"
+                                           >
+                                           <label class="form-check-label" 
+                                           for="exampleCheck1"
+                                          ><p><small>token físico  viaje  Ocasional Runt</small></p></label>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-1 form-check">
+                                        <input type="checkbox" 
+                                               class="form-check-input"
+                                               >
+                                               <label class="form-check-label" 
+                                               for="exampleCheck1"
+                                               
+                                              ><p ><small>token virtual  Certifirma web</small></p></label>
+                                              
+                                      </div>
+                                      <div class="mb-1 form-check">
+                                        <input type="checkbox" 
+                                               class="form-check-input"
+                                               >
+                                               <label class="form-check-label" 
+                                               for="exampleCheck1"
+                                              ><p>token virtual  Revisoria fisca</label>
+                                      </div>
+
+                                </div>
+                            </div>
+        
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+       
+                  </div>
+
+            </div>
+            <!--(click)="cerrarmodal()"-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"   data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">anterior</button>
+                <button type="submit" class="btn btn-primary"    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">siguiente</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

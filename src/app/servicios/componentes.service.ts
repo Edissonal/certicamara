@@ -10,11 +10,14 @@ export class ComponentesService {
   acuerdos: any | undefined;
   acuerdos2: any | undefined;
   acuerdos3: any | undefined;
+  estados:boolean =false;
+  rutas:string;
 
 
   constructor() {
 
     console.log('cargada servicio');
+    console.log(this.estados);
 
   }
 

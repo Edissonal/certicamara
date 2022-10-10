@@ -1,0 +1,152 @@
+
+
+
+<div class="container">
+<div class="row row-margenes"   #margen (window:resize)="onResize($event)">
+    
+    <div class="contiene">
+    
+    <h4 class="titulos" style="padding: 1rem;">Estás a un clic de disfrutar los beneficios </h4>
+    <p class="texto">
+
+        Queremos brindarte una solución que se ajuste perfectamente a los objetivos de tu empresa. Compártenos por favor tus datos personales para que uno de nuestros consultores especializados pueda contactarse contigo durante las próximas 24 horas.
+    </p>
+
+   
+<div class="col">
+    <div class="margencon">
+    <form 
+    form [formGroup]="formaForm" 
+         (ngSubmit)="ngsubmit()">
+      <div class="margen"></div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <label 
+                    class="form-label">nombres completos</label>
+                    <input type="text" 
+                    class="form-control" 
+                    placeholder="nombres completos"
+                    formControlName="nombre"
+                    [class.is-invalid]="camposvalidos('nombre')">
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('nombre')">nombres invalidos</div>
+                </div>
+                <div class="col">
+                    <label 
+                 class="form-label">apellidos completos</label>
+          <input type="text" 
+                 class="form-control" 
+                 placeholder=" apellidos completos"
+                 formControlName="apellido"
+                 [class.is-invalid]="camposvalidos('apellido')">
+                 <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                 *ngIf="camposvalidos('apellido')">apellidos invalidos</div>
+        </div>
+                    
+                </div>
+            </div>
+          
+         
+                 
+
+        <div class="mb-3">
+
+            <label 
+                   class="form-label">entidad / empresa u organización</label>
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="entidad"
+                   formControlName="empresa"
+                   [class.is-invalid]="camposvalidos('empresa')">
+                   <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                   *ngIf="camposvalidos('empresa')">empresa invalida</div>
+  </div>
+         
+
+          <div class="mb-3">
+
+            <div class="row">
+                <div class="col">
+                    <label 
+                    class="form-label">correo electronico:</label>
+             <input type="text" 
+                    class="form-control" 
+                    placeholder="correo electronico"
+                    formControlName="correo"
+                    [class.is-invalid]="camposvalidos('correo')">
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo')">correo invalido</div>
+
+                </div>
+    
+            </div>
+        
+          </div>
+
+        <div class="row">
+
+            <div class="col">
+                <label 
+                class="form-label">teléfono de contacto:</label>
+         <input type="number" 
+                class="form-control" 
+                placeholder="telefono"
+                formControlName="telefono"
+                [class.is-invalid]="camposvalidos('telefono')">
+                <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('telefono')">telefono invalido</div>
+            </div>
+            <div class="col">
+                <label 
+                class="form-label">ciudad:</label>
+         <input type="text" 
+                class="form-control" 
+                placeholder="ciudad"
+                formControlName="ciudad"
+                [class.is-invalid]="camposvalidos('ciudad')">
+                <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('ciudad')">ciudad invalida</div>
+            </div>
+        </div>
+
+
+  <br>
+
+    
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </form>
+
+    </div>
+      <br>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+<br>
+<br>
+
+<div class="modal fade" id="contacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¡Tus datos han sido enviados satisfactoriamente!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="../../../assets/exito.PNG" class="rounded mx-auto d-block" style="height:80%;" width="80%">
+         <p class="texto">
+            Recuerda estar atento a tu teléfono para que uno de nuestros consultores especializados pueda comunicarse contigo en el horario que tienes disponible.
+
+            Si tienes Dudas adicionales, puedes enviarnos un correo a preguntascerti@certicamara.com
+         </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
