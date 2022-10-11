@@ -8,6 +8,7 @@ import { ModulosModule } from './modulos/modulos/modulos.module';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { AppRoutingModule } from './rutas/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     ModulosModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
 
   ],
   providers: [],

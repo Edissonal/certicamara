@@ -83,7 +83,7 @@ camposvalidos(campo:any){
 
 /*ingreso y validacion de datos de formulario*/
 ngsubmit() {
-
+  console.log(this.formaForm);
   if(this.formaForm.invalid){
    this.formaForm.markAllAsTouched();
    return;

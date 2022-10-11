@@ -29,27 +29,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let pre of listadop">
                                         <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
-                                        <td>Necesita un certificado para firmas documentos   </td>
+                                        <td>{{pre.pregunta}}</td>
                                         <td> <input class="form-check-input mt-0" type="checkbox"></td>
                                         <td> <input class="form-check-input mt-0" type="checkbox"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
-                                        <td>Trabaja en una entidad bancaria</td>
-                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
-                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><i class="fa-solid fa-angle-right" style="color:#ff4d4d;"></i></th>
-                                        <td>El tipo de token que necesita es fisico o virtual</td>
-                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
-                                        <td> <input class="form-check-input mt-0" type="checkbox"></td>
-                                    </tr>
-        
-                                    
-                                    
+                                    </tr>                                    
                                 </tbody>
                             </table>
         
@@ -91,73 +76,19 @@
                             <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
                             <br>
                            
-                            <div class="row">
-                                <div class="col">  
+                            <div class="row" >
+                                <div class="col-lg-6" *ngFor="let poli of directiva">  
                                     <div class="mb-1 form-check">
                                     <input type="checkbox" 
                                            class="form-check-input"
-                                           [(ngModel)]="valores"
                                            >
                                     <label class="form-check-label" 
                                            for="exampleCheck1"
                                           ><p data-bs-toggle="tooltip" 
                                               data-bs-placement="top"
-                                              title="Mariana es la representante legal de una entidad financiera. 
-                                              Ella está de viaje, pero con su firma digital puede reportar 
-                                              los informes ante el órgano de control que los vigila."><small>token físico funcionario Certicámara</small></p></label>
+                                              title="poli.politica"><small>{{poli.politica}}</small></p></label>
                                   </div>
-                                  <div class="mb-1 form-check">
-                                    <input type="checkbox" 
-                                           class="form-check-input"
-                                           [(ngModel)]="valores"
-                                           >
-                                           <label class="form-check-label" 
-                                           for="exampleCheck1"
-                                          ><p
-                                              data-bs-toggle="tooltip" 
-                                              data-bs-placement="top"
-                                              title="Camilo es el contador de una entidad de salud y firma 
-                                              digitalmente los estados financieros para enviárselos 
-                                              al representante legal."
-                                          ><small>token físico  viaje  Ocasional Runt</small></p></label>
-                                  </div>
-                                </div>
-                                <div class="col">
-                                    <div class="mb-1 form-check">
-                                        <input type="checkbox"
-                                               [(ngModel)]="valores" 
-                                               class="form-check-input"
-                                               >
-                                               <label class="form-check-label" 
-                                               for="exampleCheck1"
-                                               
-                                              ><p 
-                                              
-                                              data-bs-toggle="tooltip" 
-                                              data-bs-placement="top"
-                                              title="Juan Pablo envía su recurso de apelación al Juzgado firmado 
-                                              digitalmente, sin necesidad de desplazarse hasta el lugar."
-                                              ><small>token virtual  Certifirma web</small></p></label>
-                                              
-                                      </div>
-                                      <div class="mb-1 form-check">
-                                        <input type="checkbox" 
-                                               class="form-check-input"
-                                               [(ngModel)]="valores"
-                                               value="anr"
-                                               >
-                                               <label class="form-check-label" 
-                                               for="exampleCheck1"
-                                              ><p
-                                              data-bs-toggle="tooltip" 
-                                              data-bs-placement="top"
-                                              title="Hernán es funcionario público. Él es el encargado de manejar 
-                                              el presupuesto de la entidad. Para aprobar compras y 
-                                              proyectos usa su firma digital a fin de que éstos sean 
-                                              avalados ante el ente de control."
-                                              ><small>token virtual  Revisoria fisca</small></label>
-                                      </div>
-
+                                  
                                 </div>
                             </div>
         
@@ -178,6 +109,6 @@
                         class="btn btn-primary"    
                         data-bs-target="#carouselExampleControlsNoTouching" 
                         data-bs-slide="next"
-                        (click)="datos()">siguiente</button>
+                        >siguiente</button>
             </div>
 
