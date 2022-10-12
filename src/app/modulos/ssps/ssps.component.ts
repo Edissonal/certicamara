@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, ValidatorFn, AbstractControl, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { NgForm, FormGroup, ValidatorFn, AbstractControl, FormArray, FormBuilder, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { SspsService } from '../../servicios/ssps.service';
 declare var window: any;
 declare var bootstrap: any;
@@ -17,19 +17,22 @@ export class SspsComponent implements OnInit {
   listadop: any[] = [];
   directiva: any[] = [];
   formaForm: FormGroup;
-  arrayOfRecepients:any = [];
+  cantidad: boolean = false;
+  elementofi: any;
+  desactiva = true;
+
   constructor(private ssps: SspsService,
-              private fb:FormBuilder) { 
-  
-                this.formaForm = this.fb.group({
-                  recipients: new FormArray([], this.minSelectedCheckboxes(1))
-                });
-              }
+    private fb: FormBuilder) {
 
+    this.formaForm = this.fb.group({
+      checks: new FormArray([], [this.validar(1), this.minSelectedCheckboxes(1)])
+    });
+  }
 
-              get recipientsFormArray() {
-                return this.formaForm.get('recipients') as FormArray;
-              }
+/*llamdos deFormArray para validacion en servicio*/
+  get checksFormArray() {
+    return this.formaForm.get('checks') as FormArray;
+  }
 
   /*implementacion de modal listas */
   ngOnInit(): void {
@@ -65,14 +68,29 @@ export class SspsComponent implements OnInit {
     }, 500);
   }
 
-  private adicionarcheboxcontrol() {
-    this.directiva.forEach(() => this.recipientsFormArray.push(new FormControl(false)));
+/*validacioned de los primeros radios*/ 
+  radios($event: any) {
+
+    let id = $event.target.value;
+    let isCheckeado = $event.target.checked;
+
+    console.log(id, isCheckeado);
+    if (isCheckeado == true) {
+      this.desactiva = false;
+    } else if (isCheckeado == false) {
+      this.desactiva = true;
+    }
+
   }
 
-  onCheckBoxTick(event:any, formField:any, key:any) {
+  estados() {
+    this.desactiva = true;
+  }
 
-    console.log(event, formField, formField.value, key);
-    
+
+  /* funcion para validacion de campos*/
+  camposvalidos(campo: any) {
+    return this.formaForm.controls[campo].errors && this.formaForm.controls[campo].touched;
   }
 
 
@@ -82,12 +100,41 @@ export class SspsComponent implements OnInit {
 
   }
 
+
+
   /*validar los checks*/
 
-  onSubmit(){
+
+  adicionarcheboxcontrol() {
+    this.directiva.forEach(() => this.checksFormArray.push(new FormControl(false)));
+  }
+  /*eventos y propiedades*/
+  eventoschecks(event: any, formField: any, key: any) {
+
+    //console.log(event, formField, formField.value, key);
+
+    this.elementofi = this.formaForm.value.checks
+      //extraer id selecionado
+      .map((valor: any, i: any) => valor ? this.directiva[i].id : null)
+      //quitar valorres nulos del array
+      .filter((v: any) => v !== null);
+    console.log(this.elementofi);
+
+    if (this.formaForm.invalid) {3
+      this.formaForm.markAllAsTouched();
+      this.desactiva = true;
+      console.log(this.formaForm);
+      return;
+    }else if(this.formaForm.valid){
+      this.desactiva = false;
+      console.log(this.formaForm);
+      localStorage.setItem('id-poli',this.elementofi)
+    }
+  
   }
 
-   minSelectedCheckboxes(min = 1) {
+  /*funcion de checks minimos*/
+  minSelectedCheckboxes(min = 1) {
     const validator: ValidatorFn = (formArray: AbstractControl) => {
       if (formArray instanceof FormArray) {
         const totalSelected = formArray.controls
@@ -95,12 +142,35 @@ export class SspsComponent implements OnInit {
           .reduce((prev, next) => (next ? prev + next : prev), 0);
         return totalSelected >= min ? null : { required: true };
       }
-  
-      throw new Error('formArray is not an instance of FormArray');
+
+      throw new Error('formArray no es una instancia  de FormArray');
     };
-  
+
     return validator;
   }
+
+
+
+
+
+  validar(min = 1) {
+    const validator: ValidatorFn = (formArray: AbstractControl) => {
+      if (formArray instanceof FormArray) {
+        const totalSelected = formArray.controls
+          .map((control) => control.value)
+          .reduce((prev, next) => (next ? prev + next : prev), 0);
+        return totalSelected <= 1 ? null : { required: true };
+
+
+      }
+
+      throw new Error('formArray no es una instancia  de FormArray');
+    };
+
+    return validator;
+  }
+
+
 }
 
 
