@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, ValidatorFn, AbstractControl, FormArray, FormBuilder, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { SspsService } from '../../servicios/ssps.service';
+import { ComponentesService } from '../../servicios/componentes.service';
 declare var window: any;
 declare var bootstrap: any;
 
@@ -16,16 +17,18 @@ export class SspsComponent implements OnInit {
   valores: '';
   listadop: any[] = [];
   directiva: any[] = [];
+  compras:any[] =[];
   formaForm: FormGroup;
   cantidad: boolean = false;
   elementofi: any;
   desactiva = true;
 
   constructor(private ssps: SspsService,
-    private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private componente:ComponentesService) {
 
     this.formaForm = this.fb.group({
-      checks: new FormArray([], [this.validar(1), this.minSelectedCheckboxes(1)])
+      checks: new FormArray([], [this.componente.validar(1), this.componente.minSelectedCheckboxes(1)])
     });
   }
 
@@ -42,21 +45,23 @@ export class SspsComponent implements OnInit {
       document.getElementById('ssps1')
     );
     this.sspsl.show();
+    /*metodos de consultas servicios*/
     this.preguntas();
-
+    this.gethistorial();
+    this.getpoliticas();
 
   }
 
 
-  async preguntas() {
-
-    this.ssps.getsede()
+   preguntas() {
+/* trae datos de consulta de json de pruebas en un metodo get*/
+    this.ssps.getpreguntas()
       .subscribe((res: any) => {
-
-        this.listadop = res.preguntas;
-        this.directiva = res.politicas;
-        console.log(this.directiva);
-        this.adicionarcheboxcontrol();
+        this.listadop = res;
+      /*  this.directiva = res.politicas;
+        this.compras = res.historial;
+        console.log(this.compras);
+        this.adicionarcheboxcontrol();*/
       });
 
     setTimeout(() => {
@@ -67,6 +72,30 @@ export class SspsComponent implements OnInit {
 
     }, 500);
   }
+
+  /*consultas preguntas historial*/
+
+  gethistorial(){
+    let buscar = localStorage.getItem('cedula');
+    this.ssps.historial(buscar)
+    .subscribe((res:any)=>{
+      this.compras = res;
+    });
+  
+  }
+
+    /*consultas preguntas historial*/
+
+    getpoliticas(){
+      this.ssps.politicas()
+      .subscribe((res:any)=>{
+
+        this.directiva = res;
+        this.adicionarcheboxcontrol();
+        console.log(res);
+      });
+    
+    }
 
 /*validacioned de los primeros radios*/ 
   radios($event: any) {
@@ -102,9 +131,7 @@ export class SspsComponent implements OnInit {
 
 
 
-  /*validar los checks*/
-
-
+  /*crear nuevo form array*/
   adicionarcheboxcontrol() {
     this.directiva.forEach(() => this.checksFormArray.push(new FormControl(false)));
   }
@@ -133,42 +160,11 @@ export class SspsComponent implements OnInit {
   
   }
 
-  /*funcion de checks minimos*/
-  minSelectedCheckboxes(min = 1) {
-    const validator: ValidatorFn = (formArray: AbstractControl) => {
-      if (formArray instanceof FormArray) {
-        const totalSelected = formArray.controls
-          .map((control) => control.value)
-          .reduce((prev, next) => (next ? prev + next : prev), 0);
-        return totalSelected >= min ? null : { required: true };
-      }
-
-      throw new Error('formArray no es una instancia  de FormArray');
-    };
-
-    return validator;
-  }
 
 
 
 
 
-  validar(min = 1) {
-    const validator: ValidatorFn = (formArray: AbstractControl) => {
-      if (formArray instanceof FormArray) {
-        const totalSelected = formArray.controls
-          .map((control) => control.value)
-          .reduce((prev, next) => (next ? prev + next : prev), 0);
-        return totalSelected <= 1 ? null : { required: true };
-
-
-      }
-
-      throw new Error('formArray no es una instancia  de FormArray');
-    };
-
-    return validator;
-  }
 
 
 }

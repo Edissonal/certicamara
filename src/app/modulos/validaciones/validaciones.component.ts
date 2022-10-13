@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ComponentesService } from '../../servicios/componentes.service';
 declare var window: any;
 
@@ -14,13 +14,32 @@ export class ValidacionesComponent implements OnInit {
 
 
  estados:boolean=false;
-
+ rutas:any;
 
   constructor(private fb:FormBuilder,
-              private router:Router,
-              private componentesService:ComponentesService) { 
-                  
+              private componentesService:ComponentesService,
+              private activateRoute:ActivatedRoute,
+              private router:Router) { 
 
+                    /*captura de rutas activas*/
+                    this.activateRoute.queryParams
+                    .subscribe((res:any)=>{
+              
+
+                   // localStorage.setItem('rutasActivas',res.route);
+                   if(res.route == undefined){
+                     return;
+                  }else{
+                  
+                    localStorage.setItem('rutasActivas',res.route);
+                    //this.componentesService.rutas =res.route;
+                  }
+                  //    this.rutas=res.route;
+                      console.log(this.rutas);
+    
+                    });
+
+               
   }
 
 

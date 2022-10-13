@@ -1,39 +1,21 @@
 {
-    "preguntas":[{
+ 	  "reportados":[
+		  {
             "id":1,
-            "pregunta":"Necesita un certificado para firmas documentos"
+            "cedula":"1073680979",
+			"resportado":"true",
         },
-        {
-            "id":2,
-            "pregunta":"Trabaja en una entidad bancaria"
+			  {
+            "id":1,
+            "cedula":"1073680978",
+			"resportado":"false",
         },
-        {
-             "id":3,
-            "pregunta":"El tipo de token que necesita es fisico o virtual"
-        }
-    ],
+	      {
+            "id":1,
+            "cedula":"1073680977",
+			"resportado":"false",
+        },
+		]
 
-      "politicas":[{
-            "id":1,
-            "politica":"token físico funcionario Certicámara",
-            "desciption":"Mariana es la representante legal de una entidad financiera.Ella está de viaje, pero con su firma digital puede reportar los informes ante el órgano de control que los vigila."
-        },
-        {
-            "id":2,
-            "politica":"token físico viaje Ocasional Runt",
-            "desciption":"Camilo es el contador de una entidad de salud y firma digitalmente los estados financieros para enviárselos al representante legal."
-        },
-        {
-            "id":3,
-            "politica":"token virtual Certifirma web",
-            "desciption":"Juan Pablo envía su recurso de apelación al Juzgado firmado digitalmente, sin necesidad de desplazarse hasta el lugar."
-        },
-		
-		   {
-            "id":4,
-            "politica":"token virtual  Revisoria fiscal",
-            "desciption":"Hernán es funcionario público. Él es el encargado de manejar el presupuesto de la entidad. Para aprobar compras y proyectos usa su firma digital a fin de que éstos sean avalados ante el ente de control."
-        }
-    ]
 
 }

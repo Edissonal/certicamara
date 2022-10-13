@@ -29,8 +29,8 @@ children: [
 {path: 'ingresocert', component:IngresocertimailComponent},
 {path:'validaciones' ,component:ValidacionesComponent,
 children: [
-  {path: 'natural/:id', component:PersonaNComponent},
-  {path: 'juridica/:id', component:PersonaJComponent},
+  {path: 'natural', component:PersonaNComponent},
+  {path: 'juridica', component:PersonaJComponent},
   {path:'**' ,component:PersonaNComponent},
   
   ]

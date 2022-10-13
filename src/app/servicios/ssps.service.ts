@@ -7,13 +7,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SspsService {
 
-  url = '../../assets/json/datos.json';
+  url = 'http://localhost:3000';
+
 
   constructor(private http:HttpClient) { }
 
 
 
-  getsede() {
-    return this.http.get(this.url);
+  getpreguntas() {
+    return this.http.get(`${ this.url}/preguntas`);
   }
+
+  historial(termino:any){
+    return this.http.get(`${ this.url}/historial?q=${termino}`);
+  }
+
+  politicas(){
+    return this.http.get(`${ this.url}/politicas`);
+  }
+
+  reportados(termino:any){
+    return this.http.get(`${ this.url}/reportados?q=${termino}`);
+  }
+
+
 }

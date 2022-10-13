@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef }
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentesService } from '../../../servicios/componentes.service';
+import { SspsService } from '../../../servicios/ssps.service';
 declare var window: any;
 
 @Component({
@@ -18,12 +19,14 @@ export class PersonaNComponent implements OnInit {
   estados2:boolean=false;
   listas:boolean=true;
   rutasActivas:string;
+  reportes:any;
 
 
   constructor(private fb:FormBuilder,
               private router:Router,
               private componentesService:ComponentesService,
-              private activateRoute:ActivatedRoute) {
+              private activateRoute:ActivatedRoute,
+              private ssps:SspsService) {
                 
                 /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
@@ -46,15 +49,8 @@ export class PersonaNComponent implements OnInit {
                   terminostpro:['',[Validators.required]],
                 
                 });    
-                /*captura de rutas activas*/
-                this.activateRoute.queryParams
-                .subscribe((res:any)=>{
-                this.rutasActivas = res.route;
-                console.log(this.rutasActivas);
-
-                });
-            
-
+               
+                
             }
 
 /* funcion para validacion de campos*/
@@ -67,8 +63,6 @@ camposvalidos(campo:any){
 
 ngOnInit(): void {
   console.log('natural');
-
-                 
 
 }
 
@@ -92,16 +86,46 @@ ngsubmit() {
   }
   console.log(this.formaForm.value);
   this.estados= true;
+  let cedula =this.formaForm.get('numero').value;
+  console.log(cedula);
+  
+  this.ssps.reportados(cedula)
+  .subscribe((res:any)=>{
+ /*desustrucracion de objeto*/
+ let rutaActiva = localStorage.getItem('rutasActivas')
+      if(res == ""){
+        console.log('usuario no exixte');
+        localStorage.setItem("cedula",cedula );
+        this.router.navigate([rutaActiva]);
+      }else{
+      
+        console.log('llegaron datos');
+    
+    let [datos,...reportado] = res;
+    console.log(datos.reportado);
 
 
 
-  setTimeout(() => {
-    
-    this.cerrarmodal();
-    this.router.navigate([this.rutasActivas]);
-    
-    
-  }, 2500);
+    setTimeout(() => {
+    /*validaciones  yredioreaciones a componentes*/
+      if(datos.reportado === false){
+        console.log('no repotado');
+        this.cerrarmodal();
+        this.router.navigate([rutaActiva]);
+        console.log(this.formaForm.value);
+        localStorage.setItem("usuario", JSON.stringify(this.formaForm.value));
+        localStorage.setItem("cedula",cedula );
+        }else{
+        console.log('reportado');
+        this.estados2 = true;
+        }
+    }, 2500);
+}
+
+  })
+
+
+
 
 }
 
@@ -116,6 +140,15 @@ negras(){
 
   return (this.estados2) ? 'alert-malo animate__animated animate__fadeIn animate__faster text-center':'animate__animated animate__fadeOut';
 }
+
+/*cambio de ventanas  si sale malo en listas negras */
+redirecion(){
+
+  this.estados2 = false;
+  this.estados =false;
+  this.router.navigate(['/contacto']);
+  }
+
 
 /*politicas de implementacion terminos y condiciones alertas*/
 
@@ -135,8 +168,7 @@ condiciones(){
    this.componentesService.terminos2();
  }
  
- 
- 
+
  }
  
 

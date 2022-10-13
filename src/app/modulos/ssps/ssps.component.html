@@ -60,19 +60,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor="let histo of compras">
 
-                                            <td>13-04-1989</td>
-                                            <td>fisico</td>
-                                            <td>token virtual Certifirma web</td>
+                                            <td>{{histo.fecha}}</td>
+                                            <td>{{histo.tipo}}</td>
+                                            <td>{{histo.politica}}</td>
 
                                         </tr>
-                                        <tr>
-                                            <td>13-04-1989</td>
-                                            <td>fisico</td>
-                                            <td>token virtual Certifirma web</td>
-                                        </tr>
-                                        <tr>
+                                       
 
 
                                     </tbody>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -58,7 +58,7 @@ export class ComponentesService {
 
   }
 
-/*validaciones de formularios listas negras compo personalizado*/
+/*validaciones de formularios listas negras campo personalizado nigito verificacion*/
 
 codigonit( tipo:string,codigo:string,){
          
@@ -80,6 +80,46 @@ codigonit( tipo:string,codigo:string,){
       
       }
    
+
+/*implementacion de validaciones de minimo una politica debe estar selecionada en el slide de politcas a selecionar modulos ssps*/
+
+/*validador si el check es mayor a uno*/
+validar(min = 1) {
+  const validator: ValidatorFn = (formArray: AbstractControl) => {
+    if (formArray instanceof FormArray) {
+      const totalSelected = formArray.controls
+        .map((control) => control.value)
+        .reduce((prev, next) => (next ? prev + next : prev), 0);
+      return totalSelected <= 1 ? null : { required: true };
+
+
+    }
+
+    throw new Error('formArray no es una instancia  de FormArray');
+  };
+
+  return validator;
+}
+
+
+
+
+  /*funcion de checks minimos uno*/
+  minSelectedCheckboxes(min = 1) {
+    const validator: ValidatorFn = (formArray: AbstractControl) => {
+      if (formArray instanceof FormArray) {
+        const totalSelected = formArray.controls
+          .map((control) => control.value)
+          .reduce((prev, next) => (next ? prev + next : prev), 0);
+        return totalSelected >= min ? null : { required: true };
+      }
+
+      throw new Error('formArray no es una instancia  de FormArray');
+    };
+
+    return validator;
+  }
+
 
 }
 

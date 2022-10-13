@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SspsService } from 'src/app/servicios/ssps.service';
 import { ComponentesService } from '../../../servicios/componentes.service';
 
 @Component({
@@ -22,7 +23,8 @@ rutasActivas:string;
   constructor(private fb:FormBuilder,
               private router:Router,
               private componentesService:ComponentesService,
-              private activateRoute:ActivatedRoute
+              private activateRoute:ActivatedRoute,
+              private ssps:SspsService
               ) { 
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
@@ -30,8 +32,11 @@ rutasActivas:string;
                       Validators.min(999),
                       Validators.max(9999999999),
                     ]],
-                    codigo:[],
-                    razon:['',[Validators.required,
+                    codigo:[0,[Validators.required,
+                            Validators.min(9),
+                            Validators.max(9999999999)]
+                            ],
+                      razon:['',[Validators.required,
                       Validators.minLength(4),
                       Validators.maxLength(60),
                       Validators.pattern("[a-zA-Z ]{2,254}")]],
@@ -39,51 +44,18 @@ rutasActivas:string;
                   terminost:['',[Validators.required]],
                   terminostpro:['',[Validators.required]],
                 
-                },{validators:[this.componentesService.codigonit('tipo','codigo')]});   
+                });   
                 
-                       /*captura de rutas activas*/
-                       this.activateRoute.queryParams
-                       .subscribe((res:any)=>{
-                       this.rutasActivas = res.route;
-                       console.log(this.rutasActivas);
-       
-                       });
+
                    
             }
 
   ngOnInit(): void {
     console.log('juridica');
-    this.onChanges();
    
 
 }
 
-/* Validacion de campo codigo de verificacion*/
-
-onChanges(){
-  this.formaForm.valueChanges.subscribe(res=>{
-    
-
-    
-   if(res.tipo =="NIT"){
-      this.mostrar = true;
-      console.log(this.mostrar);
-
-
-
-    } else if(res.tipo =="Cédula de ciudadanía"){
-     
-      this.mostrar = false;
-      console.log(this.mostrar);
-    } else if(res.tipo =="Cédula de ciudadanía" &&  res.tipo == null){
-     
-      this.mostrar = true;
-      console.log(this.mostrar);
-    } 
-
-  });
-
-}
 
 
 ngAfterViewInit() {
@@ -112,39 +84,56 @@ cerrarmodal() {
 
 /**envio de datos y validacion de boton */
 ngsubmit() {
-
   
   if(this.formaForm.invalid){
    this.formaForm.markAllAsTouched();
-   console.log(this.formaForm);
    return;
   }
   console.log(this.formaForm.value);
   this.estados= true;
-
-
-
-/**validaciones si la persona no digito el codigo de verificacion */
- console.log(this.mostrar);
-  if(this.mostrar == true){
-    let valoresfi:object = this.formaForm.value;
-    console.log(valoresfi);
-  }else if(this.mostrar == false){
-    let {tipo,numero,razon,terminosp,terminost,terminostpro} = this.formaForm.value;
-    let valores:object ={tipo,numero,razon,terminosp,terminost,terminostpro}
-    console.log(valores);
-  }
-
-
-  setTimeout(() => {
+  let cedula =this.formaForm.get('numero').value;
+  console.log(cedula);
+  
+  this.ssps.reportados(cedula)
+  .subscribe((res:any)=>{
+ /*desustrucracion de objeto*/
+ let rutaActiva = localStorage.getItem('rutasActivas')
+      if(res == ""){
+        console.log('usuario no exixte');
+        localStorage.setItem("cedula",cedula );
+        this.router.navigate([rutaActiva]);
+      }else{
+      
+        console.log('llegaron datos');
     
+    let [datos,...reportado] = res;
+    console.log(datos.reportado);
 
-   this.estados2= true;
 
-    
-  }, 2500);
+
+    setTimeout(() => {
+    /*validaciones  yredioreaciones a componentes*/
+      if(datos.reportado === false){
+        console.log('no repotado');
+        this.cerrarmodal();
+        this.router.navigate([rutaActiva]);
+        console.log(this.formaForm.value);
+        localStorage.setItem("usuario", JSON.stringify(this.formaForm.value));
+        localStorage.setItem("cedula",cedula );
+        }else{
+        console.log('reportado');
+        this.estados2 = true;
+        }
+    }, 2500);
+}
+
+  })
+
+
+
 
 }
+
 
 /*alertas animaciones */
 validar(){

@@ -10,17 +10,14 @@ role="alert"
 </div>
 
 <!--listas negras alert -->
-<div 
-role="alert" 
-[class]="negras()"
-*ngIf="estados2"
->
-<br>   
-<h3>señor usuario</h3>
-<p>En el momento presentamos fallas técnicas , lo invitamos a diligenciar el siguiente formulario para que un agente comercial pueda contactar con usted en el menor tiempo posible.
-</p>
-<button type="submit"  
-        class="btn btn-primary">aceptar</button>
+      <!--listas negras alert -->
+      <div role="alert" [class]="negras()" *ngIf="estados2">
+       <br>
+       <h3>señor usuario</h3>
+       <p>En el momento presentamos fallas técnicas , lo invitamos a diligenciar el siguiente formulario
+              para que un agente comercial pueda contactar con usted en el menor tiempo posible.
+       </p>
+       <button type="submit" class="btn btn-primary" (click)="redirecion()">aceptar</button>
 </div>
 
 
