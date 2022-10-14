@@ -232,6 +232,21 @@ color:#34393e ;
 
 }
 
+/*implementacion estilos tabla historico*/
 td{
     font-family: CalibriRegular;
+}
+
+.centrado{
+display: flex;
+justify-content: center;
+}
+
+.centrado{
+margin-left: 1rem !important;
+}
+
+.centrado > table  tr > td{
+
+    padding-left: 1rem;
 }

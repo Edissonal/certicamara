@@ -82,10 +82,14 @@
 
 
                                             <div class="mb-1 form-check">
-                                                <input type="checkbox" class="form-check-input" [formControlName]="i"
-                                                    (change)="eventoschecks($event, formaForm.get('checks.'+i), directiva[i].politica)">
-                                                <label class="form-check-label" for="exampleCheck1">
-                                                    <p data-bs-toggle="tooltip" data-bs-placement="top"
+                                                <input type="checkbox" 
+                                                       class="form-check-input" 
+                                                       [formControlName]="i"
+                                                      (change)="eventoschecks($event, formaForm.get('checks.'+i), directiva[i].politica)">
+                                                <label class="form-check-label" 
+                                                       for="exampleCheck1">
+                                                    <p data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top"
                                                         title="{{directiva[i].desciption}}">
                                                         <small>{{directiva[i].politica}}</small>
                                                     </p>
@@ -95,7 +99,7 @@
                                         </div>
 
                                         <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                            *ngIf="camposvalidos('checks')">
+                                             *ngIf="camposvalidos('checks')">
                                             <p><small>selecione un solo elemento</small></p>
                                         </div>
 
@@ -110,7 +114,130 @@
                         </div>
 
                         <div class="carousel-item">
-                            <img src="..." class="d-block w-100" alt="...">
+                            <div class="margenuni animate__animated animate__fadeIn animate__fast">
+
+                            <p class="lh-1"><small>La Opcion de persona natural permite solicitar certificados de
+                                    firma digital a titulo personal , aqui
+                                    podra solicitar certificados para personas natural o solicitar el certificado
+                                    profesional para solicitantes.</small></p>
+
+                                    <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Tipo de dispositivo</h4>
+                                <br>
+                                <form [formGroup]="formaForm2" (ngSubmit)="ngsubmit()">
+                                    <div class="centrado">
+                                        <table>
+                                            <tr>
+                                                <td> <input type="radio"
+                                                            class="form-check-input"
+                                                            value="1"  
+                                                            (change)="codigoveri($event)"
+                                                            formControlName="dispositivo"></td>
+                                                <td> <img src="../../../assets/img/usb.png"></td>
+                                                <td>token fisico</td>
+                                                <ng-template [ngIf]="muestreo2">
+                                                   <td>
+                                                    <input type="number" 
+                                                    class="form-control form-control-sm"
+                                                    placeholder="cantidad"></td></ng-template>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio" 
+                                                           class="form-check-input"
+                                                           value="2"
+                                                           (change)="codigoveri($event)"
+                                                           formControlName="dispositivo"></td>
+                                                <td><img src="../../../assets/img/token-virtual.png"></td>
+                                                <td><label class="form-check-label">token virtual</label></td>
+                                                <ng-template [ngIf]="muestreo3">
+                                                    <td>
+                                                     <input type="number" 
+                                                            class="form-control form-control-sm"
+                                                            placeholder="cantidad" ></td></ng-template>
+                                            </tr>
+                                            <tr>
+                                                <ng-template [ngIf]="muestreo">
+                                                
+                                                <td><input type="radio" 
+                                                           class="form-check-input"
+                                                           value="3"
+                                                           (change)="codigoveri($event)"
+                                                           formControlName="dispositivo"></td>
+                                                <td><img src="../../../assets/img/kpcs10.png"></td>
+                                                <td><label class="form-check-label">PCKS#10(persona juridica)</label></td>
+                                                <ng-template [ngIf]="muestreo4">
+                                                    <td>
+                                                     <input type="number" 
+                                                     class="form-control form-control-sm"
+                                                     placeholder="cantidad" ></td></ng-template>
+                                            </ng-template>
+                                            </tr>
+                                          
+                                            <tr>
+                                        
+                                                    <td> <label class="form-label">Vigencia</label></td>
+                                                       <td>
+                                                        <select class="form-select"
+                                                                  >
+                                                               <option class="form-control" value="1">1</option>
+                                                               <option class="form-control" value="2">2</option>
+                                                               <option class="form-control" value="3">3</option>
+                            
+                                                        </select>
+                                                     
+                                                    </td>
+                                                    <td> vigencia en años</td>
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+                                     <!--implementacion de politicas-->
+                                    <br>
+                                    <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
+                                    <br>
+                                    
+                                        <div class="row">
+                                           
+                                            <div class="col-lg-6" formArrayName="checks2"
+                                                *ngFor="let poli of checksFormArray.controls; let i = index">
+    
+    
+                                                <div class="mb-1 form-check">
+                                                    <input type="checkbox" 
+                                                           class="form-check-input" 
+                                                           [formControlName]="i"
+                                                           [ngModel]="elementose[i]"
+                                                           (change)="eventoschecks2($event, formaForm2.get('checks2.'+i), directiva[i].politica)">
+                                                    <label class="form-check-label" for="exampleCheck1">
+                                                        <p data-bs-toggle="tooltip" 
+                                                            data-bs-placement="top"
+                                                            title="{{directiva[i].desciption}}">
+                                                            <small>{{directiva[i].politica}}</small>
+                                                        </p>
+    
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">prueba</button>
+
+                                            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                                *ngIf="camposvalidos2('checks2')">
+                                                <p><small>selecione una sola politica</small></p>
+                                            </div>
+
+                                            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                            *ngIf="check">
+                                            <p><small>selecione un solo dispositivo</small></p>
+                                        </div>
+
+    
+    
+    
+                                        </div>
+                                       
+                                    </form>
+                                    
+                                   
                         </div>
                     </div>
 
@@ -130,7 +257,7 @@
                             
                 </div> 
 
-               
+               <!--(click)="estados()"-->
     
             </div>
            

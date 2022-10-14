@@ -113,7 +113,11 @@ ngsubmit() {
         this.cerrarmodal();
         this.router.navigate([rutaActiva]);
         console.log(this.formaForm.value);
-        localStorage.setItem("usuario", JSON.stringify(this.formaForm.value));
+        /*implementacion inyeccion de roll a objeto*/
+        let cliente:object={cliente:'natural'};
+        let valores:object =  this.formaForm.value;
+        let valoresfi = Object.assign(valores, cliente);
+        localStorage.setItem("usuario", JSON.stringify(valoresfi));
         localStorage.setItem("cedula",cedula );
         }else{
         console.log('reportado');
