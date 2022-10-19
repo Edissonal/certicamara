@@ -31,4 +31,9 @@ export class SspsService {
   }
 
 
+  politica(termino:any){
+    return this.http.get(`${ this.url}/politicas?q=${termino}`);
+  }
+
+
 }

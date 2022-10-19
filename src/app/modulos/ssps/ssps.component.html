@@ -45,10 +45,7 @@
                             <div class="margenuni animate__animated animate__fadeIn animate__fast">
                                 <h4 class="textomodal lh-1" style="color:#999696 ;">Productos</h4>
 
-                                <p class="lh-1"><small>La Opcion de persona natural permite solicitar certificados de
-                                        firma digital a titulo personal , aqui
-                                        podra solicitar certificados para personas natural o solicitar el certificado
-                                        profesional para solicitantes.</small></p>
+                                <p class="lh-1"><small>La opción de persona natural permite solicitar certificados de firma digital a titulo personal , aquí podrá solicitar certificados para personas natural o solicitar el certificado profesional para solicitantes. </small></p>
                                 <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Su historial de compra
                                     es</h4>
                                 <table class="table mt-4">
@@ -77,21 +74,24 @@
                                 <form [formGroup]="formaForm">
                                     <div class="row">
                                        
-                                        <div class="col-lg-6" formArrayName="checks"
-                                            *ngFor="let poli of checksFormArray.controls; let i = index">
+                                        <div class="col-lg-6" 
+                                            *ngFor="let poli of directiva;">
 
 
                                             <div class="mb-1 form-check">
-                                                <input type="checkbox" 
+                                                <input type="radio"
+                                            
                                                        class="form-check-input" 
-                                                       [formControlName]="i"
-                                                      (change)="eventoschecks($event, formaForm.get('checks.'+i), directiva[i].politica)">
+                                                       [value]='poli.id'
+                                                       formControlName="checks"
+                                                       (change)="politica(poli.id)"
+                                                      >
                                                 <label class="form-check-label" 
                                                        for="exampleCheck1">
                                                     <p data-bs-toggle="tooltip" 
                                                        data-bs-placement="top"
-                                                        title="{{directiva[i].desciption}}">
-                                                        <small>{{directiva[i].politica}}</small>
+                                                        title="{{poli.desciption}}">
+                                                        <small>{{poli.politica}}</small>
                                                     </p>
 
                                                 </label>
@@ -116,10 +116,7 @@
                         <div class="carousel-item">
                             <div class="margenuni animate__animated animate__fadeIn animate__fast">
 
-                            <p class="lh-1"><small>La Opcion de persona natural permite solicitar certificados de
-                                    firma digital a titulo personal , aqui
-                                    podra solicitar certificados para personas natural o solicitar el certificado
-                                    profesional para solicitantes.</small></p>
+                            <p class="lh-1"><small>La opción de persona natural permite solicitar certificados de firma digital a titulo personal , aquí podrá solicitar certificados para personas natural o solicitar el certificado profesional para solicitantes. </small></p>
 
                                     <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Tipo de dispositivo</h4>
                                 <br>
@@ -137,8 +134,9 @@
                                                 <ng-template [ngIf]="muestreo2">
                                                    <td>
                                                     <input type="number" 
-                                                    class="form-control form-control-sm"
-                                                    placeholder="cantidad"></td></ng-template>
+                                                    class="form-control form-control-sm textop"
+                                                    placeholder="cantidad"
+                                                    formControlName="cantidad"></td></ng-template>
                                             </tr>
                                             <tr>
                                                 <td><input type="radio" 
@@ -151,8 +149,9 @@
                                                 <ng-template [ngIf]="muestreo3">
                                                     <td>
                                                      <input type="number" 
-                                                            class="form-control form-control-sm"
-                                                            placeholder="cantidad" ></td></ng-template>
+                                                            class="form-control form-control-sm textop"
+                                                            placeholder="cantidad"
+                                                            formControlName="cantidad" ></td></ng-template>
                                             </tr>
                                             <tr>
                                                 <ng-template [ngIf]="muestreo">
@@ -167,8 +166,9 @@
                                                 <ng-template [ngIf]="muestreo4">
                                                     <td>
                                                      <input type="number" 
-                                                     class="form-control form-control-sm"
-                                                     placeholder="cantidad" ></td></ng-template>
+                                                     class="form-control form-control-sm textop"
+                                                     placeholder="cantidad"
+                                                     formControlName="cantidad" ></td></ng-template>
                                             </ng-template>
                                             </tr>
                                           
@@ -177,6 +177,7 @@
                                                     <td> <label class="form-label">Vigencia</label></td>
                                                        <td>
                                                         <select class="form-select"
+                                                                formControlName="anos"
                                                                   >
                                                                <option class="form-control" value="1">1</option>
                                                                <option class="form-control" value="2">2</option>
@@ -196,49 +197,94 @@
                                     <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
                                     <br>
                                     
-                                        <div class="row">
-                                           
-                                            <div class="col-lg-6" formArrayName="checks2"
-                                                *ngFor="let poli of checksFormArray.controls; let i = index">
-    
-    
-                                                <div class="mb-1 form-check">
-                                                    <input type="checkbox" 
-                                                           class="form-check-input" 
-                                                           [formControlName]="i"
-                                                           [ngModel]="elementose[i]"
-                                                           (change)="eventoschecks2($event, formaForm2.get('checks2.'+i), directiva[i].politica)">
-                                                    <label class="form-check-label" for="exampleCheck1">
-                                                        <p data-bs-toggle="tooltip" 
-                                                            data-bs-placement="top"
-                                                            title="{{directiva[i].desciption}}">
-                                                            <small>{{directiva[i].politica}}</small>
-                                                        </p>
-    
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">prueba</button>
+                                    <div class="row">
+                                       
+                                        <div class="col-lg-6" 
+                                            *ngFor="let poli of directiva;">
 
-                                            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                                *ngIf="camposvalidos2('checks2')">
-                                                <p><small>selecione una sola politica</small></p>
-                                            </div>
 
-                                            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                                            *ngIf="check">
+                                            <div class="mb-1 form-check">
+                                                <input type="radio"
+                                            
+                                                       class="form-check-input" 
+                                                       formControlName="checks2"
+                                                       [value]="poli.id"
+                                                       [(ngModel)]="elementose"
+                                                       [checked]="(elementose === poli.id)"
+                                                      >
+                                                <label class="form-check-label" 
+                                                       for="exampleCheck1">
+                                                    <p data-bs-toggle="tooltip" 
+                                                       data-bs-placement="top"
+                                                        title="{{poli.desciption}}">
+                                                        <small>{{poli.politica}}</small>
+                                                    </p>
+
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                             *ngIf="check">
                                             <p><small>selecione un solo dispositivo</small></p>
                                         </div>
+                                        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                        *ngIf="">
+                                       <p><small>selecione una sola politica</small></p>
+                                   </div>
 
-    
-    
-    
+                                    <div class="row">
+                                        <br>
+                                        <div class="col">
+                                            <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Costo de certificado <strong style="color:#ff4d4d ;">${{resultado  | currency:'CO':''}}</strong></h4>
                                         </div>
+                                        <div class="col"></div>
+                                    </div>
+
+
+                                    </div>
                                        
                                     </form>
                                     
                                    
                         </div>
+                    </div>
+
+                    <!-- implementacion vista de compra-->
+                    <div class="carousel-item" >
+                    
+                        <div class="margenuni animate__animated animate__fadeIn animate__fast">
+
+                            <p class="lh-1"><small>La opción de persona natural permite solicitar certificados de firma digital a titulo personal , aquí podrá solicitar certificados para personas natural o solicitar el certificado profesional para solicitantes. </small></p>
+                            <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Detalles su solicitud</h4>
+                           <div class="row">
+                            <div class="centrado">
+                            <table *ngIf="show">
+                                <tr>
+                                    <td><strong>tipo de dispositivo</strong></td>
+                                    <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                    <td>{{valoresfi.dispositivo}}</td>
+                                    <tr>
+                                        <tr>
+                                            <td><strong>politica</strong></td>
+                                            <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                            <td>{{valoresfi.politica}}</td>
+                                            <tr>
+                                                <tr>
+                                                    <td><strong>vigencia</strong></td>
+                                                    <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                                    <td>{{valoresfi.anos}} años</td>
+                                                    <tr>
+                                                        <tr>
+                                                            <td><strong>costo</strong></td>
+                                                            <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                                            <td>${{valoresfi.costo  | currency:'CO':''}}</td>
+                                                            <tr>
+                                    </table>  
+                                </div>
+                           </div>      
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -252,12 +298,13 @@
                             class="btn btn-primary" 
                             data-bs-target="#carouselExampleControlsNoTouching"
                             data-bs-slide="next"
-                            (click)="estados()"
-                            [disabled]="desactiva">siguiente</button>
+                            (click)="estados();verifica()"
+                            [disabled]="desactiva"
+                           >siguiente</button>
                             
                 </div> 
 
-               <!--(click)="estados()"-->
+               <!--(click)="estados()" -->
     
             </div>
            
