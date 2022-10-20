@@ -243,6 +243,7 @@ export class SspsComponent implements OnInit {
                 politica:poli,
                 costo:this.resultado
               }
+              localStorage.setItem("precompra", JSON.stringify(this.valoresfi));
              this.show = true;
         });
 

@@ -36,17 +36,24 @@ role="alert"
         *ngIf="camposvalidos('tipo')">tipo de documento invalido</div>
 </div>
 
-<div class="mb-3">
-  <label class="form-label">numero de identificación</label>
-  <input type="number" 
-         class="form-control" 
-         placeholder="numero de identificación"
-         formControlName="numero"
-         [class.is-invalid]="camposvalidos('numero')"
-         >
-  <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-        *ngIf="camposvalidos('numero')">cedula invalida</div>
-</div>
+
+
+
+       <div class="mb-3">
+              <label class="form-label">numero de identificación</label>
+              <input type="text" 
+                     class="form-control" 
+                     placeholder="numero de identificación"
+                     formControlName="numero"
+                     [class.is-invalid]="camposvalidos('numero')"
+                     >
+              <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('numero')">identificacion invalida</div>
+            </div>
+
+            
+
+
 
 <div class="mb-3">
        <div class="row">

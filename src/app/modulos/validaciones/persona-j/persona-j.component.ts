@@ -33,7 +33,7 @@ rutasActivas:string;
                       Validators.max(9999999999),
                     ]],
                     codigo:[0,[Validators.required,
-                            Validators.min(9),
+                            Validators.min(99),
                             Validators.max(9999999999)]
                             ],
                       razon:['',[Validators.required,
@@ -97,10 +97,15 @@ ngsubmit() {
   this.ssps.reportados(cedula)
   .subscribe((res:any)=>{
  /*desustrucracion de objeto*/
- let rutaActiva = localStorage.getItem('rutasActivas')
+   let cliente:object={cliente:'juridica'};
+   let valores:object =  this.formaForm.value;
+   let valoresfi = Object.assign(valores, cliente);
+   let rutaActiva = localStorage.getItem('rutasActivas');
       if(res == ""){
         console.log('usuario no exixte');
         localStorage.setItem("cedula",cedula );
+        localStorage.setItem("usuario", JSON.stringify(valoresfi));
+        this.cerrarmodal();
         this.router.navigate([rutaActiva]);
       }else{
       
@@ -119,9 +124,6 @@ ngsubmit() {
         this.router.navigate([rutaActiva]);
         console.log(this.formaForm.value);
         /*implementacion inyeccion de roll a objeto*/
-        let cliente:object={cliente:'juridica'};
-        let valores:object =  this.formaForm.value;
-        let valoresfi = Object.assign(valores, cliente);
         localStorage.setItem("usuario", JSON.stringify(valoresfi));
         localStorage.setItem("cedula",cedula );
         }else{

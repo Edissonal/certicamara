@@ -20,6 +20,8 @@ export class PersonaNComponent implements OnInit {
   listas:boolean=true;
   rutasActivas:string;
   reportes:any;
+  pasaportes:boolean = false;
+  cedulas:boolean = true;
 
 
   constructor(private fb:FormBuilder,
@@ -31,15 +33,18 @@ export class PersonaNComponent implements OnInit {
                 /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
-                  numero:[0,[Validators.required,
-                              Validators.min(999),
-                              Validators.max(9999999999),
+                  numero:['',[/*Validators.required,
+                             Validators.minLength(4),
+                             Validators.maxLength(10),
+                          /*   Validators.pattern('^[0-9]+$'),*/
                               
                               ]],
                   nombres:['',[Validators.required,
                               Validators.minLength(3),
                               Validators.maxLength(60),
-                              Validators.pattern("[a-zA-Z ]{2,254}")]],
+                              Validators.pattern("[a-zA-Z ]{2,254}")
+                            ]
+                            ],
                   apellidos:['',[Validators.required,
                                   Validators.minLength(3),
                                   Validators.maxLength(60),
@@ -48,7 +53,7 @@ export class PersonaNComponent implements OnInit {
                   terminost:['',[Validators.required]],
                   terminostpro:['',[Validators.required]],
                 
-                });    
+                },{validators:[this.componentesService.codigonit('tipo','numero')]});        
                
                 
             }
@@ -63,8 +68,11 @@ camposvalidos(campo:any){
 
 ngOnInit(): void {
   console.log('natural');
+//  this.onchanges();
 
 }
+
+
 
 
 
@@ -92,10 +100,15 @@ ngsubmit() {
   this.ssps.reportados(cedula)
   .subscribe((res:any)=>{
  /*desustrucracion de objeto*/
- let rutaActiva = localStorage.getItem('rutasActivas')
+       let rutaActiva = localStorage.getItem('rutasActivas');
+       let cliente:object={cliente:'natural'};
+       let valores:object =  this.formaForm.value;
+       let valoresfi = Object.assign(valores, cliente);
       if(res == ""){
         console.log('usuario no exixte');
         localStorage.setItem("cedula",cedula );
+        localStorage.setItem("usuario", JSON.stringify(valoresfi));
+        this.cerrarmodal();
         this.router.navigate([rutaActiva]);
       }else{
       
@@ -114,9 +127,7 @@ ngsubmit() {
         this.router.navigate([rutaActiva]);
         console.log(this.formaForm.value);
         /*implementacion inyeccion de roll a objeto*/
-        let cliente:object={cliente:'natural'};
-        let valores:object =  this.formaForm.value;
-        let valoresfi = Object.assign(valores, cliente);
+        
         localStorage.setItem("usuario", JSON.stringify(valoresfi));
         localStorage.setItem("cedula",cedula );
         }else{

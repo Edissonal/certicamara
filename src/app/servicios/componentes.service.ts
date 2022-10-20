@@ -58,28 +58,56 @@ export class ComponentesService {
 
   }
 
-/*validaciones de formularios listas negras campo personalizado nigito verificacion*/
+/*validaciones de formularios listas negras campo personalizado validacion de cedula*/
 
-codigonit( tipo:string,codigo:string,){
+codigonit( tipo:string,numero:string){
          
   return (formGroup: AbstractControl): ValidationErrors  | null => {
       
-    const codigo1 = formGroup.get(codigo).value;
+
     const tipo1 = formGroup.get(tipo).value;
+    const numero1 = formGroup.get(numero).value;
+    let palabras = alfanumertico(numero1);
+    let numerosolo = /^[0-9]+$/;
 
-    if( tipo1 =="NIT" && codigo1 == null){
+    
+    console.log(palabras);
 
-      formGroup.get(codigo).setErrors({ sincodigo: true });
-        return {sincodigo:true}
+    function alfanumertico(str) {
+      return /^[A-Za-z0-9]*$/.test(str);
+    }
+
+
+    if( tipo1 =='Pasaporte' && palabras == false ){
+      
+      formGroup.get(numero).setErrors({ sincodigo: true });
+   return {sincodigo:true}
+
+   }
+
+   if(  numero1.length <= 3 || numero1.length >10  || numero1 == ""){
+      
+    formGroup.get(numero).setErrors({ sincodigo: true });
+    return {sincodigo:true}
+
+ }
+ 
+ if( tipo1 =='Cédula de Ciudadanía' && !numero1.match(numerosolo)|| tipo1 =='Cédula de Extranjería' && !numero1.match(numerosolo) || tipo1 =="" && !numero1.match(numerosolo)){
+      
+  formGroup.get(numero).setErrors({ sincodigo: true });
+  return {sincodigo:true}
+
+}
+  
+
+   formGroup.get(numero).setErrors(null);
+   return null;
 
   
-   }
-    formGroup.get(codigo).setErrors(null);
-   return null;
   }
       
       }
-   
+
 
 /*implementacion de validaciones de minimo una politica debe estar selecionada en el slide de politcas a selecionar modulos ssps*/
 
