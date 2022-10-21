@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,15 @@ export class ComponentesService {
   acuerdos3: any | undefined;
   estados:boolean =false;
   rutas:string;
+  myGuid = uuidv4();
+
 
 
   constructor() {
 
     console.log('cargada servicio');
     console.log(this.estados);
+    console.log(this.myGuid);
 
   }
 
@@ -148,8 +152,10 @@ validar(min = 1) {
     return validator;
   }
 
-
 }
+
+
+
 
 
 

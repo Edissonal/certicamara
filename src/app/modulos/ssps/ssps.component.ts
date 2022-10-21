@@ -107,8 +107,7 @@ export class SspsComponent implements OnInit {
     
 
     let isCheckeado2 = $event.target.checked;
-    //let id = $event.target.value;
-    //console.log("check"+id,isCheckeado2,cliente);
+ 
     console.log(id,isCheckeado2);
 
     for (var i = 0; i < this.preciosd.length; i++) {
@@ -171,13 +170,8 @@ export class SspsComponent implements OnInit {
       let esenarios = valores.dispositivo;
       let cantidad  = valores.cantidad;
       let anos  =valores.anos;
-     /* let costo1 =125000;
-      let costo2 =130000;
-      let costo3 =127000;*/
 
       console.log(esenarios);
-     /* console.log(cantidad);
-      console.log(anos);*/
 
       let {cliente}=JSON.parse(localStorage.getItem('usuario'));
 
@@ -243,7 +237,11 @@ export class SspsComponent implements OnInit {
                 politica:poli,
                 costo:this.resultado
               }
-              localStorage.setItem("precompra", JSON.stringify(this.valoresfi));
+              
+             let usuario = JSON.parse(localStorage.getItem('usuario'));
+             Object.assign(usuario, this.valoresfi);
+             localStorage.setItem("usuario", JSON.stringify(usuario));
+             console.log(usuario);
              this.show = true;
         });
 
