@@ -31,6 +31,7 @@ export class SspsComponent implements OnInit {
   muestreo4:boolean =false;
   check:boolean=false;
   resultado:any;
+  
   dispositivos:any=[
     {id: 1, dispo:"token fisico"},
     {id: 2, dispo:"token virtual"},
@@ -39,6 +40,7 @@ export class SspsComponent implements OnInit {
   ];
   valoresfi:any;
   show:boolean=false;
+  preciosd:any[]=[];
 
   constructor(private ssps: SspsService,
               private fb: FormBuilder,
@@ -75,6 +77,7 @@ export class SspsComponent implements OnInit {
     this.getpoliticas();
     this.codigov();
     this.OnChanges();
+    this.precios();
   }
 
   /* validacion de persona natutal para check pks*/
@@ -99,41 +102,64 @@ export class SspsComponent implements OnInit {
   }
 
   /*muestro de campos cantidad*/
-  codigoveri($event){
+  codigoveri($event,id:number){
     let {cliente}=JSON.parse(localStorage.getItem('usuario'));
     
 
     let isCheckeado2 = $event.target.checked;
-    let id = $event.target.value;
-    console.log("check"+id,isCheckeado2,cliente);
+    //let id = $event.target.value;
+    //console.log("check"+id,isCheckeado2,cliente);
+    console.log(id,isCheckeado2);
 
-    if(id == 1 && isCheckeado2 == true && cliente == 'juridica'){
+    for (var i = 0; i < this.preciosd.length; i++) {
+      /*cambio de estado input*/
+
+
+          if(this.preciosd[i].id == id  && isCheckeado2 == true && cliente == 'juridica'){
+          
+            this.preciosd[i].estados =true; 
+
+            console.log(this.preciosd);
+          }else{
+          
+            this.preciosd[i].estados =false; 
+          }
     
-      this.muestreo2 =true; 
-    }else{
-      this.muestreo2 =false; 
+          if(this.preciosd[i].id == id  && isCheckeado2 == true && cliente == 'juridica' && this.preciosd[i].nombre == 'PCKS#10'){
+            this.preciosd[i].estados =false; 
+          }
+    
     }
-      if(id ==2 && isCheckeado2 == true && cliente == 'juridica'){
-    
-        this.muestreo3 =true; 
-      }else{
-        this.muestreo3 =false; 
+
       }
-        if( id ==3 && isCheckeado2 == true && cliente == 'juridica'){
+
+
+
+    /*lista de precios*/
+    precios(){
     
-          this.muestreo4 =true; 
-        }else{
-          this.muestreo4 =false; 
+      this.ssps.precios()
+      .subscribe((res:any)=>{
+      this.preciosd = res;
+
+      for (var i = 0; i < this.preciosd.length; i++) {
+        this.preciosd[i].estados = false;
+        if(this.preciosd[i].nombre == "token virtual"){
+          this.preciosd[i].img ="../../../assets/img/token-virtual.png"
         }
-        if( isCheckeado2 == false && this.formaForm2.invalid){
-        
-          this.check= true;
-          console.log(this.check);
-       }else{
-         this.check= false;
-       }
+        if(this.preciosd[i].nombre == "token fisico"){
+          this.preciosd[i].img ="../../../assets/img/usb.png"
+        }
       
+        if(this.preciosd[i].nombre == "PCKS#10"){
+          this.preciosd[i].img ="../../../assets/img/kpcs10.png"
+        }
+      
+      }
+      console.log(this.preciosd);
+      })
     }
+
 
 
     OnChanges(){
@@ -145,76 +171,50 @@ export class SspsComponent implements OnInit {
       let esenarios = valores.dispositivo;
       let cantidad  = valores.cantidad;
       let anos  =valores.anos;
-      let costo1 =125000;
+     /* let costo1 =125000;
       let costo2 =130000;
-      let costo3 =127000;
+      let costo3 =127000;*/
 
       console.log(esenarios);
-      console.log(cantidad);
-      console.log(anos);
+     /* console.log(cantidad);
+      console.log(anos);*/
 
       let {cliente}=JSON.parse(localStorage.getItem('usuario'));
-      if(cliente == 'juridica'){
 
-    
+      for (var i = 0; i < this.preciosd.length; i++) {
+      /*cambio calculo persona juridica*/
+        if(cliente == 'juridica'){
 
-         if(esenarios == 1){
-      
-         let va1 = costo1 * cantidad;
-         console.log('cantidad' + va1);
+          if(this.preciosd[i].id == esenarios){
+        
+          let va1 = this.preciosd[i].precio *cantidad;
+          this.resultado = va1 *anos;
+          console.log(this.resultado);
+        }
+        
+        if(this.preciosd[i].id == esenarios  && this.preciosd[i].nombre == 'PCKS#10' ){
+          this.resultado = this.preciosd[i].precio *anos;
+        }
 
-         this.resultado = va1 *anos;
-         console.log(this.resultado);
-         this.desactiva = false;
       }
 
-      if(esenarios == 2){
+   /*cambio calculo persona natural*/
+      if(cliente == 'natural'){
+        if(this.preciosd[i].id == esenarios){
+          console.log(this.resultado);
+          this.resultado = this.preciosd[i].precio *anos;
+       
+        }
       
-        let va1 = costo2 * cantidad;
-        console.log('cantidad' + va1);
-
-        this.resultado = va1 *anos;
-        console.log(this.resultado);
-        this.desactiva = false;
-     }
-
-     if(esenarios == 3){
       
-      let va1 = costo3 * cantidad;
-      console.log('cantidad' + va1);
-
-      this.resultado = va1 *anos;
-      console.log(this.resultado)
-      this.desactiva = false;
-   }
-
-    }
-
-   /*las validaciones de persona natural*/
-    if(cliente == 'natural'){
-
-      if(esenarios == 1){
-
-        this.resultado = costo1 * anos;
-        this.desactiva = false;
+      }
       
+      }
+       
+       /*cambio de estado de boton siguiente*/
+      if(this.resultado > 0){this.desactiva = false;}
 
-     }
 
-     if(esenarios == 2){
-
-      this.resultado = costo2* anos;
-      this.desactiva = false;
-   }
-
-   if(esenarios == 3){
-
-    this.resultado = costo3 * anos;
-    this.desactiva = false;
- }
-    
-    }
-    
 
 
     });

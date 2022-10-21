@@ -33,8 +33,8 @@ rutasActivas:string;
                       Validators.max(9999999999),
                     ]],
                     codigo:[0,[Validators.required,
-                            Validators.min(99),
-                            Validators.max(9999999999)]
+                            Validators.min(9),
+                            Validators.max(99)]
                             ],
                       razon:['',[Validators.required,
                       Validators.minLength(4),

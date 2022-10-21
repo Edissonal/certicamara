@@ -33,12 +33,7 @@ export class PersonaNComponent implements OnInit {
                 /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
-                  numero:['',[/*Validators.required,
-                             Validators.minLength(4),
-                             Validators.maxLength(10),
-                          /*   Validators.pattern('^[0-9]+$'),*/
-                              
-                              ]],
+                  numero:['',[]],
                   nombres:['',[Validators.required,
                               Validators.minLength(3),
                               Validators.maxLength(60),

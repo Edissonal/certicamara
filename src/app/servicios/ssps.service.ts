@@ -35,5 +35,9 @@ export class SspsService {
     return this.http.get(`${ this.url}/politicas?q=${termino}`);
   }
 
+  precios(){
+    return this.http.get(`${ this.url}/precios`);
+  }
+
 
 }

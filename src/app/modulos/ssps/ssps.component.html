@@ -123,54 +123,23 @@
                                 <form [formGroup]="formaForm2" (ngSubmit)="ngsubmit()">
                                     <div class="centrado">
                                         <table>
-                                            <tr>
-                                                <td> <input type="radio"
-                                                            class="form-check-input"
-                                                            value="1"  
-                                                            (change)="codigoveri($event)"
-                                                            formControlName="dispositivo"></td>
-                                                <td> <img src="../../../assets/img/usb.png"></td>
-                                                <td>token fisico</td>
-                                                <ng-template [ngIf]="muestreo2">
-                                                   <td>
-                                                    <input type="number" 
-                                                    class="form-control form-control-sm textop"
-                                                    placeholder="cantidad"
-                                                    formControlName="cantidad"></td></ng-template>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="radio" 
-                                                           class="form-check-input"
-                                                           value="2"
-                                                           (change)="codigoveri($event)"
-                                                           formControlName="dispositivo"></td>
-                                                <td><img src="../../../assets/img/token-virtual.png"></td>
-                                                <td><label class="form-check-label">token virtual</label></td>
-                                                <ng-template [ngIf]="muestreo3">
-                                                    <td>
-                                                     <input type="number" 
-                                                            class="form-control form-control-sm textop"
-                                                            placeholder="cantidad"
-                                                            formControlName="cantidad" ></td></ng-template>
-                                            </tr>
-                                            <tr>
-                                                <ng-template [ngIf]="muestreo">
-                                                
-                                                <td><input type="radio" 
-                                                           class="form-check-input"
-                                                           value="3"
-                                                           (change)="codigoveri($event)"
-                                                           formControlName="dispositivo"></td>
-                                                <td><img src="../../../assets/img/kpcs10.png"></td>
-                                                <td><label class="form-check-label">PCKS#10(persona juridica)</label></td>
-                                                <ng-template [ngIf]="muestreo4">
-                                                    <td>
-                                                     <input type="number" 
-                                                     class="form-control form-control-sm textop"
-                                                     placeholder="cantidad"
-                                                     formControlName="cantidad" ></td></ng-template>
-                                            </ng-template>
-                                            </tr>
+                                         <tr *ngFor="let pre of preciosd;index as i">
+                                            <td> <input type="radio"
+                                                class="form-check-input"
+                                                value="{{pre.id}}"  
+                                                (change)="codigoveri($event,pre.id)"
+                                                formControlName="dispositivo"></td>
+                                    <td> <img [src]="pre.img"></td>
+                                    <td>{{pre.nombre}} {{i+1}}</td>
+                                    <ng-template [ngIf]="this.preciosd[i].estados == true">
+                                       <td>
+                                        <input type="number" 
+                                        class="form-control form-control-sm textop"
+                                        placeholder="cantidad"
+                                        formControlName="cantidad"></td></ng-template>
+
+
+                                         </tr>
                                           
                                             <tr>
                                         
