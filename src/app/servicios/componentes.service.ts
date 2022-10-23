@@ -75,7 +75,7 @@ codigonit( tipo:string,numero:string){
     let numerosolo = /^[0-9]+$/;
 
     
-    console.log(palabras);
+   // console.log(palabras);
 
     function alfanumertico(str) {
       return /^[A-Za-z0-9]*$/.test(str);

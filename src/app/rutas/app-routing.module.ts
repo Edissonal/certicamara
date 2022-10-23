@@ -10,6 +10,7 @@ import { PersonaJComponent } from '../modulos/validaciones/persona-j/persona-j.c
 import { IngresocertimailComponent } from '../modulos/ingresocertimail/ingresocertimail.component';
 import { ContactenosComponent } from '../modulos/contactenos/contactenos.component';
 import { NavbarComponent } from '../navbar/navbar/navbar.component';
+import { FlujocomprasspsComponent } from '../modulos/flujocomprassps/flujocomprassps.component';
 
 
 
@@ -35,6 +36,7 @@ children: [
   
   ]
 },
+{path: 'flujo', component:FlujocomprasspsComponent},
 {path: 'ingreso', component:IngresocertimailComponent},
 {path:'contacto' ,component:ContactenosComponent,},
 {path:'**' ,component:HomeComponent},

@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit, OnChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, OnChanges, ViewChild, ElementRef } from '@angular/core';
 import { NgForm, FormGroup, ValidatorFn, AbstractControl, FormArray, FormBuilder, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { SspsService } from '../../servicios/ssps.service';
 import { ComponentesService } from '../../servicios/componentes.service';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var window: any;
 declare var bootstrap: any;
 
@@ -26,26 +27,24 @@ export class SspsComponent implements OnInit {
   elementose:number;
   //muestreo de campos 
   muestreo:boolean= false;
-  muestreo2:boolean =false;
-  muestreo3:boolean =false;
-  muestreo4:boolean =false;
+  tipodis:object;
   check:boolean=false;
   resultado:any;
-  
-  dispositivos:any=[
-    {id: 1, dispo:"token fisico"},
-    {id: 2, dispo:"token virtual"},
-    {id: 3, dispo:"PCKS#10(persona juridica)"},
-
-  ];
-  valoresfi:any;
+  usuario:any;
   show:boolean=false;
   preciosd:any[]=[];
+  redirecion:boolean= false;
+  contador:number =0;
+  
+
+
 
   constructor(private ssps: SspsService,
               private fb: FormBuilder,
               private componente:ComponentesService,
-              private changeDetector: ChangeDetectorRef) {
+              private changeDetector: ChangeDetectorRef,
+              private router: Router,
+              private activateRoute: ActivatedRoute) {
    /*form array formulario1*/
     this.formaForm = this.fb.group({
         checks:['',[Validators.required]],
@@ -116,9 +115,9 @@ export class SspsComponent implements OnInit {
 
           if(this.preciosd[i].id == id  && isCheckeado2 == true && cliente == 'juridica'){
           
-            this.preciosd[i].estados =true; 
+            this.preciosd[i].estados =true;
 
-            console.log(this.preciosd);
+
           }else{
           
             this.preciosd[i].estados =false; 
@@ -174,6 +173,7 @@ export class SspsComponent implements OnInit {
       console.log(esenarios);
 
       let {cliente}=JSON.parse(localStorage.getItem('usuario'));
+      
 
       for (var i = 0; i < this.preciosd.length; i++) {
       /*cambio calculo persona juridica*/
@@ -184,6 +184,15 @@ export class SspsComponent implements OnInit {
           let va1 = this.preciosd[i].precio *cantidad;
           this.resultado = va1 *anos;
           console.log(this.resultado);
+
+          this.tipodis={
+            idispo:this.preciosd[i].id,
+            dispo:this.preciosd[i].nombre
+          }
+          let usuario = JSON.parse(localStorage.getItem('usuario'));
+          Object.assign(usuario,  this.tipodis);
+          localStorage.setItem("usuario", JSON.stringify(usuario));
+     
         }
         
         if(this.preciosd[i].id == esenarios  && this.preciosd[i].nombre == 'PCKS#10' ){
@@ -197,6 +206,15 @@ export class SspsComponent implements OnInit {
         if(this.preciosd[i].id == esenarios){
           console.log(this.resultado);
           this.resultado = this.preciosd[i].precio *anos;
+          this.tipodis={
+            idispo:this.preciosd[i].id,
+            dispo:this.preciosd[i].nombre
+          }
+
+          let usuario = JSON.parse(localStorage.getItem('usuario'));
+          Object.assign(usuario,  this.tipodis);
+          localStorage.setItem("usuario", JSON.stringify(usuario));
+     
        
         }
       
@@ -221,38 +239,56 @@ export class SspsComponent implements OnInit {
       if(this.formaForm2.valid){
         console.log(this.formaForm2.value);
         let {checks2,cantidad,anos} = this.formaForm2.value;
-     
-        //let valoresfi = Object.assign(compra, compra2);
-       // localStorage.setItem("compra", JSON.stringify(valoresfi));
-         let {id,dispo} = this.dispositivos.find(x => x.id == checks2);
          this.ssps.politica(checks2)
          .subscribe((res:any)=>{
          let [datos,...data] = res;
              let poli = datos.politica;
 
-              this.valoresfi = {
+              datos = {
                 cantidad:cantidad,
                 anos:anos,
-                dispositivo:dispo,
                 politica:poli,
                 costo:this.resultado
               }
               
-             let usuario = JSON.parse(localStorage.getItem('usuario'));
-             Object.assign(usuario, this.valoresfi);
-             localStorage.setItem("usuario", JSON.stringify(usuario));
-             console.log(usuario);
+             this.usuario = JSON.parse(localStorage.getItem('usuario'));
+             Object.assign(this.usuario, datos);
+             localStorage.setItem("usuario", JSON.stringify( this.usuario));
              this.show = true;
+           
         });
 
+        this.desactiva = false;
+      }    
 
-      
-         
-
-      }
-     
-    
     }
+
+
+    /*deshabilita botton siguiente*/
+  estados() {
+    this.desactiva = true;
+    this.contador = this.contador + 1;
+    console.log(this.contador);
+    if(this.contador == 4){
+      this.cerrarmodal();
+     // 
+      setTimeout(() => {
+        this.router.navigate(['/flujo']);
+      }, 100);
+  
+  
+    }
+  }
+
+  estados2(){
+    this.desactiva = true;
+    this.contador = this.contador - 1;
+    console.log(this.contador);
+  
+  }
+
+
+
 
     
   ngAfterContentChecked(): void {
@@ -339,9 +375,6 @@ export class SspsComponent implements OnInit {
 
   }
 
-  estados() {
-    this.desactiva = true;
-  }
 
 
   /* funcion para validacion de campos*/
@@ -357,8 +390,10 @@ export class SspsComponent implements OnInit {
   /*implementacion de modal ssps*/
   cerrarmodal() {
     this.sspsl.hide();
+    
 
   }
+
 
 
 

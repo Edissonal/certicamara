@@ -99,7 +99,8 @@ ngsubmit() {
  /*desustrucracion de objeto*/
    let cliente:object={cliente:'juridica'};
    let valores:object =  this.formaForm.value;
-   let valoresfi = Object.assign(valores, cliente);
+   let uid:object ={uid:this.componentesService.myGuid};
+   let valoresfi = Object.assign(valores, cliente,uid);
    let rutaActiva = localStorage.getItem('rutasActivas');
       if(res == ""){
         console.log('usuario no exixte');

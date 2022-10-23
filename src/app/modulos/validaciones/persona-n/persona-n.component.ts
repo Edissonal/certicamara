@@ -98,7 +98,8 @@ ngsubmit() {
        let rutaActiva = localStorage.getItem('rutasActivas');
        let cliente:object={cliente:'natural'};
        let valores:object =  this.formaForm.value;
-       let valoresfi = Object.assign(valores, cliente);
+       let uid:object ={uid:this.componentesService.myGuid};
+       let valoresfi = Object.assign(valores, cliente,uid);
       if(res == ""){
         console.log('usuario no exixte');
         localStorage.setItem("cedula",cedula );

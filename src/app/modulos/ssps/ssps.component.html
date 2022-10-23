@@ -220,7 +220,7 @@
                     </div>
 
                     <!-- implementacion vista de compra-->
-                    <div class="carousel-item" >
+                    <div class="carousel-item #enviar">
                     
                         <div class="margenuni animate__animated animate__fadeIn animate__fast">
 
@@ -232,22 +232,21 @@
                                 <tr>
                                     <td><strong>tipo de dispositivo</strong></td>
                                     <td><i class="fa-solid fa-circle-check estilos"></i></td>
-                                    <td>{{valoresfi.dispositivo}}</td>
-                                    <tr>
+                                    <td>{{usuario.dispo}}</td>                                    <tr>
                                         <tr>
                                             <td><strong>politica</strong></td>
                                             <td><i class="fa-solid fa-circle-check estilos"></i></td>
-                                            <td>{{valoresfi.politica}}</td>
+                                            <td>{{usuario.politica}}</td>
                                             <tr>
                                                 <tr>
                                                     <td><strong>vigencia</strong></td>
                                                     <td><i class="fa-solid fa-circle-check estilos"></i></td>
-                                                    <td>{{valoresfi.anos}} años</td>
+                                                    <td>{{usuario.anos}} años</td>
                                                     <tr>
                                                         <tr>
                                                             <td><strong>costo</strong></td>
                                                             <td><i class="fa-solid fa-circle-check estilos"></i></td>
-                                                            <td>${{valoresfi.costo  | currency:'CO':''}}</td>
+                                                            <td>${{usuario.costo  | currency:'CO':''}}</td>
                                                             <tr>
                                     </table>  
                                 </div>
@@ -262,14 +261,25 @@
                  <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary"
                             data-bs-target="#carouselExampleControlsNoTouching"
-                            data-bs-slide="prev">anterior</button>
-                    <button type="submit" 
+                            data-bs-slide="prev"
+                            (click)="estados2()"
+                            >anterior</button>
+                            
+
+                  <button type="submit" 
                             class="btn btn-primary" 
                             data-bs-target="#carouselExampleControlsNoTouching"
                             data-bs-slide="next"
                             (click)="estados();verifica()"
                             [disabled]="desactiva"
                            >siguiente</button>
+
+
+
+                           
+
+                    
+                           
                             
                 </div> 
 

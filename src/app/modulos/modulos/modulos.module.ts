@@ -12,6 +12,7 @@ import { PersonaNComponent } from '../validaciones/persona-n/persona-n.component
 import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component';
 import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.component';
 import { ContactenosComponent } from '../contactenos/contactenos.component';
+import { FlujocomprasspsComponent } from '../flujocomprassps/flujocomprassps.component';
 
 
 
@@ -28,6 +29,7 @@ import { ContactenosComponent } from '../contactenos/contactenos.component';
     PersonaJComponent,
     IngresocertimailComponent,
     ContactenosComponent,
+    FlujocomprasspsComponent
 
   ],
   imports: [
