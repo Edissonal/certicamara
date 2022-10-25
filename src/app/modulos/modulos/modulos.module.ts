@@ -13,6 +13,10 @@ import { PersonaJComponent } from '../validaciones/persona-j/persona-j.component
 import { IngresocertimailComponent } from '../ingresocertimail/ingresocertimail.component';
 import { ContactenosComponent } from '../contactenos/contactenos.component';
 import { FlujocomprasspsComponent } from '../flujocomprassps/flujocomprassps.component';
+import { BarraComponent } from '../barra/barra.component';
+import { InfoBasicaComponent } from '../flujocomprassps/info-basica/info-basica.component';
+import { PagoComponent } from '../flujocomprassps/pago/pago.component';
+
 
 
 
@@ -29,7 +33,10 @@ import { FlujocomprasspsComponent } from '../flujocomprassps/flujocomprassps.com
     PersonaJComponent,
     IngresocertimailComponent,
     ContactenosComponent,
-    FlujocomprasspsComponent
+    FlujocomprasspsComponent,
+    BarraComponent,
+    InfoBasicaComponent,
+    PagoComponent
 
   ],
   imports: [

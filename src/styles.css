@@ -260,3 +260,88 @@ margin-left: 1rem !important;
 
 }
 
+/*estilos flujos de compras*/
+.soli{
+    margin-left: 5rem;
+    }
+
+.soli1{
+        margin-left: 15rem;
+        }
+
+
+/*estilos de componete barras*/
+.fondo{
+    background-color:#f8f7f5;
+}
+
+/*libreria botones*/
+.flujo{
+border-radius: 15px 15px 0px 0px !important;
+}
+
+.contiene2{
+    background-color: #f8f7f5;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.flujos2{
+
+
+    background-color: #ffffff !important;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+/*estilos modulo info basica*/
+.margenparrafos{
+    margin-bottom: 5px !important;
+}
+
+/*textos titulos*/
+.titulosintu{
+color:#999696 !important;
+}
+
+.titulosintu2{
+    color:#ff4d4d;
+}
+.quitarextos{
+overflow: hidden !important;
+}
+
+/*estilos modulo de compras*/
+
+.compras{
+/*background-color: #ff4d4d;*/
+width: 100% !important;
+padding-top: 3% !important;
+padding-bottom:3%!important;
+margin-bottom: 1rem;
+border: 1px solid #ced4da;
+
+}
+
+
+/*.margendere{
+margin-left: 10% !important;
+}
+*/
+
+.contiene3{
+    background-color: #fff;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.contiene3:hover{
+
+    box-shadow: 0 2px 5px 1px rgba(255, 77, 77, 16%);
+    border: 1px solid #ff4d4d;
+    cursor: pointer;
+}
+
+.contiene3 {
+    transition: border 0.2s linear 0.1s;
+}

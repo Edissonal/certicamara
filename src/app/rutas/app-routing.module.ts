@@ -11,6 +11,9 @@ import { IngresocertimailComponent } from '../modulos/ingresocertimail/ingresoce
 import { ContactenosComponent } from '../modulos/contactenos/contactenos.component';
 import { NavbarComponent } from '../navbar/navbar/navbar.component';
 import { FlujocomprasspsComponent } from '../modulos/flujocomprassps/flujocomprassps.component';
+import { InfoBasicaComponent } from '../modulos/flujocomprassps/info-basica/info-basica.component';
+import { PagoComponent } from '../modulos/flujocomprassps/pago/pago.component';
+import { ContactoComponent } from '../modulos/flujocomprassps/contacto/contacto.component';
 
 
 
@@ -36,7 +39,14 @@ children: [
   
   ]
 },
-{path: 'flujo', component:FlujocomprasspsComponent},
+{path: 'flujo', component:FlujocomprasspsComponent,
+children: [
+  {path: 'infobasi', component:InfoBasicaComponent},
+  {path: 'pago', component:PagoComponent},
+  {path: 'contacto', component:ContactoComponent},
+  {path:'**' ,component:InfoBasicaComponent},
+  ]
+},
 {path: 'ingreso', component:IngresocertimailComponent},
 {path:'contacto' ,component:ContactenosComponent,},
 {path:'**' ,component:HomeComponent},

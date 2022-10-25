@@ -12,12 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     NavbarComponent,
     FooterComponent,
+
+
   ],
   imports: [
     BrowserModule,

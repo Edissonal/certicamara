@@ -1,1 +1,57 @@
-<p>flujocomprassps works!</p>
+<div class=" animate__animated animate__fadeInLeftBig animate__fast">
+
+    <div class="row">
+        <p class="titulos">/Home/Certificado de forma digital/<strong class="titulos2">Formulario</strong></p>
+        <br>
+        <h3>Solicitud de {{compras.dispo}}</h3>
+        <div class="col">
+
+            <h5>Política:{{compras.politica}}</h5>
+            <h5>vegencia:{{compras.anos}}años</h5>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-5 col-sm-7 ">
+                    <h5><strong style="color:#999696 ;">certificado:</strong><strong
+                            style="color:#ff4d4d ;">${{compras.costo | currency:'CO':''}}</strong>
+                    </h5>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 ">
+                    <h5><strong> No solicitantes:{{compras.cantidad}}</strong></h5>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 ">
+                    <h5> <strong>Radicado:</strong></h5>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="contiene2 quitarextos">
+            <app-barra></app-barra>
+
+            <br>
+            <div class="flujos2">
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-primary flujo" [routerLink]="['/flujo/infobasi']">
+                        <p>informacion basica</p>
+                    </button>
+                    <button class="btn btn-primary flujo ms-4" [routerLink]="['/flujo/contacto']">
+                        <p>datos de contacto</p>
+                    </button>
+                    <button class="btn btn-primary flujo ms-4" disabled>
+                        <p>datos de entrega</p>
+                    </button>
+                    <button class="btn btn-primary flujo ms-4" [routerLink]="['/flujo/pago']">
+                        <p>pago</p>
+                    </button>
+                </div>
+
+                <div class="container">
+                    <div class="row row-margenes" #margen (window:resize)="onResize($event)">
+                    <router-outlet></router-outlet>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
