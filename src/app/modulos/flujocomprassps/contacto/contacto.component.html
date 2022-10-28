@@ -1,112 +1,113 @@
 <div class=" animate__animated animate__fadeInLeftBig animate__faster">
 
-    <div class="row ms-1 mt-3">
-       <p class="margenparrafos"><strong>Tipo de identificación:</strong><strong class="titulosintu">Cedula de ciudadania</strong></p>
-       <p class="margenparrafos"><strong>Numero de identificación</strong>:<strong class="titulosintu">1073680979</strong></p>
-       
-       <h6 class="titulosintu">Este certificado este certificado se utilizara deacuerdo a la politica:</h6>
-       <h5 class="titulosintu2">Información básica</h5>
-       <br>
-   
-   
-   
-   
-       <div class="row">
-   
-             <div class="mb-3">
-   
+  <div class="row ms-1 mt-3">
 
-                   <div class="col">
-                       <label 
-                       class="form-label">correo electronico:</label>
-                <input type="text" 
-                       class="form-control" 
-                       placeholder="correo electronico"
-                       formControlName="correo"
-                       [class.is-invalid]="camposvalidos('correo')">
-                       <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                       *ngIf="camposvalidos('correo')">correo invalido</div>
-   
-   
-       
-               </div>
-           
-             </div>
-             
-             <div class="mb-3">
-   
+    <h5 class="titulosintu2">datos de contacto</h5>
+    <br>
 
-              <div class="col">
-                  <label 
-                  class="form-label">correo electronico:</label>
-           <input type="text" 
+    <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+    <div class="row">
+
+      <div class="mb-3">
+
+
+        <div class="col">
+          <label class="form-label">correo electronico:</label>
+          <input type="text" 
                   class="form-control" 
-                  placeholder="correo electronico"
+                  placeholder="correo electronico" 
                   formControlName="correo"
-                  [class.is-invalid]="camposvalidos('correo')">
-                  <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                  *ngIf="camposvalidos('correo')">correo invalido</div>
+            [class.is-invalid]="camposvalidos('correo')">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('correo')">correo invalido</div>
 
 
-  
-          </div>
+
+        </div>
+
+      </div>
 
 
-                <div class="mb-3">
 
-                  <div class="row mt-3">
+      <div class="mb-3">
 
-                    <div class="col">
-                      <label 
-                      class="form-label">correo electronico:</label>
-               <input type="text" 
-                      class="form-control" 
-                      placeholder="correo electronico"
-                      formControlName="correo"
-                      [class.is-invalid]="camposvalidos('correo')">
-                      <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                      *ngIf="camposvalidos('correo')">correo invalido</div>
-                    </div>
-                    <div class="col">
-                      <label 
-                      class="form-label">correo electronico:</label>
-               <input type="text" 
-                      class="form-control" 
-                      placeholder="correo electronico"
-                      formControlName="correo"
-                      [class.is-invalid]="camposvalidos('correo')">
-                      <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                      *ngIf="camposvalidos('correo')">correo invalido</div>
-                    </div>
-                    <div class="col">
-                      <label 
-                      class="form-label">correo electronico:</label>
-               <input type="text" 
-                      class="form-control" 
-                      placeholder="correo electronico"
-                      formControlName="correo"
-                      [class.is-invalid]="camposvalidos('correo')">
-                      <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                      *ngIf="camposvalidos('correo')">correo invalido</div>
-                    </div>
-                  </div>
-                </div>
+
+        <div class="col">
+          <label class="form-label">cedular:</label>
+          <input type="number" class="form-control" 
+                 placeholder="celular" 
+                 formControlName="celular"
+                [class.is-invalid]="camposvalidos('celular')">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('celular')">celular invalido</div>
+
+
+
         </div>
 
 
-               
-           </div>
-   
-   
-   
-   
-             <div class="mb-3">
-               <button type="submit" 
-               class="btn btn-primary" 
-              >siguiente</button>
-             </div>
-   
-     </div>
-   
-   </div>
-           
+        <div class="mb-3">
+
+          <label class="form-label mt-3">telefono fijo:</label>
+          <div class="row">
+
+            <div class="col">
+
+                <input  class="form-control" 
+                        list="browsers" 
+                        formControlName="indicativo" 
+                        placeholder="indicativo"
+                        [(ngModel)]="codigo"
+                        (change)="verficacion($event)"
+                        [class.is-invalid]="camposvalidos('indicativo')"
+                >
+                <datalist id="browsers">
+                  <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                </datalist>
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('indicativo')">indicativo invalido</div>
+            </div>
+            <div class="col">
+
+              <input type="number" 
+                     class="form-control" 
+                     placeholder="telefono" 
+                     formControlName="telefono"
+                     [class.is-invalid]="camposvalidos('telefono')"
+                     >
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('correo')">telefono invalido</div>
+            </div>
+            <div class="col">
+              <input type="number" 
+                     class="form-control" 
+                     placeholder="extension" 
+                     formControlName="extenxion"
+                [class.is-invalid]="camposvalidos('extenxion')">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('extenxion')">extension invalido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="mb-3">
+      <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+      <button type="submit" class="btn btn-primary">siguiente</button>
+      
+    </div>
+
+
+  </form>
+
+
+
+  
+
+
+</div>
+

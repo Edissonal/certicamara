@@ -14,6 +14,7 @@ import { FlujocomprasspsComponent } from '../modulos/flujocomprassps/flujocompra
 import { InfoBasicaComponent } from '../modulos/flujocomprassps/info-basica/info-basica.component';
 import { PagoComponent } from '../modulos/flujocomprassps/pago/pago.component';
 import { ContactoComponent } from '../modulos/flujocomprassps/contacto/contacto.component';
+import { EntregaComponent } from '../modulos/flujocomprassps/entrega/entrega.component';
 
 
 
@@ -44,6 +45,7 @@ children: [
   {path: 'infobasi', component:InfoBasicaComponent},
   {path: 'pago', component:PagoComponent},
   {path: 'contacto', component:ContactoComponent},
+  {path: 'entrega', component:EntregaComponent},
   {path:'**' ,component:InfoBasicaComponent},
   ]
 },

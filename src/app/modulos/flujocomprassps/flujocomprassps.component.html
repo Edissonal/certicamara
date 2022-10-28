@@ -1,7 +1,7 @@
 <div class=" animate__animated animate__fadeInLeftBig animate__fast">
 
     <div class="row">
-        <p class="titulos">/Home/Certificado de forma digital/<strong class="titulos2">Formulario</strong></p>
+        <p class="titulos textos">/Home/Certificado de forma digital/<strong class="titulos2">Formulario</strong></p>
         <br>
         <h3>Solicitud de {{compras.dispo}}</h3>
         <div class="col">
@@ -29,21 +29,41 @@
             <app-barra></app-barra>
 
             <br>
-            <div class="flujos2">
-                <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary flujo" [routerLink]="['/flujo/infobasi']">
-                        <p>informacion basica</p>
-                    </button>
-                    <button class="btn btn-primary flujo ms-4" [routerLink]="['/flujo/contacto']">
-                        <p>datos de contacto</p>
-                    </button>
-                    <button class="btn btn-primary flujo ms-4" disabled>
-                        <p>datos de entrega</p>
-                    </button>
-                    <button class="btn btn-primary flujo ms-4" [routerLink]="['/flujo/pago']">
-                        <p>pago</p>
-                    </button>
+            <div class="flujos2 quitarextos ">
+             
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div [class]="validaflujos()"
+                             #basica>
+                        <p class="lineadetiempo"><span>informacion</span><span> basica</span></p></div>
+                        </div>
+                    
+                        <ng-template [ngIf]="this.compras.dispo == 'token virtual'">
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" >
+                        <div class="flujosin" #contacto>
+                            <p class="lineadetiempo"><span>datos de</span> <span>contacto</span></p>
+                        </div>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="this.compras.dispo == 'token fisico'">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="flujosin" #entrega>
+                                <p class="lineadetiempo"><span>datos de</span> <span>entrega</span></p>
+                            </div>
+                            </div>
+                        </ng-template>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                <div class="flujosin" #pago>
+                                    <p class="lineadetiempo"><span style="padding-top: 10px; padding-bottom:14px ;">pago</span><span></span></p>
+                                </div>
+                                </div>
+                              <hr class="linea">  
+                        
                 </div>
+
 
                 <div class="container">
                     <div class="row row-margenes" #margen (window:resize)="onResize($event)">

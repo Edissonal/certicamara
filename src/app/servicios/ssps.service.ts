@@ -39,5 +39,9 @@ export class SspsService {
     return this.http.get(`${ this.url}/precios`);
   }
 
+  
+  inicativos(){
+    return this.http.get(`${ this.url}/indicativos`);
+  }
 
 }

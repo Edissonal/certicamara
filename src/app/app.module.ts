@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { AppRoutingModule } from './rutas/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -20,14 +22,12 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     NavbarComponent,
     FooterComponent,
-
-
   ],
   imports: [
     BrowserModule,
     ModulosModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
 
   ],
   providers: [],

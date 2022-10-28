@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild, ElementRef } from '@angular/core';
 import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
@@ -14,7 +15,16 @@ export class ComponentesService {
   estados:boolean =false;
   rutas:string;
   myGuid = uuidv4();
+  enviodata:any = false;
 
+
+
+   // declaracion de sujeto para multiples observables  Fuentes de cadenas observables
+  private  envios = new Subject<any>();
+  // Flujos de cadenas observables
+  // Observable de tipo string 
+  eventos$ = this.envios.asObservable();
+  // Comandos de mensajes de servicio
 
 
   constructor() {
@@ -61,6 +71,12 @@ export class ComponentesService {
     this.acuerdos3.show();
 
   }
+
+  /*emicion de eventos flujo de compra*/
+
+  emitircambio(change: any) {
+    this.envios.next(change);
+}
 
 /*validaciones de formularios listas negras campo personalizado validacion de cedula*/
 
@@ -152,6 +168,56 @@ validar(min = 1) {
     return validator;
   }
 
+  /*validar si los corrreos son iguales modulo info basica ssps*/
+
+  soniguales(campo1: string, campo2: string) {
+  
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      
+      const correo = formGroup.get(campo1).value;
+      const correo1 = formGroup.get(campo2).value;
+
+      if (correo !== correo1 ||  correo1 == "" ) {
+        formGroup.get(campo2).setErrors({ noiguales: true });
+        return {noiguales:true}
+      }
+
+      
+      
+      formGroup.get(campo2).setErrors(null);
+       return null;
+    }
+
+    /* Validador de datalist*/
+    
+  }
+
+  validalist(indicativo:string){
+    return (formGroup: AbstractControl): ValidationErrors  | null => {
+      
+
+  const indi = formGroup.get(indicativo).value;
+    
+   if( indi  == undefined){
+        
+    formGroup.get(indicativo).setErrors({ vacioindi: true });
+    return {vacioindi:true}
+  
+  }
+    
+  
+     formGroup.get(indicativo).setErrors(null);
+     return null;
+  
+    
+    }
+      
+  
+  }
+
+
+
+  
 }
 
 

@@ -16,6 +16,10 @@ import { FlujocomprasspsComponent } from '../flujocomprassps/flujocomprassps.com
 import { BarraComponent } from '../barra/barra.component';
 import { InfoBasicaComponent } from '../flujocomprassps/info-basica/info-basica.component';
 import { PagoComponent } from '../flujocomprassps/pago/pago.component';
+import { NocopiadoDirective } from 'src/app/directivas/nocopiado.directive';
+import { ContactoComponent } from '../flujocomprassps/contacto/contacto.component';
+import { EntregaComponent } from '../flujocomprassps/entrega/entrega.component';
+
 
 
 
@@ -36,7 +40,10 @@ import { PagoComponent } from '../flujocomprassps/pago/pago.component';
     FlujocomprasspsComponent,
     BarraComponent,
     InfoBasicaComponent,
-    PagoComponent
+    PagoComponent,
+    ContactoComponent,
+    NocopiadoDirective,
+    EntregaComponent
 
   ],
   imports: [
@@ -47,7 +54,7 @@ import { PagoComponent } from '../flujocomprassps/pago/pago.component';
   ],exports:[
     ReactiveFormsModule,
     FormsModule,
-    ValidacionesComponent
+    ValidacionesComponent,
     
   ]
 })

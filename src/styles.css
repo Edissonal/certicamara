@@ -276,9 +276,40 @@ margin-left: 1rem !important;
 }
 
 /*libreria botones*/
-.flujo{
+/*.flujo{
 border-radius: 15px 15px 0px 0px !important;
+}*/
+.flujos{
+
+    background-color: #ff4d4d;
+    color: #f8f7f5;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px !important;
+  /*  margin-top: -5px !important;*/
+  animation:inicia 0.5s ;
+  animation-fill-mode:forwards;
 }
+
+/*animaciones flujos*/
+@keyframes inicia{
+    0%{opacity:0;}
+    100%{opacity: 1;}
+}
+
+.flujosin{
+
+    background-color: #ffffff;
+    color: #3a3e42;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px !important;
+  /*  margin-top: -5px !important;*/
+    
+}
+ .linea{
+
+    color: #ff4d4d;
+    margin-top: -16px !important;
+}  
 
 .contiene2{
     background-color: #f8f7f5;
@@ -321,6 +352,11 @@ padding-bottom:3%!important;
 margin-bottom: 1rem;
 border: 1px solid #ced4da;
 
+}
+
+.lineadetiempo  span {
+    display: block !important;
+/* text-align: center;*/
 }
 
 
