@@ -86,6 +86,7 @@ export class ContactoComponent implements OnInit {
 
     
     this.componentesService.emitircambio("contactof");
+    this.componentesService.emitircambio("mostrarordencambio");
     this.router.navigate(['/flujo/pago'])
   }
 

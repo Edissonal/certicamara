@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ComponentesService } from '../../servicios/componentes.service';
+import { SspsComponent } from '../ssps/ssps.component';
+import { SspsService } from '../../servicios/ssps.service';
 
 @Component({
   selector: 'app-flujocomprassps',
@@ -13,17 +15,84 @@ export class FlujocomprasspsComponent implements OnInit {
   @ViewChild('contacto', { read: ElementRef, static:false }) contacto: ElementRef;
   @ViewChild('entrega', { read: ElementRef, static:false }) entrega: ElementRef;
   @ViewChild('pago', { read: ElementRef, static:false }) pago: ElementRef;
+
   tamano!:number;
   compras;
   respuesta:string;
   filtra:boolean= false;
-  constructor(private  componentesService:ComponentesService) {
+  nopedido:boolean=false;
+  noradicadopedi:object;
+
+
+
+  constructor(private  componentesService:ComponentesService,
+              private  ssps:SspsService) {
   
    
 
-    this.componentesService.eventos$.subscribe(res => {
+    this.componentesService.eventos$.subscribe(res => {  
+      this.respuesta = res;
+
+      console.log(this.respuesta);
+
+      if(this.respuesta == "mostrarordencambio"){
+             this.nopedido=true;
+             this.ssps.nopedido()
+             .subscribe((res:any)=>{
+
+        //  this.noradicadopedi.nopedido;
+        let [datos,...nopedido] = res;
              
-          this.respuesta = res;
+        this.noradicadopedi=  datos.nopedido;
+
+            });
+      }else{
+            this.nopedido=false;
+      }
+
+      this.slidersinfomativos(res);
+
+  });
+  
+  }
+
+ 
+
+
+  ngOnInit(): void {
+
+    this.compras = JSON.parse(localStorage.getItem('usuario'));
+     
+    if(this.compras.cantidad == null && this.compras.cliente =="natural" ){
+       this.compras.cantidad =1;
+       console.log(this.compras);
+      
+  }
+
+  
+
+
+}
+
+validaflujos(){
+  console.log(this.respuesta);
+  return (this.respuesta == undefined) ? 'flujos':'flujosin';
+}
+
+
+  onResize(event:any) {
+    this.tamano =event.target.innerWidth;
+
+    if(this.tamano <= 984){
+      this.margen.nativeElement.classList.remove('row-margenes');
+    }else{
+      this.margen.nativeElement.classList.add('row-margenes');
+    }
+
+    }
+
+    slidersinfomativos(res:any){
+
 
       if(res == "infoperso"){
         
@@ -79,46 +148,13 @@ else if(res =="infobasic" && this.compras.dispo =="token virtual"){
   this.basica.nativeElement.classList.add('flujos');
 }
 
-
-
-  });
-  
-  }
-
- 
-
-
-  ngOnInit(): void {
-
-    this.compras = JSON.parse(localStorage.getItem('usuario'));
-     
-    if(this.compras.cantidad == null && this.compras.cliente =="natural" ){
-       this.compras.cantidad =1;
-       console.log(this.compras);
-      
-  }
-
-  
-
-
-}
-
-validaflujos(){
-  console.log(this.respuesta);
-  return (this.respuesta == undefined) ? 'flujos':'flujosin';
-}
-
-
-  onResize(event:any) {
-    this.tamano =event.target.innerWidth;
-
-    if(this.tamano <= 984){
-      this.margen.nativeElement.classList.remove('row-margenes');
-    }else{
-      this.margen.nativeElement.classList.add('row-margenes');
-    }
-
+    
     }
 
 
+
+    cerrar(){
+    
+      this.nopedido= false;
+    }
 }

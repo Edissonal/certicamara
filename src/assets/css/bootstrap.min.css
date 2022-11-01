@@ -5334,7 +5334,7 @@ fieldset:disabled .btn {
 
 .badge:empty {
     display: none
-}
+}lert
 
 .btn .badge {
     position: relative;
@@ -5453,6 +5453,8 @@ fieldset:disabled .btn {
     border-radius: .80rem;
     padding-bottom: 0%;
 }
+
+
 
 .alert-light .alert-link {
     color: #4f5050

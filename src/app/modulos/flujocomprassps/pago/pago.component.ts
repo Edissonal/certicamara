@@ -12,8 +12,14 @@ export class PagoComponent implements OnInit {
   constructor(private router: Router,
               private componentesService:ComponentesService) { }
   usuario: any;
+  valor:number;
+
   ngOnInit(): void {
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    
+    
+    console.log(this.usuario.costo);
+
   }
 
   /*rediociona al usuario si se equivova*/

@@ -27,6 +27,7 @@ export class EntregaComponent implements OnInit {
    
     this.router.navigate(['/flujo/pago']);
     this.componentesService.emitircambio("pago");
+    this.componentesService.emitircambio("mostrarordencambio");
   
   }
   

@@ -44,4 +44,9 @@ export class SspsService {
     return this.http.get(`${ this.url}/indicativos`);
   }
 
+
+nopedido(){
+  return this.http.get(`${ this.url}/nopedido`);
+}
+
 }

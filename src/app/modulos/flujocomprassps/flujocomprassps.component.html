@@ -18,8 +18,8 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 ">
                     <h5><strong> No solicitantes:{{compras.cantidad}}</strong></h5>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 ">
-                    <h5> <strong>Radicado:</strong></h5>
+                <div class="col-lg-3 col-md-4 col-sm-6" *ngIf="noradicadopedi">
+                    <h5> <strong>Radicado:{{noradicadopedi}}</strong></h5>
                 </div>
             </div>
         </div>
@@ -70,8 +70,23 @@
                     <router-outlet></router-outlet>
 
                 </div>
-                </div>
+                
+                
+            </div>
+
             </div>
         </div>
     </div>
 </div>
+
+<ng-template  [ngIf]="nopedido">
+
+<div role="alert" class="alert alert-light text-center animate__animated animate__fadeIn animate__faster" style="top: 100px;">
+    <br>
+    <h3>Se creo orden de pedido No {{noradicadopedi}}</h3>
+    <p>Se a generado nueva orden de su certificado</p>
+    <button type="submit" class="btn btn-primary " (click)="cerrar()">pagar</button>
+</div>
+
+</ng-template>
+
