@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentesService } from '../../servicios/componentes.service';
 
 @Component({
   selector: 'app-barra',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraComponent implements OnInit {
 
-  constructor() { }
+  valor!:string;
+  constructor(private componente:ComponentesService) {
+  
+    this.componente.eventos$.subscribe(res => {
+    
+        this.valor = res;
+       
+    });
+
+    
+  
+  }
+
+
 
   ngOnInit(): void {
+  
+  
+  }
+
+
+  documentos(){
+
+    return (this.valor =="infoperso"  ) ? 'iconos2':'bordes';
+  }
+  
+  contacto(){
+    return (  this.valor =="mostrarordencambio"  ) ? 'iconos2':'bordes';
   }
 
 }

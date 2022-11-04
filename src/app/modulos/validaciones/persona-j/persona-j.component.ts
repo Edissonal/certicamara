@@ -29,12 +29,12 @@ rutasActivas:string;
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
                     numero:[0,[Validators.required,
-                      Validators.min(999),
+                      Validators.min(4),
                       Validators.max(9999999999),
                     ]],
                     codigo:[0,[Validators.required,
-                            Validators.min(9),
-                            Validators.max(99)]
+                            Validators.min(1),
+                            Validators.max(9)]
                             ],
                       razon:['',[Validators.required,
                       Validators.minLength(4),

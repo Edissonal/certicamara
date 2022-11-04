@@ -22,13 +22,15 @@ export class FlujocomprasspsComponent implements OnInit {
   filtra:boolean= false;
   nopedido:boolean=false;
   noradicadopedi:object;
+  costos:number;
+  
 
 
 
   constructor(private  componentesService:ComponentesService,
               private  ssps:SspsService) {
   
-   
+
 
     this.componentesService.eventos$.subscribe(res => {  
       this.respuesta = res;
@@ -53,19 +55,26 @@ export class FlujocomprasspsComponent implements OnInit {
       this.slidersinfomativos(res);
 
   });
+
+  this.ssps.eventos$.subscribe(res=>{
+  
+   this.costos =res;
+  
+  });
   
   }
 
  
 
-
   ngOnInit(): void {
 
     this.compras = JSON.parse(localStorage.getItem('usuario'));
-     
+    this.costos = this.compras.costo;
     if(this.compras.cantidad == null && this.compras.cliente =="natural" ){
        this.compras.cantidad =1;
        console.log(this.compras);
+
+
       
   }
 
@@ -75,7 +84,7 @@ export class FlujocomprasspsComponent implements OnInit {
 }
 
 validaflujos(){
-  console.log(this.respuesta);
+ // console.log(this.respuesta);
   return (this.respuesta == undefined) ? 'flujos':'flujosin';
 }
 
@@ -154,7 +163,6 @@ else if(res =="infobasic" && this.compras.dispo =="token virtual"){
 
 
     cerrar(){
-    
       this.nopedido= false;
     }
 }

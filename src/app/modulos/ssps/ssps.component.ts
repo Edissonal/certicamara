@@ -313,9 +313,6 @@ export class SspsComponent implements OnInit {
   console.log(this.formaForm2.value);
   console.log('ejecutado');
   this.dispositivo();
-
-
-
   
   }
 

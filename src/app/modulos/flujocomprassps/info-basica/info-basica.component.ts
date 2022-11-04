@@ -17,6 +17,8 @@ export class InfoBasicaComponent implements OnInit {
   documento:boolean = false;
   cantidad:number=0;
   usuario:any;
+  archivos:boolean= false;
+  tipos:boolean= false;
 
 
   constructor(private fb:FormBuilder,
@@ -28,11 +30,11 @@ export class InfoBasicaComponent implements OnInit {
       this.formaForm = this.fb.group({
 
         nombre:['',[Validators.required,
-                    Validators.minLength(3),
+                    Validators.minLength(4),
                     Validators.maxLength(60),
                     Validators.pattern("[a-zA-Z ]{2,254}")]],
         apellido:['',[Validators.required,
-                        Validators.minLength(3),
+                        Validators.minLength(4),
                         Validators.maxLength(60),
                         Validators.pattern("[a-zA-Z ]{2,254}")]],
 
@@ -47,7 +49,7 @@ export class InfoBasicaComponent implements OnInit {
                               Validators.maxLength(60),
                               Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],     
 
-      documentos:[],   
+      documentos:[Validators.minLength(8)],   
       cargando:[],     
       },{
         validators: this.componentesService.soniguales('correo','correo1')
@@ -83,15 +85,16 @@ ngsubmit() {
     this.formaForm.markAllAsTouched();
     return;
    }
-   console.log(this.formaForm.value);
+   console.log(this.formaForm);
+
 
    if(this.usuario.dispo == "token virtual"){
     this.componentesService.emitircambio("infoperso");
-  
     this.router.navigate(['/flujo/contacto']);
   }else if(this.usuario.dispo == "token fisico"){
     this.componentesService.emitircambio("entrega");
     this.router.navigate(['/flujo/entrega']);
+  
   
   }
      
@@ -137,6 +140,45 @@ get pass2NoValido() {
 }
 
 
+
+/*validar tamaño de archivo*/ 
+getFileDetails (event) {
+  for (var i = 0; i < event.target.files.length; i++) { 
+    let name = event.target.files[i].name;
+    let type = event.target.files[i].type;
+    let size = event.target.files[i].size;
+    let modifiedDate = event.target.files[i].lastModifiedDate;
+    
+    console.log (
+      'Name: ' + name + "\n" + 
+      'Type: ' + type + "\n" +
+      'Last-Modified-Date: ' + modifiedDate + "\n" +
+      'Size: ' + Math.round(size / 1024) + " KB");
+      let tamano = Math.round(size / 1024);
+
+      if(type == "application/pdf"){
+      
+        this.tipos = false;
+      }else{
+        
+        this.formaForm.controls["imageInput"].setValidators([Validators.required]);
+        this.tipos = true;
+
+      }
+
+      console.log(type);
+      if(tamano > 10240){
+      
+        this.archivos = true;
+        console.log('mayor');
+      }else{
+      console.log('menor');
+      this.archivos = false;
+      }
+  }
+
+}
+
 cargarDataAlFormulario() {
 
   // this.forma.setValue({
@@ -145,8 +187,8 @@ cargarDataAlFormulario() {
     apellido: 'Perez',
     correo: 'edissonalonso@gmail.com',
     correo1: 'edissonalonso@gmail.com',
-     documentos: 'false',
-     cargando: '',
+    documentos: 'false',
+    cargando: '',
   });
 
 }

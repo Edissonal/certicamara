@@ -1,5 +1,5 @@
 import { Injectable, ViewChild, ElementRef } from '@angular/core';
-import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -181,8 +181,6 @@ validar(min = 1) {
         formGroup.get(campo2).setErrors({ noiguales: true });
         return {noiguales:true}
       }
-
-      
       
       formGroup.get(campo2).setErrors(null);
        return null;
@@ -214,7 +212,6 @@ validar(min = 1) {
       
   
   }
-
 
 
   

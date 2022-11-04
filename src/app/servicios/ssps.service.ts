@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -10,10 +11,26 @@ export class SspsService {
   url = 'http://localhost:3000';
 
 
-  constructor(private http:HttpClient) { }
+    // declaracion de sujeto para multiples observables  Fuentes de cadenas observables
+    private  envios = new Subject<any>();
+    // Flujos de cadenas observables
+    // Observable de tipo string 
+    eventos$ = this.envios.asObservable();
+    // Comandos de mensajes de servicio
+  
+  
+  
+
+  constructor(private http:HttpClient) {  
+  
+  }
 
 
+  /*emicion de eventos flujo de compra*/
 
+    eventos(change: any) {
+    this.envios.next(change);
+}
   getpreguntas() {
     return this.http.get(`${ this.url}/preguntas`);
   }
@@ -48,5 +65,12 @@ export class SspsService {
 nopedido(){
   return this.http.get(`${ this.url}/nopedido`);
 }
+
+
+nodescuentop(termino){
+  console.log(termino);
+  return this.http.get(`${ this.url}/descuentos/?q=${termino}`);
+}
+
 
 }
