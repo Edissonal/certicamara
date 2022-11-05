@@ -143,6 +143,8 @@ get pass2NoValido() {
 
 /*validar tamaño de archivo*/ 
 getFileDetails (event) {
+
+  this.componentesService.camposinput(event);
   for (var i = 0; i < event.target.files.length; i++) { 
     let name = event.target.files[i].name;
     let type = event.target.files[i].type;
@@ -161,7 +163,8 @@ getFileDetails (event) {
         this.tipos = false;
       }else{
         
-        this.formaForm.controls["imageInput"].setValidators([Validators.required]);
+        this.formaForm.controls["cargando"].setValidators([Validators.required]);
+        this.formaForm.get('cargando').updateValueAndValidity();
         this.tipos = true;
 
       }

@@ -213,10 +213,69 @@ validar(min = 1) {
   
   }
 
+  camposinput(inputfile:any){
+    return (formGroup: AbstractControl): ValidationErrors  | null => {
+      
+
+  const evento = formGroup.get(inputfile).value;
+
+  console.log(evento);
+    
+  for (var i = 0; i < evento.target.files.length; i++) { 
+    let name = evento.target.files[i].name;
+    let type = evento.target.files[i].type;
+    let size = evento.target.files[i].size;
+    let modifiedDate = evento.target.files[i].lastModifiedDate;
+    
+    console.log (
+      'Name: ' + name + "\n" + 
+      'Type: ' + type + "\n" +
+      'Last-Modified-Date: ' + modifiedDate + "\n" +
+      'Size: ' + Math.round(size / 1024) + " KB");
+      let tamano = Math.round(size / 1024);
+
+      if(type == "application/pdf"){
+      
+       
+      }else{
+        
+        formGroup.get(inputfile).setErrors({ vacioindi: true });
+        return {vacioindi:true}
+
+      }
+
+      console.log(type);
+  /*    if(tamano > 10240){
+      
+        this.archivos = true;
+        console.log('mayor');
+      }else{
+      console.log('menor');
+      this.archivos = false;
+      }
+  }
+        
+   /* formGroup.get(indicativo).setErrors({ vacioindi: true });
+    return {vacioindi:true}*/
+     
+    
+ 
+  
+    
+    }
+    formGroup.get(inputfile).setErrors(null);
+    return null; 
+  
+  }
+
+
+
+
 
   
 }
 
+}
 
 
 
