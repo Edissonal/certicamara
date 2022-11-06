@@ -19,6 +19,7 @@ export class InfoBasicaComponent implements OnInit {
   usuario:any;
   archivos:boolean= false;
   tipos:boolean= false;
+  mayor : boolean=false;
 
 
   constructor(private fb:FormBuilder,
@@ -55,10 +56,10 @@ export class InfoBasicaComponent implements OnInit {
         validators: this.componentesService.soniguales('correo','correo1')
       });    
 
-      
 
-  
   }
+
+
 
   /* funcion para validacion de campos*/
 camposvalidos(campo:any){
@@ -144,7 +145,7 @@ get pass2NoValido() {
 /*validar tamaño de archivo*/ 
 getFileDetails (event) {
 
-  this.componentesService.camposinput(event);
+  
   for (var i = 0; i < event.target.files.length; i++) { 
     let name = event.target.files[i].name;
     let type = event.target.files[i].type;
@@ -162,16 +163,21 @@ getFileDetails (event) {
       
         this.tipos = false;
       }else{
-        
+        this.formaForm.reset('cargando');
         this.formaForm.controls["cargando"].setValidators([Validators.required]);
         this.formaForm.get('cargando').updateValueAndValidity();
         this.tipos = true;
+        this.cambiologo2 = true;
 
       }
 
       console.log(type);
       if(tamano > 10240){
       
+        this.archivos = true;
+        this.formaForm.reset('cargando');
+        this.formaForm.controls["cargando"].setValidators([Validators.required]);
+        this.formaForm.get('cargando').updateValueAndValidity();
         this.archivos = true;
         console.log('mayor');
       }else{
@@ -181,6 +187,7 @@ getFileDetails (event) {
   }
 
 }
+
 
 cargarDataAlFormulario() {
 

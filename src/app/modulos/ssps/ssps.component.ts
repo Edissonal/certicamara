@@ -24,7 +24,8 @@ export class SspsComponent implements OnInit {
   cantidad: boolean = false;
   elementofi: any;
   desactiva = true;
-  elementose:number;
+  anterior:boolean= true;
+  elementose:any;
   //muestreo de campos 
   muestreo:boolean= false;
   tipodis:object;
@@ -35,6 +36,8 @@ export class SspsComponent implements OnInit {
   preciosd:any[]=[];
   redirecion:boolean= false;
   contador:number =0;
+  vista:boolean = true;
+
   
 
 
@@ -94,8 +97,9 @@ export class SspsComponent implements OnInit {
   
 
     this.elementose =valor;
+    this.vista = true;
     
-    console.log("model "+this.elementose);
+    console.log(this.elementose);
     this.desactiva = false;
 
   }
@@ -239,24 +243,18 @@ export class SspsComponent implements OnInit {
       if(this.formaForm2.valid){
         console.log(this.formaForm2.value);
         let {checks2,cantidad,anos} = this.formaForm2.value;
-         this.ssps.politica(checks2)
-         .subscribe((res:any)=>{
-         let [datos,...data] = res;
-             let poli = datos.politica;
+        let datos = {
+          cantidad:cantidad,
+          anos:anos,
+          idpoli:this.elementose.id,
+          politica:this.elementose.politica,
+          costo:this.resultado
+        }
 
-              datos = {
-                cantidad:cantidad,
-                anos:anos,
-                politica:poli,
-                costo:this.resultado
-              }
-              
-             this.usuario = JSON.parse(localStorage.getItem('usuario'));
-             Object.assign(this.usuario, datos);
-             localStorage.setItem("usuario", JSON.stringify( this.usuario));
-             this.show = true;
-           
-        });
+        this.usuario = JSON.parse(localStorage.getItem('usuario'));
+        Object.assign(this.usuario, datos);
+        localStorage.setItem("usuario", JSON.stringify( this.usuario));
+        this.show = true;
 
         this.desactiva = false;
       }    
@@ -268,6 +266,9 @@ export class SspsComponent implements OnInit {
   estados() {
     this.desactiva = true;
     this.contador = this.contador + 1;
+    if(this.contador >= 0){
+    this.anterior = false;
+    }
     console.log(this.contador);
     if(this.contador == 4){
       this.cerrarmodal();
@@ -280,11 +281,16 @@ export class SspsComponent implements OnInit {
     }
   }
 
+  /*valida estados del boton anterior*/
   estados2(){
     this.desactiva = true;
     this.contador = this.contador - 1;
     console.log(this.contador);
   
+    if(this.contador <= 0){
+      this.anterior = true;
+    }
+
   }
 
 

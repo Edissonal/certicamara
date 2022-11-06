@@ -1,5 +1,5 @@
 <!--implementacion modal preguntas de caracterizacion-->
-<div class="modal fade animate__animated animate__fadeIn animate__fast" id="ssps1">
+<div class="modal fade animate__animated animate__fadeIn animate__fast" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" id="ssps1">
 
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content ">
@@ -84,7 +84,7 @@
                                                        class="form-check-input" 
                                                        [value]='poli.id'
                                                        formControlName="checks"
-                                                       (change)="politica(poli.id)"
+                                                       (change)="politica(poli)"
                                                       >
                                                 <label class="form-check-label" 
                                                        for="exampleCheck1">
@@ -169,24 +169,23 @@
                                     <div class="row">
                                        
                                         <div class="col-lg-6" 
-                                            *ngFor="let poli of directiva;">
+>
+                                             
 
-
-                                            <div class="mb-1 form-check">
+                                            <div class="mb-1 form-check" *ngIf="vista">
                                                 <input type="radio"
                                             
                                                        class="form-check-input" 
                                                        formControlName="checks2"
-                                                       [value]="poli.id"
+                                                       [value]="elementose"
                                                        [(ngModel)]="elementose"
-                                                       [checked]="(elementose === poli.id)"
                                                       >
                                                 <label class="form-check-label" 
                                                        for="exampleCheck1">
                                                     <p data-bs-toggle="tooltip" 
                                                        data-bs-placement="top"
-                                                        title="{{poli.desciption}}">
-                                                        <small>{{poli.politica}}</small>
+                                                       title="{{elementose?.desciption}}">
+                                                        <small>{{elementose?.politica}}</small>
                                                     </p>
 
                                                 </label>
@@ -263,6 +262,7 @@
                             data-bs-target="#carouselExampleControlsNoTouching"
                             data-bs-slide="prev"
                             (click)="estados2()"
+                            [disabled]="anterior"
                             >anterior</button>
                             
 
