@@ -36,8 +36,8 @@ export class PagoComponent implements OnInit {
 
     if (this.usuario.dispo == "token virtual") {
 
-      this.router.navigate(['/flujo/contacto']);
-      this.componentesService.emitircambio("infopersor");
+      this.router.navigate(['/flujo/facturacion']);
+      this.componentesService.emitircambio("reverfactu");
 
     } else if (this.usuario.dispo == "token fisico") {
 

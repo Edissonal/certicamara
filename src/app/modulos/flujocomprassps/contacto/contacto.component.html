@@ -2,24 +2,79 @@
 
   <div class="row ms-1 mt-3">
 
-    <h5 class="titulosintu2">datos de contacto</h5>
+    <h5 class="titulosintu2">Datos de contacto</h5>
     <br>
 
     <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
-    <div class="row">
+   
+   <div class="row">
+    <div class="col">
+      <div class="col">
+        <label class="form-label">Nombres:</label>
+        <input type="text" 
+                class="form-control" 
+                placeholder="nombres" 
+                formControlName="nombres"
+          [class.is-invalid]="camposvalidos('nombres')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('nombres')">nombres inválidos</div>
+
+
+
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="col">
+        <label class="form-label">Apellidos:</label>
+        <input type="text" 
+                class="form-control" 
+                placeholder="apellidos" 
+                formControlName="apellidos"
+          [class.is-invalid]="camposvalidos('apellidos')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('apellidos')">apellidos inválidos</div>
+
+
+
+      </div>
+
+    </div>
+   </div>
+   
+      <div class="row">
+
+        <div class="mb-3">
+
+
+      <div class="col mt-3">
+            <label class="form-label">Cargo:</label>
+            <input type="text" 
+                    class="form-control" 
+                    placeholder="cargo" 
+                    formControlName="cargo"
+              [class.is-invalid]="camposvalidos('cargo')">
+            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="camposvalidos('cargo')">cargo inválido</div>
+  
+  
+  
+          </div>
+  
+        </div>
 
       <div class="mb-3">
 
 
         <div class="col">
-          <label class="form-label">correo electronico:</label>
+          <label class="form-label">Correo electronico:</label>
           <input type="text" 
                   class="form-control" 
                   placeholder="correo electronico" 
                   formControlName="correo"
             [class.is-invalid]="camposvalidos('correo')">
           <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-            *ngIf="camposvalidos('correo')">correo invalido</div>
+            *ngIf="camposvalidos('correo')">correo inválido</div>
 
 
 
@@ -33,13 +88,13 @@
 
 
         <div class="col">
-          <label class="form-label">cedular:</label>
+          <label class="form-label">Cedular:</label>
           <input type="number" class="form-control" 
                  placeholder="celular" 
                  formControlName="celular"
                 [class.is-invalid]="camposvalidos('celular')">
           <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-            *ngIf="camposvalidos('celular')">celular invalido</div>
+            *ngIf="camposvalidos('celular')">Celular inválido</div>
 
 
 
@@ -48,7 +103,7 @@
 
         <div class="mb-3">
 
-          <label class="form-label mt-3">telefono fijo:</label>
+          <label class="form-label mt-3">Telefono fijo:</label>
           <div class="row">
 
             <div class="col">
@@ -65,7 +120,7 @@
                   <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
                 </datalist>
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                *ngIf="camposvalidos('indicativo')">indicativo invalido</div>
+                *ngIf="camposvalidos('indicativo')">indicativo inválido</div>
             </div>
             <div class="col">
 
@@ -76,7 +131,7 @@
                      [class.is-invalid]="camposvalidos('telefono')"
                      >
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                *ngIf="camposvalidos('correo')">telefono invalido</div>
+                *ngIf="camposvalidos('correo')">telefono inválido</div>
             </div>
             <div class="col">
               <input type="number" 
@@ -85,7 +140,7 @@
                      formControlName="extenxion"
                 [class.is-invalid]="camposvalidos('extenxion')">
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
-                *ngIf="camposvalidos('extenxion')">extension invalido</div>
+                *ngIf="camposvalidos('extenxion')">extension inválido</div>
             </div>
           </div>
         </div>

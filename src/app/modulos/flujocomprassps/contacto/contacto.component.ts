@@ -18,6 +18,7 @@ export class ContactoComponent implements OnInit {
   codindi: any;
   codigo:any;
   usuario:any;
+  
 
   constructor(private fb: FormBuilder,
     private router: Router,
@@ -27,7 +28,20 @@ export class ContactoComponent implements OnInit {
 
     /*validacion de campos validators*/
     this.formaForm = this.fb.group({
-
+    nombres:['',[Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(60),
+        Validators.pattern("[a-zA-Z ]{2,254}")
+      ]
+      ],
+     apellidos:['',[Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(60),
+            Validators.pattern("[a-zA-Z ]{2,254}")]],
+    cargo:['',[Validators.required,
+              Validators.minLength(3),
+              Validators.maxLength(60),
+              Validators.pattern("[a-zA-Z ]{2,254}")]],
       correo: ['', [Validators.required,
       Validators.minLength(8),
       Validators.maxLength(60),
@@ -86,8 +100,8 @@ export class ContactoComponent implements OnInit {
 
 
     this.componentesService.emitircambio("contactof");
-    this.componentesService.emitircambio("mostrarordencambio");
-    this.router.navigate(['/flujo/pago'])
+   // this.componentesService.emitircambio("mostrarordencambio");
+    this.router.navigate(['/flujo/entregan'])
   }
 
 /* funcion para los errores indicados*/
@@ -119,7 +133,7 @@ export class ContactoComponent implements OnInit {
   redireciona(){
     if(this.usuario.dispo == "token virtual"){
     this.router.navigate(['/flujo/infobasi']);
-    this.componentesService.emitircambio("infobasic");
+    this.componentesService.emitircambio("reveinfobasi");
 
   }else if(this.usuario.dispo == "token fisico"){
 
@@ -135,10 +149,13 @@ export class ContactoComponent implements OnInit {
     // this.forma.setValue({
     this.formaForm.setValue({
       correo: 'edissonalonso@gmail.com',
+      nombres: 'edisson andres',
+      apellidos: 'alonso',
+      cargo: 'alonso',
       celular: '3142082530',
       indicativo: 'arauca',
-       telefono: '7261470',
-       extenxion: '2222',
+      telefono: '7261470',
+      extenxion: '2222',
     });
   
   }

@@ -13,6 +13,8 @@ export class FlujocomprasspsComponent implements OnInit {
   @ViewChild('margen', { read: ElementRef, static:false }) margen: ElementRef;
   @ViewChild('basica', { read: ElementRef, static:false }) basica: ElementRef;
   @ViewChild('contacto', { read: ElementRef, static:false }) contacto: ElementRef;
+  @ViewChild('entregan', { read: ElementRef, static:false }) entregan: ElementRef;
+  @ViewChild('facturacionn', { read: ElementRef, static:false }) facturacionn: ElementRef;
   @ViewChild('entrega', { read: ElementRef, static:false }) entrega: ElementRef;
   @ViewChild('pago', { read: ElementRef, static:false }) pago: ElementRef;
 
@@ -112,9 +114,26 @@ validaflujos(){
       } else if(res =="contactof" && this.compras.dispo =="token virtual"){
         this.contacto.nativeElement.classList.remove('flujos');
         this.contacto.nativeElement.classList.add('flujosin');
+        this.entregan.nativeElement.classList.remove('flujosin');
+        this.entregan.nativeElement.classList.add('flujos');
+      }
+      else if(res =="facturacionn" && this.compras.dispo =="token virtual"){
+        this.entregan.nativeElement.classList.remove('flujos');
+        this.entregan.nativeElement.classList.add('flujosin');
+        this.facturacionn.nativeElement.classList.remove('flujosin');
+        this.facturacionn.nativeElement.classList.add('flujos');
+      }
+
+      else if(res =="pagos" && this.compras.dispo =="token virtual"){
+        this.facturacionn.nativeElement.classList.remove('flujos');
+        this.facturacionn.nativeElement.classList.add('flujosin');
         this.pago.nativeElement.classList.remove('flujosin');
         this.pago.nativeElement.classList.add('flujos');
       }
+ 
+ 
+      
+
       else if(res =="entrega" && this.compras.dispo =="token fisico"){
         this.basica.nativeElement.classList.remove('flujos');
         this.basica.nativeElement.classList.add('flujosin');
@@ -130,29 +149,50 @@ validaflujos(){
 
 
  /* regreso de flujo*/
-  if(res =="entregar" && this.compras.dispo =="token fisico"){
+
+ 
+ else if(res =="reverfactu" && this.compras.dispo =="token virtual"){
+  this.pago.nativeElement.classList.remove('flujos');
+  this.pago.nativeElement.classList.add('flujosin');
+  this.facturacionn.nativeElement.classList.remove('flujosin');
+  this.facturacionn.nativeElement.classList.add('flujos');
+}
+else if(res =="reveentregan" && this.compras.dispo =="token virtual"){
+  this.facturacionn.nativeElement.classList.remove('flujos');
+  this.facturacionn.nativeElement.classList.add('flujosin');
+  this.entregan.nativeElement.classList.remove('flujosin');
+  this.entregan.nativeElement.classList.add('flujos');
+}
+
+else if(res =="revecontacto" && this.compras.dispo =="token virtual"){
+  this.entregan.nativeElement.classList.remove('flujos');
+  this.entregan.nativeElement.classList.add('flujosin');
+  this.contacto.nativeElement.classList.remove('flujosin');
+  this.contacto.nativeElement.classList.add('flujos');
+}
+else if(res =="reveinfobasi" && this.compras.dispo =="token virtual"){
+  this.contacto.nativeElement.classList.remove('flujos');
+  this.contacto.nativeElement.classList.add('flujosin');
+  this.basica.nativeElement.classList.remove('flujosin');
+  this.basica.nativeElement.classList.add('flujos');
+} 
+
+
+
+
+
+else if(res =="entregar" && this.compras.dispo =="token fisico"){
 
   this.pago.nativeElement.classList.remove('flujos');
   this.pago.nativeElement.classList.add('flujosin');
   this.entrega.nativeElement.classList.remove('flujosin');
   this.entrega.nativeElement.classList.add('flujos');
 }
-else if(res =="infopersor" && this.compras.dispo =="token virtual"){
-  this.pago.nativeElement.classList.remove('flujos');
-  this.pago.nativeElement.classList.add('flujosin');
-  this.contacto.nativeElement.classList.remove('flujosin');
-  this.contacto.nativeElement.classList.add('flujos');
-}
+
 
 else if(res =="infobasir" && this.compras.dispo =="token fisico"){
   this.entrega.nativeElement.classList.remove('flujos');
   this.entrega.nativeElement.classList.add('flujosin');
-  this.basica.nativeElement.classList.remove('flujosin');
-  this.basica.nativeElement.classList.add('flujos');
-}
-else if(res =="infobasic" && this.compras.dispo =="token virtual"){
-  this.contacto.nativeElement.classList.remove('flujos');
-  this.contacto.nativeElement.classList.add('flujosin');
   this.basica.nativeElement.classList.remove('flujosin');
   this.basica.nativeElement.classList.add('flujos');
 }

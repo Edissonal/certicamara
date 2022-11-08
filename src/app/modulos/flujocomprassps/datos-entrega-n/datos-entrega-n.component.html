@@ -1,0 +1,86 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <h5 class="titulosintu2">Datos de Entrega</h5>
+    <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+
+ 
+        <div class="mb-3">
+
+            <label class="form-label mt-3">Telefono fijo:</label>
+            <div class="row">
+  
+              <div class="col">
+  
+                  <input  class="form-control" 
+                          list="browsers" 
+                          formControlName="indicativo" 
+                          placeholder="indicativo"
+                          [(ngModel)]="codigo"
+                          (change)="verficacion($event)"
+                          [class.is-invalid]="camposvalidos('indicativo')"
+                  >
+                  <datalist id="browsers">
+                    <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                  </datalist>
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('indicativo')">indicativo inválido</div>
+              </div>
+
+
+              <div class="col">
+  
+                <input type="number" 
+                       class="form-control" 
+                       placeholder="telefono" 
+                       formControlName="telefono"
+                       [class.is-invalid]="camposvalidos('telefono')"
+                       >
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('correo')">telefono inválido</div>
+              </div>
+              <div class="col">
+                <input type="number" 
+                       class="form-control" 
+                       placeholder="extension" 
+                       formControlName="extenxion"
+                  [class.is-invalid]="camposvalidos('extenxion')">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('extenxion')">extension inválido</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="mb-3">
+
+
+            <div class="col">
+              <label class="form-label">Correo electronico:</label>
+              <input type="text" 
+                      class="form-control" 
+                      placeholder="correo electronico" 
+                      formControlName="correo"
+                [class.is-invalid]="camposvalidos('correo')">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('correo')">correo inválido</div>
+    
+    
+    
+            </div>
+    
+          </div>
+
+          <p class="text-danger">
+            En el documento  se compartirá toda la información necesaria para la formación del producto.
+           </p>
+  
+
+          <div class="mb-3">
+            <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+            <button type="submit" class="btn btn-primary">siguiente</button>
+            
+          </div>
+        
+    </form>
+
+</div>

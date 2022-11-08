@@ -19,6 +19,8 @@ import { PagoComponent } from '../flujocomprassps/pago/pago.component';
 import { NocopiadoDirective } from 'src/app/directivas/nocopiado.directive';
 import { ContactoComponent } from '../flujocomprassps/contacto/contacto.component';
 import { EntregaComponent } from '../flujocomprassps/entrega/entrega.component';
+import { DatosEntregaNComponent } from '../flujocomprassps/datos-entrega-n/datos-entrega-n.component';
+import { DatosFacturacionComponent } from '../flujocomprassps/datos-facturacion/datos-facturacion.component';
 
 
 
@@ -43,7 +45,9 @@ import { EntregaComponent } from '../flujocomprassps/entrega/entrega.component';
     PagoComponent,
     ContactoComponent,
     NocopiadoDirective,
-    EntregaComponent
+    EntregaComponent,
+    DatosEntregaNComponent,
+    DatosFacturacionComponent
 
   ],
   imports: [

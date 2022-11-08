@@ -1,0 +1,210 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <h5 class="titulosintu2">Datos de  facturacion</h5>
+
+    <form [formGroup]="formaForm" 
+          (ngSubmit)="ngsubmit()">
+        <div class="row">
+       
+       
+          <div class="col">
+                <label 
+                class="form-label">Nit</label>
+                <input type="number" 
+                class="form-control" 
+                placeholder="nit"
+                formControlName="nit"
+                [class.is-invalid]="camposvalidos('nit')">
+                <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('nit')">nit inválido</div>
+            </div>
+            <div class="col">
+            <label 
+             class="form-label">Razón social</label>
+              <input type="text" 
+                    class="form-control" 
+                    placeholder="Razón social"
+                    formControlName="razon"
+                    [class.is-invalid]="camposvalidos('razon')">
+             <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+             *ngIf="camposvalidos('razon')">razon social inválida</div>
+            </div>
+    
+            <div class="mb-3">
+
+                <label class="form-label mt-3">Dirección:</label>
+                <div class="row">
+      
+                  <div class="col">
+                    <input type="text" 
+                    class="form-control" 
+                    placeholder="cra" 
+                    formControlName="direccion1"
+                    [class.is-invalid]="camposvalidos('direccion1')">
+
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('direccion1')">dato inválido</div>
+                  </div>
+                  <div class="col">
+      
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="cra2" 
+                           formControlName="direccion2"
+                           [class.is-invalid]="camposvalidos('direccion2')"
+                           >
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('direccion2')">dato inválido</div>
+                  </div>
+                  <div class="col">
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="cra3" 
+                           formControlName="direccion3"
+                      [class.is-invalid]="camposvalidos('direccion3')">
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('direccion3')">dato inválido</div>
+                  </div>
+                  <div class="col">
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="cra4" 
+                           formControlName="direccion4"
+                      [class.is-invalid]="camposvalidos('direccion4')">
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('direccion4')">dato inválido</div>
+                  </div>
+                </div>
+              </div>
+
+                
+            </div>
+
+
+
+            <div class="mb-3">
+
+
+                <div class="col">
+                  <label class="form-label">Direccion completa:</label>
+                  <input type="text" 
+                          class="form-control" 
+                          placeholder="Direccion completa" 
+                          formControlName="direccionp"
+                          [class.is-invalid]="camposvalidos('direccionp')">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('direccionp')">direccion  inválida</div>
+                </div>
+        
+              </div>
+
+              <div class="mb-3">
+
+                <label class="form-label">Telefono:</label>
+                <input type="number" class="form-control" 
+                       placeholder="telefono" 
+                       formControlName="telefono"
+                      [class.is-invalid]="camposvalidos('telefono')">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('celular')">telefono inválido</div>
+      
+      
+      
+              </div>
+
+              <div class="mb-3">
+
+                <label class="form-label">Celular:</label>
+                <input type="number" class="form-control" 
+                       placeholder="celular" 
+                       formControlName="celular"
+                      [class.is-invalid]="camposvalidos('celular')">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('celular')">celular inválido</div>
+      
+      
+      
+              </div>
+
+              <div class="mb-3">
+
+
+                <div class="col">
+                  <label class="form-label">Correo electronico:</label>
+                  <input type="text" 
+                          class="form-control" 
+                          placeholder="correo electronico" 
+                          formControlName="correo"
+                    [class.is-invalid]="camposvalidos('correo')">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo')">correo inválido</div>
+        
+        
+        
+                </div>
+        
+              </div>
+        
+              <div class="row mb-4">
+                <div class="col">
+                    <label class="form-label">Tipo de Capital</label>
+                    <select class="form-select" 
+                            formControlName="capital"
+                            [class.is-invalid]="camposvalidos('capital')">
+                        <option class="form-control">Mixto</option>
+                        <option class="form-control">Privado</option>
+                        <option class="form-control">Público</option>
+                  
+                    </select>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('capital')">capital inválido</div>
+                </div>
+                <div class="col">
+                    <label class="form-label">Régimen Tributario</label>
+                    <select class="form-select" 
+                            formControlName="regimentributario"
+                            [class.is-invalid]="camposvalidos('regimentributario')">
+                        <option class="form-control">Empresa del Estado.</option>
+                        <option class="form-control">Gran Contribuyente.</option>
+                        <option class="form-control">No Residente en el País.</option>
+                        <option class="form-control">Régimen Común.</option>
+                        <option class="form-control">Régimen Simplificado</option>
+                  
+                    </select>
+                </div>
+                          <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                         *ngIf="camposvalidos('regimentributario')">regimen tributario inválido</div>
+            </div>
+
+
+
+              <div class="mb-3">
+
+                <div class="row">
+                    <div class="col">
+                        <label 
+                        class="form-label">Código de actividad Económica</label>
+                 <input type="number" 
+                        class="form-control" 
+                        placeholder="codigo de actividad"
+                        formControlName="codigo"
+                        appNocopiado
+                        [class.is-invalid]="camposvalidos('codigo')">
+                        <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                        *ngIf="camposvalidos('codigo')">codigo actividad economica</div>
+                    </div>
+                </div>
+        
+                </div>
+            
+
+
+
+                <div class="mb-3">
+                  <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+                  <button type="submit" class="btn btn-primary">siguiente</button>
+                  
+                </div>
+            </form>  
+
+</div>
