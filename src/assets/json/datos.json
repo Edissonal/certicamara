@@ -1,0 +1,21 @@
+{
+ 	  "reportados":[
+		  {
+            "id":1,
+            "cedula":"1073680979",
+			"resportado":"true",
+        },
+			  {
+            "id":1,
+            "cedula":"1073680978",
+			"resportado":"false",
+        },
+	      {
+            "id":1,
+            "cedula":"1073680977",
+			"resportado":"false",
+        },
+		]
+
+
+}

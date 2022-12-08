@@ -33,6 +33,7 @@
              
 
                 <div class="row">
+<<<<<<< HEAD
                     <ng-template  [ngIf]="compras.cliente == 'natural'">
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                         <div  [class]="validaflujos()"
@@ -52,22 +53,39 @@
                     </ng-template>
 
                    
+=======
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div [class]="validaflujos()"
+                             #basica>
+                        <p class="lineadetiempo"><span>informacion</span><span> basica</span></p></div>
+                        </div>
+                    
+                        <ng-template [ngIf]="compras.dispo == 'token virtual'">
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                         
                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" >
                         <div class="flujosin" #contacto>
                             <p class="lineadetiempo"><span>datos de</span> <span>contacto tecnico</span></p>
                         </div>
                         </div>
+<<<<<<< HEAD
            
 
               
 
+=======
+                    </ng-template>
+
+                    <ng-template [ngIf]="compras.dispo == 'token virtual'">
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                         
                         <div class="ccol-lg-2 col-md-2 col-sm-12 col-xs-12" >
                         <div class="flujosin" #entregan>
                             <p class="lineadetiempo"><span>datos de</span> <span>entrega</span></p>
                         </div>
                         </div>
+<<<<<<< HEAD
  
 
                     
@@ -77,6 +95,28 @@
                             </div>
                             </div>
                         
+=======
+                    </ng-template>
+
+                    
+                    <ng-template [ngIf]="compras.dispo == 'token virtual'">
+                        
+                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" >
+                        <div class="flujosin" #facturacionn>
+                            <p class="lineadetiempo"><span>datos </span> <span>facturacion</span></p>
+                        </div>
+                        </div>
+                    </ng-template>
+
+                    
+                    <ng-template [ngIf]="compras.dispo == 'token fisico'">
+                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                            <div class="flujosin" #entrega>
+                                <p class="lineadetiempo"><span>datos de</span> <span>entrega</span></p>
+                            </div>
+                            </div>
+                        </ng-template>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                             <div class="col-lg-2 col-md-2-3 col-sm-12 col-xs-12">
                                 <div class="flujosin" #pago>
                                     <p class="lineadetiempo"><span style="padding-top: 10px; padding-bottom:14px ;">pago</span><span></span></p>

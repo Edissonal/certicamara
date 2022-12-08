@@ -17,10 +17,13 @@ import { ContactoComponent } from '../modulos/flujocomprassps/contacto/contacto.
 import { EntregaComponent } from '../modulos/flujocomprassps/entrega/entrega.component';
 import { DatosEntregaNComponent } from '../modulos/flujocomprassps/datos-entrega-n/datos-entrega-n.component';
 import { DatosFacturacionComponent } from '../modulos/flujocomprassps/datos-facturacion/datos-facturacion.component';
+<<<<<<< HEAD
 import { InstalacionesComponent } from '../modulos/flujocomprassps/instalaciones/instalaciones.component';
 import { PaceToPlayComponent } from '../modulos/flujocomprassps/pace-to-play/pace-to-play.component';
 import { DatosempresaComponent } from '../modulos/flujocomprassps/datosempresa/datosempresa.component';
 import { SolicitantesComponent } from '../modulos/flujocomprassps/solicitantes/solicitantes.component';
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -54,10 +57,13 @@ children: [
   {path: 'entrega', component:EntregaComponent},
   {path: 'entregan', component:DatosEntregaNComponent},
   {path: 'facturacion', component:DatosFacturacionComponent},
+<<<<<<< HEAD
   {path: 'instalaciones', component:InstalacionesComponent},
   {path: 'pasarela', component:PaceToPlayComponent},
   {path: 'dempresa', component:DatosempresaComponent},
   {path: 'solicitantes', component:SolicitantesComponent},
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   {path:'**' ,component:InfoBasicaComponent},
   ]
 },

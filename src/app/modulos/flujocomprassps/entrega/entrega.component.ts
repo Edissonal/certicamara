@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import { Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComponentesService } from '../../../servicios/componentes.service';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { SspsService } from '../../../servicios/ssps.service';
+=======
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ComponentesService } from '../../../servicios/componentes.service';
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 @Component({
   selector: 'app-entrega',
@@ -11,6 +17,7 @@ import { SspsService } from '../../../servicios/ssps.service';
 })
 export class EntregaComponent implements OnInit {
 
+<<<<<<< HEAD
  formaForm!: FormGroup;
  indicativos: any[];
  codindi: any;
@@ -120,11 +127,18 @@ entrega:any;
 
     
     });
+=======
+  constructor( private router: Router,
+               private componentesService:ComponentesService) { }
+
+  ngOnInit(): void {
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
 
   redireciona(){
    
+<<<<<<< HEAD
     this.router.navigate(['/flujo/contacto']);
     this.componentesService.emitircambio("revecontacto");
   
@@ -231,5 +245,22 @@ prueba(){
   this.router.navigateByUrl('/flujo/instalaciones');
 }
 
+=======
+    this.router.navigate(['/flujo/infobasi']);
+    this.componentesService.emitircambio("infobasir");
+  
+  }
+
+  siguiente(){
+   
+    this.router.navigate(['/flujo/pago']);
+    this.componentesService.emitircambio("pago");
+    this.componentesService.emitircambio("mostrarordencambio");
+  
+  }
+  
+  
+  
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 }

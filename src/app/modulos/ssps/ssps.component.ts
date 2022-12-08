@@ -3,7 +3,10 @@ import { NgForm, FormGroup, ValidatorFn, AbstractControl, FormArray, FormBuilder
 import { SspsService } from '../../servicios/ssps.service';
 import { ComponentesService } from '../../servicios/componentes.service';
 import { Router, ActivatedRoute } from '@angular/router';
+<<<<<<< HEAD
 import { ObjetosService } from '../../servicios/objetos.service';
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 declare var window: any;
 declare var bootstrap: any;
 
@@ -14,7 +17,10 @@ declare var bootstrap: any;
 })
 export class SspsComponent implements OnInit {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   sspsl: any;
   sspsh: any;
   valores: '';
@@ -32,19 +38,26 @@ export class SspsComponent implements OnInit {
   muestreo:boolean= false;
   tipodis:object;
   check:boolean=false;
+<<<<<<< HEAD
   resultado:number;
+=======
+  resultado:any;
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   usuario:any;
   show:boolean=false;
   preciosd:any[]=[];
   redirecion:boolean= false;
   contador:number =0;
   vista:boolean = true;
+<<<<<<< HEAD
   vigencias:any[]=[];
   comas:boolean= false;
   quitar:any;
   timepo :string ='años';
   errorcantidad:boolean=false;
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   
 
@@ -55,13 +68,18 @@ export class SspsComponent implements OnInit {
               private componente:ComponentesService,
               private changeDetector: ChangeDetectorRef,
               private router: Router,
+<<<<<<< HEAD
               private activateRoute: ActivatedRoute,
               private objetosService:ObjetosService) {
+=======
+              private activateRoute: ActivatedRoute) {
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
    /*form array formulario1*/
     this.formaForm = this.fb.group({
         checks:['',[Validators.required]],
     });
 
+<<<<<<< HEAD
      /*form array formulario2*/
     this.formaForm2 = this.fb.group({
       checks2:['',[
@@ -73,6 +91,13 @@ export class SspsComponent implements OnInit {
                     Validators.max(99)
                   ]],
       anos:['',[Validators.required]]
+=======
+    this.formaForm2 = this.fb.group({
+      checks2:['',[Validators.required]],
+      dispositivo:['',[Validators.required]],
+      cantidad:[],
+      anos:[]
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     });
 
   }
@@ -115,6 +140,7 @@ export class SspsComponent implements OnInit {
     this.vista = true;
     
     console.log(this.elementose);
+<<<<<<< HEAD
 
     let {vigencia, ...otras } = this.elementose;
     this.vigencias = vigencia;
@@ -138,6 +164,10 @@ export class SspsComponent implements OnInit {
       this.desactiva = false;
     }
     
+=======
+    this.desactiva = false;
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   /*muestro de campos cantidad*/
@@ -163,7 +193,11 @@ export class SspsComponent implements OnInit {
             this.preciosd[i].estados =false; 
           }
     
+<<<<<<< HEAD
           if(this.preciosd[i].id == id  && isCheckeado2 == true && cliente == 'juridica' && this.preciosd[i].nombre == 'PKCS#10'){
+=======
+          if(this.preciosd[i].id == id  && isCheckeado2 == true && cliente == 'juridica' && this.preciosd[i].nombre == 'PCKS#10'){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             this.preciosd[i].estados =false; 
           }
     
@@ -171,7 +205,10 @@ export class SspsComponent implements OnInit {
 
       }
 
+<<<<<<< HEAD
       
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
     /*lista de precios*/
@@ -190,7 +227,11 @@ export class SspsComponent implements OnInit {
           this.preciosd[i].img ="../../../assets/img/usb.png"
         }
       
+<<<<<<< HEAD
         if(this.preciosd[i].nombre == "PKCS#10"){
+=======
+        if(this.preciosd[i].nombre == "PCKS#10"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           this.preciosd[i].img ="../../../assets/img/kpcs10.png"
         }
       
@@ -205,13 +246,18 @@ export class SspsComponent implements OnInit {
     this.formaForm2.valueChanges.subscribe(valores=>{
 
       /*las validaciones de persona juridica*/
+<<<<<<< HEAD
       this.formaForm2.get('cantidad').setValidators([Validators.required,
         Validators.min(1),
         Validators.max(99)]);
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
       let esenarios = valores.dispositivo;
       let cantidad  = valores.cantidad;
       let anos  =valores.anos;
+<<<<<<< HEAD
       //console.log(this.formaForm2);
       console.log(cantidad?.value);
       
@@ -222,6 +268,10 @@ export class SspsComponent implements OnInit {
         this.errorcantidad =true;
 
 }else{this.errorcantidad =false;}
+=======
+
+      console.log(esenarios);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
       let {cliente}=JSON.parse(localStorage.getItem('usuario'));
       
@@ -246,6 +296,7 @@ export class SspsComponent implements OnInit {
      
         }
         
+<<<<<<< HEAD
         if(this.preciosd[i].id == esenarios  && this.preciosd[i].nombre == 'PKCS#10' ){
           this.resultado = this.preciosd[i].precio *anos;
           //this.desactiva = false;
@@ -257,12 +308,17 @@ export class SspsComponent implements OnInit {
             this.desactiva = false;
          
           }
+=======
+        if(this.preciosd[i].id == esenarios  && this.preciosd[i].nombre == 'PCKS#10' ){
+          this.resultado = this.preciosd[i].precio *anos;
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         }
 
       }
 
    /*cambio calculo persona natural*/
       if(cliente == 'natural'){
+<<<<<<< HEAD
         
         if(this.preciosd[i].id == esenarios){
           console.log(this.resultado);
@@ -277,12 +333,24 @@ export class SspsComponent implements OnInit {
             dispo:this.preciosd[i].nombre,
             impuestos:this.preciosd[i].impuestos
             
+=======
+        if(this.preciosd[i].id == esenarios){
+          console.log(this.resultado);
+          this.resultado = this.preciosd[i].precio *anos;
+          this.tipodis={
+            idispo:this.preciosd[i].id,
+            dispo:this.preciosd[i].nombre
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           }
 
           let usuario = JSON.parse(localStorage.getItem('usuario'));
           Object.assign(usuario,  this.tipodis);
           localStorage.setItem("usuario", JSON.stringify(usuario));
+<<<<<<< HEAD
   
+=======
+     
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
        
         }
       
@@ -292,6 +360,7 @@ export class SspsComponent implements OnInit {
       }
        
        /*cambio de estado de boton siguiente*/
+<<<<<<< HEAD
       if(this.formaForm2.valid){this.desactiva = false;}
 
 
@@ -308,13 +377,25 @@ export class SspsComponent implements OnInit {
 
 
 
+=======
+      if(this.resultado > 0){this.desactiva = false;}
+
+
+
+
+    });
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     
     }
 
     /**
      *asignacion de valores vista compra 
      */ verifica(){
+<<<<<<< HEAD
       if(this.resultado > 0){
+=======
+      if(this.formaForm2.valid){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         console.log(this.formaForm2.value);
         let {checks2,cantidad,anos} = this.formaForm2.value;
         let datos = {
@@ -331,6 +412,7 @@ export class SspsComponent implements OnInit {
         this.show = true;
 
         this.desactiva = false;
+<<<<<<< HEAD
 
                 
         console.log("dispo"+this.usuario?.dispo);
@@ -350,6 +432,8 @@ export class SspsComponent implements OnInit {
         this.objetosService.jvirtual();
       }
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       }    
 
     }
@@ -367,6 +451,7 @@ export class SspsComponent implements OnInit {
       this.cerrarmodal();
      // 
       setTimeout(() => {
+<<<<<<< HEAD
        /*ruteo deacuerdo al tipo de persona*/
        if(this.usuario.cliente == "natural" ){
         this.router.navigate(['/flujo/infobasi']);
@@ -376,6 +461,9 @@ export class SspsComponent implements OnInit {
       
 
 
+=======
+        this.router.navigate(['/flujo']);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       }, 100);
   
   
@@ -489,6 +577,7 @@ export class SspsComponent implements OnInit {
     return this.formaForm2.controls[campo].errors && this.formaForm2.controls[campo].touched;
   }
 
+<<<<<<< HEAD
   //implementacion de validacion de comas
 noPuntoComa( event ) {
   
@@ -510,6 +599,9 @@ quitarceros(numero){
   this.quitar = numero.replace(/^0+/, '');
   }
   
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   /*implementacion de modal ssps*/
   cerrarmodal() {
@@ -518,6 +610,16 @@ quitarceros(numero){
 
   }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 }
 
 

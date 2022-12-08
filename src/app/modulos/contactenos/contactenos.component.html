@@ -21,28 +21,43 @@
       <div class="margen"></div>
         <div class="mb-3">
             <div class="row">
+<<<<<<< HEAD
               <ng-template  [ngIf]="usuario == 'natural'">
               
                 <div class="col">
                     <label 
                     class="form-label">Nombres completos</label>
+=======
+                <div class="col">
+                    <label 
+                    class="form-label">nombres completos</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                     <input type="text" 
                     class="form-control" 
                     placeholder="nombres completos"
                     formControlName="nombre"
                     [class.is-invalid]="camposvalidos('nombre')">
                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                     *ngIf="camposvalidos('nombre')">Nombres inválidos</div>
                 </div>
                 <div class="col">
                     <label 
                  class="form-label">Apellidos Completos</label>
+=======
+                    *ngIf="camposvalidos('nombre')">nombres invalidos</div>
+                </div>
+                <div class="col">
+                    <label 
+                 class="form-label">apellidos completos</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           <input type="text" 
                  class="form-control" 
                  placeholder=" apellidos completos"
                  formControlName="apellido"
                  [class.is-invalid]="camposvalidos('apellido')">
                  <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                  *ngIf="camposvalidos('apellido')">Apellidos inválidos</div>
         </div>
       </ng-template>
@@ -53,34 +68,62 @@
           
          
             <ng-template  [ngIf]="usuario == 'juridica'">      
+=======
+                 *ngIf="camposvalidos('apellido')">apellidos invalidos</div>
+        </div>
+                    
+                </div>
+            </div>
+          
+         
+                 
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
         <div class="mb-3">
 
             <label 
+<<<<<<< HEAD
                    class="form-label">Entidad / empresa u organización</label>
+=======
+                   class="form-label">entidad / empresa u organización</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             <input type="text" 
                    class="form-control" 
                    placeholder="entidad"
                    formControlName="empresa"
                    [class.is-invalid]="camposvalidos('empresa')">
                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                    *ngIf="camposvalidos('empresa')">Empresa inválida</div>
   </div>
 </ng-template>   
+=======
+                   *ngIf="camposvalidos('empresa')">empresa invalida</div>
+  </div>
+         
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
           <div class="mb-3">
 
             <div class="row">
                 <div class="col">
                     <label 
+<<<<<<< HEAD
                     class="form-label">Correo electrónico:</label>
+=======
+                    class="form-label">correo electronico:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
              <input type="text" 
                     class="form-control" 
                     placeholder="correo electronico"
                     formControlName="correo"
                     [class.is-invalid]="camposvalidos('correo')">
                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                     *ngIf="camposvalidos('correo')">Correo invalidó</div>
+=======
+                    *ngIf="camposvalidos('correo')">correo invalido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
                 </div>
     
@@ -92,11 +135,16 @@
 
             <div class="col">
                 <label 
+<<<<<<< HEAD
                 class="form-label">Teléfono de contacto:</label>
+=======
+                class="form-label">teléfono de contacto:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
          <input type="number" 
                 class="form-control" 
                 placeholder="telefono"
                 formControlName="telefono"
+<<<<<<< HEAD
                 [class.is-invalid]="camposvalidos('telefono')"
                 #datos
                 [(ngModel)]="quitar"
@@ -111,13 +159,26 @@
             <div class="col">
                 <label 
                 class="form-label">Ciudad:</label>
+=======
+                [class.is-invalid]="camposvalidos('telefono')">
+                <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('telefono')">telefono invalido</div>
+            </div>
+            <div class="col">
+                <label 
+                class="form-label">ciudad:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
          <input type="text" 
                 class="form-control" 
                 placeholder="ciudad"
                 formControlName="ciudad"
                 [class.is-invalid]="camposvalidos('ciudad')">
                 <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                 *ngIf="camposvalidos('ciudad')">Ciudad inválida</div>
+=======
+                *ngIf="camposvalidos('ciudad')">ciudad invalida</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             </div>
         </div>
 
@@ -125,7 +186,11 @@
   <br>
 
     
+<<<<<<< HEAD
         <button type="submit" class="btn btn-primary">Enviar</button>
+=======
+        <button type="submit" class="btn btn-primary">enviar</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       </form>
 
     </div>
@@ -156,9 +221,13 @@
          </p>
         </div>
         <div class="modal-footer">
+<<<<<<< HEAD
           <button type="button" class="btn btn-secondary" 
                   data-bs-dismiss="modal"
                   [routerLink]="['/home']">Aceptar</button>
+=======
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">finalizar</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         </div>
       </div>
     </div>

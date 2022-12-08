@@ -3,7 +3,10 @@ import { ComponentesService } from '../../servicios/componentes.service';
 import { SspsComponent } from '../ssps/ssps.component';
 import { SspsService } from '../../servicios/ssps.service';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 @Component({
   selector: 'app-flujocomprassps',
   templateUrl: './flujocomprassps.component.html',
@@ -16,6 +19,10 @@ export class FlujocomprasspsComponent implements OnInit {
   @ViewChild('contacto', { read: ElementRef, static:false }) contacto: ElementRef;
   @ViewChild('entregan', { read: ElementRef, static:false }) entregan: ElementRef;
   @ViewChild('facturacionn', { read: ElementRef, static:false }) facturacionn: ElementRef;
+<<<<<<< HEAD
+=======
+  @ViewChild('entrega', { read: ElementRef, static:false }) entrega: ElementRef;
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   @ViewChild('pago', { read: ElementRef, static:false }) pago: ElementRef;
 
   tamano!:number;
@@ -37,18 +44,28 @@ export class FlujocomprasspsComponent implements OnInit {
     this.componentesService.eventos$.subscribe(res => {  
       this.respuesta = res;
 
+<<<<<<< HEAD
      // console.log(this.respuesta);
         console.log(res);
+=======
+      console.log(this.respuesta);
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       if(this.respuesta == "mostrarordencambio"){
              this.nopedido=true;
              this.ssps.nopedido()
              .subscribe((res:any)=>{
 
+<<<<<<< HEAD
          console.log(res);
+=======
+        //  this.noradicadopedi.nopedido;
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         let [datos,...nopedido] = res;
              
         this.noradicadopedi=  datos.nopedido;
 
+<<<<<<< HEAD
         let usuario = JSON.parse(localStorage.getItem('usuario')); 
         const pedido ={"orden": this.noradicadopedi,
                        "costo":usuario.costo 
@@ -56,6 +73,8 @@ export class FlujocomprasspsComponent implements OnInit {
             console.log('se ejecutaorden');
             localStorage.setItem("ordenes", JSON.stringify(pedido));
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             });
       }else{
             this.nopedido=false;
@@ -73,6 +92,11 @@ export class FlujocomprasspsComponent implements OnInit {
   
   }
 
+<<<<<<< HEAD
+=======
+ 
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   ngOnInit(): void {
 
     this.compras = JSON.parse(localStorage.getItem('usuario'));
@@ -81,6 +105,11 @@ export class FlujocomprasspsComponent implements OnInit {
        this.compras.cantidad =1;
        console.log(this.compras);
 
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   
@@ -97,7 +126,11 @@ validaflujos(){
   onResize(event:any) {
     this.tamano =event.target.innerWidth;
 
+<<<<<<< HEAD
     if(this.tamano <= 988){
+=======
+    if(this.tamano <= 984){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       this.margen.nativeElement.classList.remove('row-margenes');
     }else{
       this.margen.nativeElement.classList.add('row-margenes');
@@ -109,13 +142,21 @@ validaflujos(){
 
 
       if(res == "infoperso"){
+<<<<<<< HEAD
         console.log( this.basica.nativeElement.classList.remove('flujos'));
+=======
+        
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         this.basica.nativeElement.classList.remove('flujos');
         this.basica.nativeElement.classList.add('flujosin');
         this.contacto.nativeElement.classList.remove('flujosin');
         this.contacto.nativeElement.classList.add('flujos');
+<<<<<<< HEAD
         
       } else if(res =="contactof"){
+=======
+      } else if(res =="contactof" && this.compras.dispo =="token virtual"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         this.contacto.nativeElement.classList.remove('flujos');
         this.contacto.nativeElement.classList.add('flujosin');
         this.entregan.nativeElement.classList.remove('flujosin');
@@ -128,28 +169,47 @@ validaflujos(){
         this.facturacionn.nativeElement.classList.add('flujos');
       }
 
+<<<<<<< HEAD
       else if(res =="pagos"){
+=======
+      else if(res =="pagos" && this.compras.dispo =="token virtual"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         this.facturacionn.nativeElement.classList.remove('flujos');
         this.facturacionn.nativeElement.classList.add('flujosin');
         this.pago.nativeElement.classList.remove('flujosin');
         this.pago.nativeElement.classList.add('flujos');
       }
  
+<<<<<<< HEAD
 
+=======
+ 
+      
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
       else if(res =="entrega" && this.compras.dispo =="token fisico"){
         this.basica.nativeElement.classList.remove('flujos');
         this.basica.nativeElement.classList.add('flujosin');
+<<<<<<< HEAD
         this.contacto.nativeElement.classList.remove('flujosin');
         this.contacto.nativeElement.classList.add('flujos');
       }
       else if(res =="pago" && this.compras.dispo =="token fisico"){
         this.entregan.nativeElement.classList.remove('flujos');
         this.entregan.nativeElement.classList.add('flujosin');
+=======
+        this.entrega.nativeElement.classList.remove('flujosin');
+        this.entrega.nativeElement.classList.add('flujos');
+      }
+      else if(res =="pago" && this.compras.dispo =="token fisico"){
+        this.entrega.nativeElement.classList.remove('flujos');
+        this.entrega.nativeElement.classList.add('flujosin');
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         this.pago.nativeElement.classList.remove('flujosin');
         this.pago.nativeElement.classList.add('flujos');
       }
 
+<<<<<<< HEAD
       //implementacion de rutas token fisico
  
       if(res =="facturacionf" && this.compras.dispo =="token fisico"){
@@ -172,6 +232,13 @@ validaflujos(){
 
  
  else if(res =="reverfactu"){
+=======
+
+ /* regreso de flujo*/
+
+ 
+ else if(res =="reverfactu" && this.compras.dispo =="token virtual"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.pago.nativeElement.classList.remove('flujos');
   this.pago.nativeElement.classList.add('flujosin');
   this.facturacionn.nativeElement.classList.remove('flujosin');
@@ -184,13 +251,21 @@ else if(res =="reveentregan" && this.compras.dispo =="token virtual"){
   this.entregan.nativeElement.classList.add('flujos');
 }
 
+<<<<<<< HEAD
 else if(res =="revecontacto"){
+=======
+else if(res =="revecontacto" && this.compras.dispo =="token virtual"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.entregan.nativeElement.classList.remove('flujos');
   this.entregan.nativeElement.classList.add('flujosin');
   this.contacto.nativeElement.classList.remove('flujosin');
   this.contacto.nativeElement.classList.add('flujos');
 }
+<<<<<<< HEAD
 else if(res =="reveinfobasi"){
+=======
+else if(res =="reveinfobasi" && this.compras.dispo =="token virtual"){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.contacto.nativeElement.classList.remove('flujos');
   this.contacto.nativeElement.classList.add('flujosin');
   this.basica.nativeElement.classList.remove('flujosin');
@@ -199,11 +274,17 @@ else if(res =="reveinfobasi"){
 
 
 
+<<<<<<< HEAD
 /*regreso token fisico*/
+=======
+
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 else if(res =="entregar" && this.compras.dispo =="token fisico"){
 
   this.pago.nativeElement.classList.remove('flujos');
   this.pago.nativeElement.classList.add('flujosin');
+<<<<<<< HEAD
   this.entregan.nativeElement.classList.remove('flujosin');
   this.entregan.nativeElement.classList.add('flujos');
 }
@@ -222,13 +303,26 @@ else if(res =="entregarf" && this.compras.dispo =="token fisico"){
 else if(res =="infobasir" && this.compras.dispo =="token fisico"){
   this.entregan.nativeElement.classList.remove('flujos');
   this.entregan.nativeElement.classList.add('flujosin');
+=======
+  this.entrega.nativeElement.classList.remove('flujosin');
+  this.entrega.nativeElement.classList.add('flujos');
+}
+
+
+else if(res =="infobasir" && this.compras.dispo =="token fisico"){
+  this.entrega.nativeElement.classList.remove('flujos');
+  this.entrega.nativeElement.classList.add('flujosin');
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.basica.nativeElement.classList.remove('flujosin');
   this.basica.nativeElement.classList.add('flujos');
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     
     }
 

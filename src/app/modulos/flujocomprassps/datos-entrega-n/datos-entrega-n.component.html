@@ -1,16 +1,25 @@
 <div class=" animate__animated animate__fadeInLeftBig animate__faster">
 
+<<<<<<< HEAD
   <h5 class="titulosintu2">Datos de Envío</h5>
+=======
+  <h5 class="titulosintu2">Datos de Entrega</h5>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
 
  
         <div class="mb-3">
 
+<<<<<<< HEAD
             <label class="form-label mt-3">Teléfono fijo:</label>
+=======
+            <label class="form-label mt-3">Telefono fijo:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             <div class="row">
   
               <div class="col">
   
+<<<<<<< HEAD
                   <input   class="form-control" 
                            list="browsers" 
                             formControlName="indicativo" 
@@ -20,16 +29,32 @@
                              [class.is-invalid]="camposvalidos('indicativo')"
                             (keyup)="noPuntoComa($event)">
 
+=======
+                  <input  class="form-control" 
+                          list="browsers" 
+                          formControlName="indicativo" 
+                          placeholder="indicativo"
+                          [(ngModel)]="codigo"
+                          (change)="verficacion($event)"
+                          [class.is-invalid]="camposvalidos('indicativo')"
+                  >
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                   <datalist id="browsers">
                     <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
                   </datalist>
                 <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                   *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
                   <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                   *ngIf="comas">El campo no puede tener decimales</div>
               
                 </div>
               
+=======
+                  *ngIf="camposvalidos('indicativo')">indicativo inválido</div>
+              </div>
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
               <div class="col">
   
@@ -37,6 +62,7 @@
                        class="form-control" 
                        placeholder="telefono" 
                        formControlName="telefono"
+<<<<<<< HEAD
                        [(ngModel)]="entrega.telefono"
                        [class.is-invalid]="camposvalidos('telefono')"
                        (keyup)="noPuntoComa2($event)"
@@ -51,11 +77,19 @@
     
               </div>
               
+=======
+                       [class.is-invalid]="camposvalidos('telefono')"
+                       >
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('correo')">telefono inválido</div>
+              </div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
               <div class="col">
                 <input type="number" 
                        class="form-control" 
                        placeholder="extension" 
                        formControlName="extenxion"
+<<<<<<< HEAD
                        [(ngModel)]="entrega.extenxion"
                        [class.is-invalid]="camposvalidos('extenxion')"
                        (keyup)="noPuntoComa3($event)"
@@ -68,6 +102,13 @@
                   *ngIf="comas3">El campo no puede tener decimales</div>
               </div>
              
+=======
+                  [class.is-invalid]="camposvalidos('extenxion')">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('extenxion')">extension inválido</div>
+              </div>
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             </div>
           </div>
 
@@ -76,6 +117,7 @@
 
             <div class="col">
               <label class="form-label">Correo electronico:</label>
+<<<<<<< HEAD
               <input 
                 type="text" 
                 class="form-control" 
@@ -85,6 +127,15 @@
                 [class.is-invalid]="camposvalidos('correo')">
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                 *ngIf="camposvalidos('correo')">Correo inválido</div>
+=======
+              <input type="text" 
+                      class="form-control" 
+                      placeholder="correo electronico" 
+                      formControlName="correo"
+                [class.is-invalid]="camposvalidos('correo')">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('correo')">correo inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     
     
     
@@ -93,13 +144,22 @@
           </div>
 
           <p class="text-danger">
+<<<<<<< HEAD
               En el documento se compartirá toda la información necesaria para la formación del producto.
+=======
+            En el documento  se compartirá toda la información necesaria para la formación del producto.
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
            </p>
   
 
           <div class="mb-3">
+<<<<<<< HEAD
             <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
             <button type="submit" class="btn btn-primary">Siguiente</button>
+=======
+            <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+            <button type="submit" class="btn btn-primary">siguiente</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             
           </div>
         

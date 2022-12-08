@@ -1,7 +1,15 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+<<<<<<< HEAD
   "compileOnSave": false,
   "compilerOptions": {
+=======
+  "allowSyntheticDefaultImports": true,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "strictNullChecks": false ,
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

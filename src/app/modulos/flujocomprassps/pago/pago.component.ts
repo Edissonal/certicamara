@@ -17,15 +17,19 @@ export class PagoComponent implements OnInit {
   valor:number;
   campo:any;
   validacion:boolean=false;
+<<<<<<< HEAD
   radicados: any[] = [];
   descarga:boolean= false;
   compras:any;
   costos:any;
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   ngOnInit(): void {
     
     this.datosinfo();
+<<<<<<< HEAD
     this.ordencambio();
 
   }
@@ -42,6 +46,16 @@ export class PagoComponent implements OnInit {
     let valoresfi1= Object.assign(correof,ordenes);
     localStorage.setItem("compra", JSON.stringify(valoresfi1));
     
+=======
+
+  }
+
+  datosinfo(){
+  
+    this.usuario = JSON.parse(localStorage.getItem('usuario')); 
+    //console.log(this.usuario.costo);
+  
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   /*rediociona al usuario si se equivova*/
@@ -54,8 +68,13 @@ export class PagoComponent implements OnInit {
 
     } else if (this.usuario.dispo == "token fisico") {
 
+<<<<<<< HEAD
       this.router.navigate(['/flujo/facturacion']);
       this.componentesService.emitircambio("reverfactu");
+=======
+      this.router.navigate(['/flujo/entrega']);
+      this.componentesService.emitircambio("entregar");
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
     }
 
@@ -66,6 +85,7 @@ export class PagoComponent implements OnInit {
   this.campo = true;
   }
 
+<<<<<<< HEAD
     //llamiento de orden de cambio
     ordencambio(){
   
@@ -83,6 +103,8 @@ export class PagoComponent implements OnInit {
     }
     
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 /* busca el dodigo selecionado de la persona*/
   buscarcodigo(codigo:string){
   this.ssps.nodescuentop(codigo)
@@ -95,6 +117,7 @@ export class PagoComponent implements OnInit {
   return;
   }else{
     this.usuario.costo = this.usuario.costo-datos.costo;
+<<<<<<< HEAD
     /*Actualizacion orden de cambio*/
       let costos ={"costo":this.usuario.costo};
       this.compras = JSON.parse(localStorage.getItem('compra')); 
@@ -105,12 +128,18 @@ export class PagoComponent implements OnInit {
     this.ssps.eventos(this.usuario.costo);
     this.validacion =false;
 
+=======
+    this.ssps.eventos(this.usuario.costo);
+    this.validacion =false;
+  
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
   });
 
 
   }
 
+<<<<<<< HEAD
 
   pagos(){
     this.router.navigate(['/flujo/pasarela']);
@@ -127,4 +156,6 @@ fisicos(){
 
 
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 }

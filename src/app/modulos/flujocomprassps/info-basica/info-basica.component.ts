@@ -1,9 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { take, timeout } from 'rxjs';
 import { ComponentesService } from '../../../servicios/componentes.service';
 import { SspsService } from '../../../servicios/ssps.service';
+=======
+import { ComponentesService } from '../../../servicios/componentes.service';
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 @Component({
   selector: 'app-info-basica',
@@ -27,18 +31,29 @@ export class InfoBasicaComponent implements OnInit {
   constructor(private fb:FormBuilder,
               private router:Router,
               private componentesService:ComponentesService,
+<<<<<<< HEAD
               private ssps:SspsService,
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
               private changeDetector: ChangeDetectorRef) {
     
       /*validacion de campos validators*/
       this.formaForm = this.fb.group({
 
         nombre:['',[Validators.required,
+<<<<<<< HEAD
                     Validators.minLength(3),
                     Validators.maxLength(60),
                     Validators.pattern("[a-zA-Z ]{2,254}")]],
         apellido:['',[Validators.required,
                         Validators.minLength(3),
+=======
+                    Validators.minLength(4),
+                    Validators.maxLength(60),
+                    Validators.pattern("[a-zA-Z ]{2,254}")]],
+        apellido:['',[Validators.required,
+                        Validators.minLength(4),
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                         Validators.maxLength(60),
                         Validators.pattern("[a-zA-Z ]{2,254}")]],
 
@@ -53,7 +68,11 @@ export class InfoBasicaComponent implements OnInit {
                               Validators.maxLength(60),
                               Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],     
 
+<<<<<<< HEAD
       documentos:[],   
+=======
+      documentos:[Validators.minLength(8)],   
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       cargando:[],     
       },{
         validators: this.componentesService.soniguales('correo','correo1')
@@ -70,6 +89,7 @@ camposvalidos(campo:any){
 }
 
   ngOnInit(): void {
+<<<<<<< HEAD
  
     /*asignacion de valores desde el cervicio crm*/
 
@@ -94,6 +114,11 @@ camposvalidos(campo:any){
         }
     });
 
+=======
+  
+    this.usuario = JSON.parse(localStorage.getItem('usuario'));
+   this.cargarDataAlFormulario();
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   ngAfterContentChecked(): void {
@@ -102,14 +127,22 @@ camposvalidos(campo:any){
 
 
 
+<<<<<<< HEAD
   /*ingreso y validacion de datos de formulario enviuo de los mismos localstorage*/
 ngsubmit() {
 
   //console.log(this.formaForm.value);
+=======
+  /*ingreso y validacion de datos de formulario*/
+ngsubmit() {
+
+  console.log(this.formaForm.value);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   if(this.formaForm.invalid){
     this.formaForm.markAllAsTouched();
     return;
    }
+<<<<<<< HEAD
    //console.log(this.formaForm);
 
    let {correo1,correo,cargando} = this.formaForm.value;
@@ -125,10 +158,27 @@ ngsubmit() {
 
    this.componentesService.emitircambio("infoperso");
    this.router.navigate(['/flujo/contacto']);
+=======
+   console.log(this.formaForm);
+
+
+   if(this.usuario.dispo == "token virtual"){
+    this.componentesService.emitircambio("infoperso");
+    this.router.navigate(['/flujo/contacto']);
+  }else if(this.usuario.dispo == "token fisico"){
+    this.componentesService.emitircambio("entrega");
+    this.router.navigate(['/flujo/entrega']);
+  
+  
+  }
+     
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   /* estado de botones logos cambiantes*/
   estado(valor:string){
+<<<<<<< HEAD
    //  console.log(valor);
     if(this.cantidad == 0){
   //   this.cambiologo2 = true;
@@ -136,6 +186,15 @@ ngsubmit() {
      this.cantidad =this.cantidad+1;
    //  console.log(this.cambiologo2 );
     // console.log(this.cambiologo );
+=======
+   
+    if(valor.length > 0){
+     this.cambiologo2 = true;
+     this.cambiologo = false;
+     this.cantidad =this.cantidad+1;
+     console.log(this.cambiologo2 );
+     console.log(this.cambiologo );
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     }
 
 
@@ -177,6 +236,7 @@ getFileDetails (event) {
     let size = event.target.files[i].size;
     let modifiedDate = event.target.files[i].lastModifiedDate;
     
+<<<<<<< HEAD
    /* console.log (
       'Name: ' + name + "\n" + 
       'Type: ' + type + "\n" +
@@ -202,11 +262,24 @@ getFileDetails (event) {
 
           }
         
+=======
+    console.log (
+      'Name: ' + name + "\n" + 
+      'Type: ' + type + "\n" +
+      'Last-Modified-Date: ' + modifiedDate + "\n" +
+      'Size: ' + Math.round(size / 1024) + " KB");
+      let tamano = Math.round(size / 1024);
+
+      if(type == "application/pdf"){
+      
+        this.tipos = false;
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       }else{
         this.formaForm.reset('cargando');
         this.formaForm.controls["cargando"].setValidators([Validators.required]);
         this.formaForm.get('cargando').updateValueAndValidity();
         this.tipos = true;
+<<<<<<< HEAD
         this.cambiologo2 = false;
         this.cambiologo = true;
       
@@ -219,10 +292,30 @@ getFileDetails (event) {
 
       }
 
+=======
+        this.cambiologo2 = true;
+
+      }
+
+      console.log(type);
+      if(tamano > 10240){
+      
+        this.archivos = true;
+        this.formaForm.reset('cargando');
+        this.formaForm.controls["cargando"].setValidators([Validators.required]);
+        this.formaForm.get('cargando').updateValueAndValidity();
+        this.archivos = true;
+        console.log('mayor');
+      }else{
+      console.log('menor');
+      this.archivos = false;
+      }
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
 }
 
+<<<<<<< HEAD
 /*
 cargarDataAlFormulario() {
 
@@ -232,10 +325,26 @@ cargarDataAlFormulario() {
     correo: this.usuario.correo,
     correo1:this.usuario.correo,
     documentos: this.usuario.documentos,
+=======
+
+cargarDataAlFormulario() {
+
+  // this.forma.setValue({
+  this.formaForm.setValue({
+    nombre: 'Fernando',
+    apellido: 'Perez',
+    correo: 'edissonalonso@gmail.com',
+    correo1: 'edissonalonso@gmail.com',
+    documentos: 'false',
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     cargando: '',
   });
 
 }
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 }

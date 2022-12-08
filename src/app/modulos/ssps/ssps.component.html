@@ -4,7 +4,11 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content ">
             <div class="modal-header">
+<<<<<<< HEAD
                 <h5 class="textomodal textomodal">¡Empieza tu camino hacia tu firma digital!</h5>
+=======
+                <h5 class="textomodal textomodal">!Empieza tu camino hacia tu firma digital !</h5>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -51,9 +55,15 @@
                                 <table class="table mt-4">
                                     <thead>
                                         <tr>
+<<<<<<< HEAD
                                             <th scope="col">Fecha de compra</th>
                                             <th scope="col">Tipo de certificado comprado</th>
                                             <th scope="col">Política</th>
+=======
+                                            <th scope="col">fecha de compra</th>
+                                            <th scope="col">Tipo de certificado comprado</th>
+                                            <th scope="col">politica</th>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -130,12 +140,17 @@
                                                 (change)="codigoveri($event,pre.id)"
                                                 formControlName="dispositivo"></td>
                                     <td> <img [src]="pre.img"></td>
+<<<<<<< HEAD
                                     <td>{{pre.nombre | titlecase }}</td>
+=======
+                                    <td>{{pre.nombre}} {{i+1}}</td>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                     <ng-template [ngIf]="this.preciosd[i].estados == true">
                                        <td>
                                         <input type="number" 
                                         class="form-control form-control-sm textop"
                                         placeholder="cantidad"
+<<<<<<< HEAD
                                         formControlName="cantidad"
                                         [class.is-invalid]="camposvalidos2('cantidad')"
                                         #datos
@@ -144,6 +159,9 @@
                                         (keyup)="quitarceros(datos.value)"
                                    
                                         ></td></ng-template>
+=======
+                                        formControlName="cantidad"></td></ng-template>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
                                          </tr>
@@ -155,24 +173,35 @@
                                                         <select class="form-select"
                                                                 formControlName="anos"
                                                                   >
+<<<<<<< HEAD
                                                                <option class="form-control" 
                                                                        *ngFor="let vige of vigencias" 
                                                                        [value]="vige" >{{vige}}</option>
 
+=======
+                                                               <option class="form-control" value="1">1</option>
+                                                               <option class="form-control" value="2">2</option>
+                                                               <option class="form-control" value="3">3</option>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                             
                                                         </select>
                                                      
                                                     </td>
+<<<<<<< HEAD
                                
                                                     
                                                     <td>{{timepo}}</td>
 
+=======
+                                                    <td> vigencia en años</td>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                             </tr>
 
                                         </table>
 
                                     </div>
                                      <!--implementacion de politicas-->
+<<<<<<< HEAD
                                      <!--implementacion errores-->
 
                              
@@ -181,6 +210,9 @@
                                                 <br>
                                     <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                          *ngIf="comas">El campo no puede tener comas</div>
+=======
+                                    <br>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                     <h4 class="textomodal lh-1 text-center" style="color:#999696 ;">Políticas sugeridas</h4>
                                     <br>
                                     
@@ -197,7 +229,10 @@
                                                        formControlName="checks2"
                                                        [value]="elementose"
                                                        [(ngModel)]="elementose"
+<<<<<<< HEAD
                                                        [attr.disabled]="false"
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                                       >
                                                 <label class="form-check-label" 
                                                        for="exampleCheck1">
@@ -213,11 +248,19 @@
 
                                         <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                              *ngIf="check">
+<<<<<<< HEAD
                                             <p><small>Solo puede ingresar dos dígitos</small></p>
                                         </div>
                                         <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                         *ngIf="">
                                        <p><small>Selecione una sola politica</small></p>
+=======
+                                            <p><small>selecione un solo dispositivo</small></p>
+                                        </div>
+                                        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                        *ngIf="">
+                                       <p><small>selecione una sola politica</small></p>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    </div>
 
                                     <div class="row">
@@ -248,6 +291,7 @@
                             <div class="centrado">
                             <table *ngIf="show">
                                 <tr>
+<<<<<<< HEAD
                                     <td><strong>Tipo de dispositivo</strong></td>
                                     <td><i class="fa-solid fa-circle-check estilos"></i></td>
                                     <td>{{usuario.dispo}}</td>                                    <tr>
@@ -272,19 +316,42 @@
                                                             <tr>
                                                         <tr>
                                                             <td><strong>Costo</strong></td>
+=======
+                                    <td><strong>tipo de dispositivo</strong></td>
+                                    <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                    <td>{{usuario.dispo}}</td>                                    <tr>
+                                        <tr>
+                                            <td><strong>politica</strong></td>
+                                            <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                            <td>{{usuario.politica}}</td>
+                                            <tr>
+                                                <tr>
+                                                    <td><strong>vigencia</strong></td>
+                                                    <td><i class="fa-solid fa-circle-check estilos"></i></td>
+                                                    <td>{{usuario.anos}} años</td>
+                                                    <tr>
+                                                        <tr>
+                                                            <td><strong>costo</strong></td>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                                             <td><i class="fa-solid fa-circle-check estilos"></i></td>
                                                             <td>${{usuario.costo  | currency:'CO':''}}</td>
                                                             <tr>
                                     </table>  
+<<<<<<< HEAD
 
                                     
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                 </div>
                            </div>      
                         </div>
                         
                     </div>
 
+<<<<<<< HEAD
           
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 </div>
 
                  <!--cierre de modal body-->
@@ -294,7 +361,11 @@
                             data-bs-slide="prev"
                             (click)="estados2()"
                             [disabled]="anterior"
+<<<<<<< HEAD
                             >Anterior</button>
+=======
+                            >anterior</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                             
 
                   <button type="submit" 
@@ -303,7 +374,11 @@
                             data-bs-slide="next"
                             (click)="estados();verifica()"
                             [disabled]="desactiva"
+<<<<<<< HEAD
                            >Siguiente</button>
+=======
+                           >siguiente</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 

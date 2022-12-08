@@ -23,11 +23,19 @@
                             <label class="form-label">Tipo de identificación</label>
                             <select class="form-select" formControlName="tipo"
                                    [class.is-invalid]="camposvalidos('tipo')">
+<<<<<<< HEAD
                                    <option class="form-control" value="nit">NIT</option>
 
                             </select>
                             <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                    *ngIf="camposvalidos('tipo')">Tipo de documento inválido</div>
+=======
+                                   <option class="form-control">NIT</option>
+
+                            </select>
+                            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                   *ngIf="camposvalidos('tipo')">tipo de documento inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                      </div>
 
 
@@ -36,6 +44,7 @@
                                    <div class="col">
                                           <label class="form-label">Número de identificación</label>
                                           <input type="number" class="form-control"
+<<<<<<< HEAD
                                                  placeholder="número de identificación" 
                                                  formControlName="numero"
                                                  [class.is-invalid]="camposvalidos('numero')"
@@ -49,6 +58,12 @@
                                                  *ngIf="camposvalidos('numero')">Número no válido</div>
                             <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                                  *ngIf="comas">El campo no puede tener comas</div>
+=======
+                                                 placeholder="número de identificación" formControlName="numero"
+                                                 [class.is-invalid]="camposvalidos('numero')">
+                                          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                                 *ngIf="camposvalidos('numero')">número no válido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    </div>
 
 
@@ -57,6 +72,7 @@
 
                                    <div class="col">
                                           <label class="form-label">No de verificación</label>
+<<<<<<< HEAD
                                           <input type="text" class="form-control"
                                                  placeholder="numero de identificación" 
                                                  formControlName="codigo"
@@ -64,6 +80,14 @@
                                                  appDigito maxLength="1">
                                           <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                                                  *ngIf="camposvalidos('codigo')">Código inválido</div>
+=======
+                                          <input type="number" class="form-control"
+                                                 placeholder="numero de identificación" 
+                                                 formControlName="codigo"
+                                                 [class.is-invalid]="camposvalidos('codigo')">
+                                          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                                 *ngIf="camposvalidos('codigo')">codigo inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    </div>
 
 
@@ -76,15 +100,23 @@
                             <input type="text" class="form-control" placeholder="razón social" formControlName="razon"
                                    [class.is-invalid]="camposvalidos('razon')">
                             <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                                    *ngIf="camposvalidos('razon')">La razón social no es válida</div>
+=======
+                                   *ngIf="camposvalidos('razon')">la razón social no es válida</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                      </div>
               </div>
 
               <!--[class.is.invalid]="camposvalidos('nombres')">-->
               <div class="check">
                      <div class="mb-1 form-check">
+<<<<<<< HEAD
                             <input type="checkbox" class="form-check-input" 
                                    formControlName="terminosp"
+=======
+                            <input type="checkbox" class="form-check-input" formControlName="terminosp"
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    [class.is-invalid]="camposvalidos('terminosp')">
                             <label class="form-check-label" (click)="condiciones()">He leído y acepto <span
                                           class="politicas"> Política términos y condiciones.</span>
@@ -92,20 +124,30 @@
                      </div>
 
                      <div class="mb-1 form-check">
+<<<<<<< HEAD
                             <input type="checkbox" 
                                    class="form-check-input" 
                                    formControlName="terminost"
+=======
+                            <input type="checkbox" class="form-check-input" formControlName="terminost"
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    [class.is-invalid]="camposvalidos('terminost')">
                             <label class="form-check-label" (click)="condiciones2()">He leído y acepto <span
                                           class="politicas">Política de Certificación.</span> </label>
                      </div>
 
                      <div class="mb-1 form-check">
+<<<<<<< HEAD
                             <input type="checkbox" class="form-check-input" 
                                    formControlName="terminostpro"
                                    [class.is-invalid]="camposvalidos('terminostpro')">
                             <label class="form-check-label" 
                                          for="exampleCheck1" (click)="condiciones1()">He leído y
+=======
+                            <input type="checkbox" class="form-check-input" formControlName="terminostpro"
+                                   [class.is-invalid]="camposvalidos('terminostpro')">
+                            <label class="form-check-label" for="exampleCheck1" (click)="condiciones1()">He leído y
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                                    acepto<span class="politicas"> Anexo Sagrilaf</span></label>
                      </div>
               </div>

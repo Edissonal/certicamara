@@ -11,7 +11,10 @@ export class SspsService {
   url = 'http://localhost:3000';
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     // declaracion de sujeto para multiples observables  Fuentes de cadenas observables
     private  envios = new Subject<any>();
     // Flujos de cadenas observables
@@ -74,6 +77,7 @@ nodescuentop(termino){
 }
 
 
+<<<<<<< HEAD
 nodradicado(){
   return this.http.get(`${ this.url}/noradicado`);
 }
@@ -115,4 +119,6 @@ departamentos(){
 }
 
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 }

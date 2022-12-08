@@ -15,11 +15,14 @@ export class DatosEntregaNComponent implements OnInit {
   indicativos: any[];
   codindi: any;
   codigo:any;
+<<<<<<< HEAD
   usuario:any;
   comas:boolean =false;
   comas2:boolean =false;
   comas3:boolean =false;
   entrega:any;
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -33,6 +36,7 @@ export class DatosEntregaNComponent implements OnInit {
                     Validators.minLength(8),
                     Validators.maxLength(60),
                     Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+<<<<<<< HEAD
                     indicativo: [],
                     telefono: ['', [Validators.required,
                       Validators.min(999999999),
@@ -45,12 +49,26 @@ export class DatosEntregaNComponent implements OnInit {
                     ]],
               
                   },{validators:[this.componentesService.validalist('indicativo')]});
+=======
+                    indicativo: [Validators.required],
+                    telefono: ['', [Validators.required,
+                      Validators.min(999999),
+                      Validators.max(9999999999),
+                    ]],
+                    extenxion: ['', [Validators.required,
+                    Validators.min(999),
+                    Validators.max(9999)
+                    ]],
+              
+                },{validators:[this.componentesService.validalist('indicativo')]});
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
               }
 
   ngOnInit(): void {
     this.indicativo();
+<<<<<<< HEAD
  //   this.cargarDataAlFormulario();
      this.entrega = JSON.parse(localStorage.getItem('entrega'));
      let cedula =  JSON.parse(localStorage.getItem('cedula'));
@@ -82,6 +100,8 @@ export class DatosEntregaNComponent implements OnInit {
      });
  
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
 /*rediociona al usuario si se equivova*/
@@ -106,12 +126,22 @@ export class DatosEntregaNComponent implements OnInit {
   
     }
 
+<<<<<<< HEAD
   /*funcion que hace el filtro de los elementos selecionados del select*/
+=======
+     /*funcion que hace el filtro de los elementos selecionados del select*/
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   verficacion(event) {
 
     console.log(event.target.value);
     this.codindi = this.indicativos.find(x => x?.nomDepartamento === event.target.value);
+<<<<<<< HEAD
     this.entrega.indicativo =  this.codindi?.indicativo;
+=======
+    console.log('prueba');
+    console.log(this.codindi?.indicativo)
+    console.log(this.codigo);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
 
@@ -122,10 +152,13 @@ export class DatosEntregaNComponent implements OnInit {
       this.formaForm.markAllAsTouched();
       return;
     }
+<<<<<<< HEAD
     
     const valoresfi = this.formaForm.value;
 
     localStorage.setItem("entrega", JSON.stringify(valoresfi));
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
     this.router.navigate(['/flujo/facturacion'])
     this.componentesService.emitircambio("facturacionn");
@@ -141,6 +174,7 @@ export class DatosEntregaNComponent implements OnInit {
     // this.componentesService.emitircambio("mostrarordencambio");
      this.router.navigate(['/flujo/contacto'])
   }
+<<<<<<< HEAD
 
   
   cargarDataAlFormulario() {
@@ -214,4 +248,7 @@ quitarceros4(numero){
   
 
 
+=======
+  
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 }

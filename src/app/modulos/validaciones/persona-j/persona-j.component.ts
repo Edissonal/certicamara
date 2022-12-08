@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+=======
+import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SspsService } from 'src/app/servicios/ssps.service';
@@ -18,14 +22,18 @@ estados2:boolean=false;
 listas:boolean=true;
 mostrar:boolean= false;
 rutasActivas:string;
+<<<<<<< HEAD
 comas:boolean= false;
 quitar:any;
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 /*validacion de campos y validastors */
   constructor(private fb:FormBuilder,
               private router:Router,
               private componentesService:ComponentesService,
               private activateRoute:ActivatedRoute,
+<<<<<<< HEAD
               private ssps:SspsService,
               private changeDetector: ChangeDetectorRef
               ) { 
@@ -42,16 +50,37 @@ quitar:any;
                            Validators.max(9),
                            ,Validators.pattern("^[0-9]*$")
                           ]
+=======
+              private ssps:SspsService
+              ) { 
+                this.formaForm = this.fb.group({
+                  tipo:['',[Validators.required]],
+                    numero:[0,[Validators.required,
+                      Validators.min(4),
+                      Validators.max(9999999999),
+                    ]],
+                    codigo:[0,[Validators.required,
+                            Validators.min(1),
+                            Validators.max(9)]
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                             ],
                       razon:['',[Validators.required,
                       Validators.minLength(4),
                       Validators.maxLength(60),
                       Validators.pattern("[a-zA-Z ]{2,254}")]],
+<<<<<<< HEAD
                   terminosp:[false, Validators.requiredTrue],
                   terminost:[false, Validators.requiredTrue],
                   terminostpro:[false, Validators.requiredTrue],
                 
                 },{validators:[this.componentesService.minimos('numero')]});   
+=======
+                  terminosp:['',[Validators.required]],
+                  terminost:['',[Validators.required]],
+                  terminostpro:['',[Validators.required]],
+                
+                });   
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 
 
                    
@@ -63,9 +92,12 @@ quitar:any;
 
 }
 
+<<<<<<< HEAD
 ngAfterContentChecked(): void {
   this.changeDetector.detectChanges();
 }
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 ngAfterViewInit() {
@@ -77,6 +109,7 @@ camposvalidos(campo:any){
   return this.formaForm.controls[campo].errors && this.formaForm.controls[campo].touched;
 }
 
+<<<<<<< HEAD
 //implementacion de validacion de comas
 noPuntoComa( event ) {
   
@@ -99,6 +132,8 @@ quitarceros(numero){
   }
   
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 /*implementacion eventos modal */
 abrirmodal() {
 
@@ -116,12 +151,20 @@ cerrarmodal() {
 
 /**envio de datos y validacion de boton */
 ngsubmit() {
+<<<<<<< HEAD
   //console.log(this.formaForm);
+=======
+  
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   if(this.formaForm.invalid){
    this.formaForm.markAllAsTouched();
    return;
   }
+<<<<<<< HEAD
   
+=======
+  console.log(this.formaForm.value);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.estados= true;
   let cedula =this.formaForm.get('numero').value;
   console.log(cedula);
@@ -133,6 +176,7 @@ ngsubmit() {
    let valores:object =  this.formaForm.value;
    let uid:object ={uid:this.componentesService.myGuid};
    let valoresfi = Object.assign(valores, cliente,uid);
+<<<<<<< HEAD
 
   let date = new Date();
   let fecha = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
@@ -151,6 +195,8 @@ ngsubmit() {
   }
   console.log(valoresenv);
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
    let rutaActiva = localStorage.getItem('rutasActivas');
       if(res == ""){
         console.log('usuario no exixte');
@@ -173,14 +219,21 @@ ngsubmit() {
         console.log('no repotado');
         this.cerrarmodal();
         this.router.navigate([rutaActiva]);
+<<<<<<< HEAD
         console.log(valoresenv);
+=======
+        console.log(this.formaForm.value);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         /*implementacion inyeccion de roll a objeto*/
         localStorage.setItem("usuario", JSON.stringify(valoresfi));
         localStorage.setItem("cedula",cedula );
         }else{
         console.log('reportado');
         this.estados2 = true;
+<<<<<<< HEAD
         localStorage.setItem('tipocliente', 'juridica');
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         }
     }, 2500);
 }

@@ -22,7 +22,10 @@ export class PersonaNComponent implements OnInit {
   reportes:any;
   pasaportes:boolean = false;
   cedulas:boolean = true;
+<<<<<<< HEAD
   quitar:string ='';
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
   constructor(private fb:FormBuilder,
@@ -34,9 +37,13 @@ export class PersonaNComponent implements OnInit {
                 /*validacion de campos validators*/
                 this.formaForm = this.fb.group({
                   tipo:['',[Validators.required]],
+<<<<<<< HEAD
                   numero:[0,[//Validators.required,
                             // Validators.pattern('([A-Za-z]+[0-9]|[0-9]+[A-Za-z])[A-Za-z0-9]*')
                             ]],
+=======
+                  numero:['',[]],
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                   nombres:['',[Validators.required,
                               Validators.minLength(3),
                               Validators.maxLength(60),
@@ -47,9 +54,15 @@ export class PersonaNComponent implements OnInit {
                                   Validators.minLength(3),
                                   Validators.maxLength(60),
                                   Validators.pattern("[a-zA-Z ]{2,254}")]],
+<<<<<<< HEAD
                   terminosp:[false, Validators.requiredTrue],
                   terminost:[false, Validators.requiredTrue],
                   terminostpro:[false, Validators.requiredTrue],
+=======
+                  terminosp:['',[Validators.required]],
+                  terminost:['',[Validators.required]],
+                  terminostpro:['',[Validators.required]],
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 
                 },{validators:[this.componentesService.codigonit('tipo','numero')]});        
                
@@ -62,11 +75,14 @@ camposvalidos(campo:any){
 }
 
 
+<<<<<<< HEAD
 /*quitar numeros ceros a la izquierda*/
 quitarceros(numero){
 
 this.quitar = this.quitar.replace(/^0+/, '');
 }
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 ngOnInit(): void {
@@ -95,7 +111,11 @@ ngsubmit() {
    this.formaForm.markAllAsTouched();
    return;
   }
+<<<<<<< HEAD
   //console.log(this.formaForm.value);
+=======
+  console.log(this.formaForm.value);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   this.estados= true;
   let cedula =this.formaForm.get('numero').value;
   console.log(cedula);
@@ -108,6 +128,7 @@ ngsubmit() {
        let valores:object =  this.formaForm.value;
        let uid:object ={uid:this.componentesService.myGuid};
        let valoresfi = Object.assign(valores, cliente,uid);
+<<<<<<< HEAD
       
        let date = new Date();
        let fecha = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
@@ -128,6 +149,8 @@ ngsubmit() {
       console.log(valoresenv);
 
        //let valoresfi = Object.assign(valores, cliente,uid);
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       if(res == ""){
         console.log('usuario no exixte');
         localStorage.setItem("cedula",cedula );
@@ -149,7 +172,11 @@ ngsubmit() {
         console.log('no repotado');
         this.cerrarmodal();
         this.router.navigate([rutaActiva]);
+<<<<<<< HEAD
         console.log(valoresenv);
+=======
+        console.log(this.formaForm.value);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         /*implementacion inyeccion de roll a objeto*/
         
         localStorage.setItem("usuario", JSON.stringify(valoresfi));
@@ -157,7 +184,10 @@ ngsubmit() {
         }else{
         console.log('reportado');
         this.estados2 = true;
+<<<<<<< HEAD
         localStorage.setItem('tipocliente', 'natural');
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         }
     }, 2500);
 }
@@ -208,7 +238,11 @@ condiciones(){
    this.componentesService.terminos2();
  }
  
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
  }
  
 

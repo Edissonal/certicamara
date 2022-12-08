@@ -13,12 +13,20 @@
         <label class="form-label">Nombres:</label>
         <input type="text" 
                 class="form-control" 
+<<<<<<< HEAD
                 placeholder="nombres"
                 formControlName="nombres"
                 [(ngModel)]="contacto.nombres"
           [class.is-invalid]="camposvalidos('nombres')">
         <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
           *ngIf="camposvalidos('nombres')">Nombres inválidos</div>
+=======
+                placeholder="nombres" 
+                formControlName="nombres"
+          [class.is-invalid]="camposvalidos('nombres')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('nombres')">nombres inválidos</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -32,10 +40,16 @@
                 class="form-control" 
                 placeholder="apellidos" 
                 formControlName="apellidos"
+<<<<<<< HEAD
                 [(ngModel)]="contacto.apellidos"
           [class.is-invalid]="camposvalidos('apellidos')">
         <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
           *ngIf="camposvalidos('apellidos')">Apellidos inválidos</div>
+=======
+          [class.is-invalid]="camposvalidos('apellidos')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('apellidos')">apellidos inválidos</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -55,10 +69,16 @@
                     class="form-control" 
                     placeholder="cargo" 
                     formControlName="cargo"
+<<<<<<< HEAD
                     [(ngModel)]="contacto.cargo"
                     [class.is-invalid]="camposvalidos('cargo')">
             <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
               *ngIf="camposvalidos('cargo')">Cargo inválido</div>
+=======
+              [class.is-invalid]="camposvalidos('cargo')">
+            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="camposvalidos('cargo')">cargo inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   
   
   
@@ -70,15 +90,25 @@
 
 
         <div class="col">
+<<<<<<< HEAD
           <label class="form-label">Correo electrónico:</label>
+=======
+          <label class="form-label">Correo electronico:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           <input type="text" 
                   class="form-control" 
                   placeholder="correo electronico" 
                   formControlName="correo"
+<<<<<<< HEAD
                   [(ngModel)]="contacto.correo"
             [class.is-invalid]="camposvalidos('correo')">
           <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
             *ngIf="camposvalidos('correo')">Correo inválido</div>
+=======
+            [class.is-invalid]="camposvalidos('correo')">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('correo')">correo inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -96,6 +126,7 @@
           <input type="number" class="form-control" 
                  placeholder="celular" 
                  formControlName="celular"
+<<<<<<< HEAD
                 [(ngModel)]="contacto.celular"
                 [class.is-invalid]="camposvalidos('celular')"
                 #datos
@@ -103,6 +134,11 @@
                 (keyup)="quitarceros(datos.value)">
           <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                *ngIf="camposvalidos('celular')">Celular inválido</div>
+=======
+                [class.is-invalid]="camposvalidos('celular')">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('celular')">Celular inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -111,7 +147,11 @@
 
         <div class="mb-3">
 
+<<<<<<< HEAD
           <label class="form-label mt-3">Teléfono fijo:</label>
+=======
+          <label class="form-label mt-3">Telefono fijo:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           <div class="row">
 
             <div class="col">
@@ -120,20 +160,31 @@
                         list="browsers" 
                         formControlName="indicativo" 
                         placeholder="indicativo"
+<<<<<<< HEAD
                         [(ngModel)]="contacto.indicativo"
                         (change)="verficacion($event)"
                         [class.is-invalid]="camposvalidos('indicativo')"
                         (keyup)="noPuntoComa($event)"
+=======
+                        [(ngModel)]="codigo"
+                        (change)="verficacion($event)"
+                        [class.is-invalid]="camposvalidos('indicativo')"
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 >
                 <datalist id="browsers">
                   <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
                 </datalist>
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                 *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
                 <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                 *ngIf="comas">El campo no puede tener decimales</div>
             </div>
             
+=======
+                *ngIf="camposvalidos('indicativo')">indicativo inválido</div>
+            </div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             <div class="col">
 
               <input type="number" 
@@ -141,6 +192,7 @@
                      placeholder="telefono" 
                      formControlName="telefono"
                      [class.is-invalid]="camposvalidos('telefono')"
+<<<<<<< HEAD
                      #datos2
                      [(ngModel)]="contacto.telefono"
                      value="{datos2.toString()}"
@@ -148,12 +200,18 @@
                      >
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                 *ngIf="camposvalidos('telefono')">Telefono inválido</div>
+=======
+                     >
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('correo')">telefono inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             </div>
             <div class="col">
               <input type="number" 
                      class="form-control" 
                      placeholder="extension" 
                      formControlName="extenxion"
+<<<<<<< HEAD
                      [class.is-invalid]="camposvalidos('extenxion')"
                      #datos3
                      [(ngModel)]="contacto.extenxion"
@@ -161,6 +219,11 @@
                      (keyup)="quitarceros3(datos3.value)">
               <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                 *ngIf="camposvalidos('extenxion')">Extension inválido</div>
+=======
+                [class.is-invalid]="camposvalidos('extenxion')">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('extenxion')">extension inválido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
             </div>
           </div>
         </div>
@@ -171,8 +234,13 @@
     </div>
 
     <div class="mb-3">
+<<<<<<< HEAD
       <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
       <button type="submit" class="btn btn-primary">Siguiente</button>
+=======
+      <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+      <button type="submit" class="btn btn-primary">siguiente</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
     </div>
 
@@ -180,6 +248,10 @@
   </form>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   
 
 

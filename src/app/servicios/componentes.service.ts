@@ -2,7 +2,11 @@ import { Injectable, ViewChild, ElementRef } from '@angular/core';
 import { AbstractControl, FormGroup, ValidationErrors, FormArray, ValidatorFn, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
+<<<<<<< HEAD
 import { of } from 'rxjs';
+=======
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +23,10 @@ export class ComponentesService {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
    // declaracion de sujeto para multiples observables  Fuentes de cadenas observables
   private  envios = new Subject<any>();
   // Flujos de cadenas observables
@@ -33,7 +40,10 @@ export class ComponentesService {
     console.log('cargada servicio');
     console.log(this.estados);
     console.log(this.myGuid);
+<<<<<<< HEAD
    // console.log(this.tipocliente);
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   }
 
@@ -48,7 +58,11 @@ export class ComponentesService {
   cerrarModal() {
     // this.datos = datos;
 
+<<<<<<< HEAD
 //    console.log(this.formModal);
+=======
+    console.log(this.formModal);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     this.formModal.hide();
 
   }
@@ -89,6 +103,7 @@ codigonit( tipo:string,numero:string){
 
     const tipo1 = formGroup.get(tipo).value;
     const numero1 = formGroup.get(numero).value;
+<<<<<<< HEAD
     let num = +numero1;
 
     
@@ -105,20 +120,42 @@ codigonit( tipo:string,numero:string){
 
 
     if( tipo1 =='pa' && valida.test(numero1) == false || num == 0){
+=======
+    let palabras = alfanumertico(numero1);
+    let numerosolo = /^[0-9]+$/;
+
+    
+   // console.log(palabras);
+
+    function alfanumertico(str) {
+      return /^[A-Za-z0-9]*$/.test(str);
+    }
+
+
+    if( tipo1 =='Pasaporte' && palabras == false ){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
       formGroup.get(numero).setErrors({ sincodigo: true });
    return {sincodigo:true}
 
    }
 
+<<<<<<< HEAD
    if(  numero1.length <= 3 || numero1.length >10  || numero1 == ""  ){
+=======
+   if(  numero1.length <= 3 || numero1.length >10  || numero1 == ""){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
     formGroup.get(numero).setErrors({ sincodigo: true });
     return {sincodigo:true}
 
  }
  
+<<<<<<< HEAD
  if( tipo1 =='cc' && !numero1.match(numerosolo)|| tipo1 =='ce' && !numero1.match(numerosolo) || tipo1 =="" && !numero1.match(numerosolo) || numeros.test(str)){
+=======
+ if( tipo1 =='Cédula de Ciudadanía' && !numero1.match(numerosolo)|| tipo1 =='Cédula de Extranjería' && !numero1.match(numerosolo) || tipo1 =="" && !numero1.match(numerosolo)){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
   formGroup.get(numero).setErrors({ sincodigo: true });
   return {sincodigo:true}
@@ -201,6 +238,7 @@ validar(min = 1) {
       
 
   const indi = formGroup.get(indicativo).value;
+<<<<<<< HEAD
   let numerosolo = /^[0-9]+$/;
   let valida = new RegExp("[a-zA-Z][a-zA-Z ]+");
   var numlet = new RegExp("([A-Za-z]+[0-9]|[0-9]+[A-Za-z])[A-Za-z0-9]*");
@@ -264,6 +302,10 @@ validar(min = 1) {
 
 
   if(   indi >9  || indi == "" || indi == null){
+=======
+    
+   if( indi  == undefined){
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         
     formGroup.get(indicativo).setErrors({ vacioindi: true });
     return {vacioindi:true}
@@ -276,6 +318,7 @@ validar(min = 1) {
   
     
     }
+<<<<<<< HEAD
 
     
 
@@ -477,6 +520,17 @@ comparacion(usu:any,datos:any){
 
 
 }
+=======
+      
+  
+  }
+
+
+}
+
+
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 

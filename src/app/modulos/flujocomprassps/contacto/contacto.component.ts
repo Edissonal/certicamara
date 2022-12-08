@@ -14,6 +14,7 @@ export class ContactoComponent implements OnInit {
 
   @Output() onMantenimiento: EventEmitter<boolean> = new EventEmitter();
   formaForm!: FormGroup;
+<<<<<<< HEAD
   indicativos:any;
   contacto:any;
   codindi: any;
@@ -29,6 +30,19 @@ export class ContactoComponent implements OnInit {
               private componentesService: ComponentesService,
               private ssps: SspsService,
               private changeDetector: ChangeDetectorRef) {
+=======
+  indicativos: any[];
+  codindi: any;
+  codigo:any;
+  usuario:any;
+  
+
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private componentesService: ComponentesService,
+    private ssps: SspsService,
+    private changeDetector: ChangeDetectorRef) {
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
     /*validacion de campos validators*/
     this.formaForm = this.fb.group({
@@ -43,7 +57,11 @@ export class ContactoComponent implements OnInit {
             Validators.maxLength(60),
             Validators.pattern("[a-zA-Z ]{2,254}")]],
     cargo:['',[Validators.required,
+<<<<<<< HEAD
               Validators.minLength(4),
+=======
+              Validators.minLength(3),
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
               Validators.maxLength(60),
               Validators.pattern("[a-zA-Z ]{2,254}")]],
       correo: ['', [Validators.required,
@@ -54,6 +72,7 @@ export class ContactoComponent implements OnInit {
       Validators.min(999999999),
       Validators.max(9999999999)
       ]],
+<<<<<<< HEAD
       indicativo: [],
       telefono: ['', [Validators.required,
         Validators.min(999999999),
@@ -63,6 +82,16 @@ export class ContactoComponent implements OnInit {
           Validators.required,
           Validators.min(99999),
           Validators.max(999999)
+=======
+      indicativo: [Validators.required],
+      telefono: ['', [Validators.required,
+        Validators.min(999999),
+        Validators.max(9999999999),
+      ]],
+      extenxion: ['', [Validators.required,
+      Validators.min(999),
+      Validators.max(9999)
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       ]],
 
     },{validators:[this.componentesService.validalist('indicativo')]});
@@ -73,6 +102,7 @@ export class ContactoComponent implements OnInit {
   ngOnInit(): void {
     this.indicativo();
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
+<<<<<<< HEAD
     this.contacto = JSON.parse(localStorage.getItem('contacto'));
     let cedula =  JSON.parse(localStorage.getItem('cedula'));
 
@@ -102,6 +132,9 @@ export class ContactoComponent implements OnInit {
     
     });
 
+=======
+    this.cargarDataAlFormulario();
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   }
 
@@ -112,10 +145,28 @@ export class ContactoComponent implements OnInit {
 
   /* implementa envio de datos */
   ngsubmit() {
+<<<<<<< HEAD
+=======
+
+    let {correo, celular, extenxion,telefono} = this.formaForm.value;
+    
+    const valoresfi ={
+        "correo":correo,
+        "celular":celular,
+        "extension":extenxion,
+        "telefono":telefono,
+        "codindicativo":this.codindi?.indicativo,
+        "indicativo":this.codigo 
+    }
+
+    console.log(valoresfi);
+
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
     if (this.formaForm.invalid) {
       this.formaForm.markAllAsTouched();
       return;
     }
+<<<<<<< HEAD
    // console.log(this.formaForm);
   const valoresfi = this.formaForm.value;
 
@@ -142,6 +193,13 @@ export class ContactoComponent implements OnInit {
       this.router.navigate(['/flujo/solicitantes']);
     } 
     
+=======
+
+
+    this.componentesService.emitircambio("contactof");
+   // this.componentesService.emitircambio("mostrarordencambio");
+    this.router.navigate(['/flujo/entregan'])
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
 /* funcion para los errores indicados*/
@@ -162,13 +220,22 @@ export class ContactoComponent implements OnInit {
   /*funcion que hace el filtro de los elementos selecionados del select*/
   verficacion(event) {
 
+<<<<<<< HEAD
    // console.log(event.target.value);
     this.codindi = this.indicativos.find(x => x?.nomDepartamento === event.target.value);
     this.contacto.indicativo =  this.codindi?.indicativo;
+=======
+    console.log(event.target.value);
+    this.codindi = this.indicativos.find(x => x?.nomDepartamento === event.target.value);
+    console.log('prueba');
+    console.log(this.codindi?.indicativo)
+    console.log(this.codigo);
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   }
 
   /*rediociona al usuario si se equivova*/
   redireciona(){
+<<<<<<< HEAD
 
     //console.log('anterior')
     if(this.usuario.dispo == "token virtual" && this.usuario.cliente == "natural"){
@@ -195,10 +262,22 @@ export class ContactoComponent implements OnInit {
   }
 
 
+=======
+    if(this.usuario.dispo == "token virtual"){
+    this.router.navigate(['/flujo/infobasi']);
+    this.componentesService.emitircambio("reveinfobasi");
+
+  }else if(this.usuario.dispo == "token fisico"){
+
+    this.router.navigate(['/flujo/entrega']);
+  
+  }
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   
   }
 
 
+<<<<<<< HEAD
   /*validacion de decimales input*/
   noPuntoComa( event ) {
   
@@ -242,6 +321,15 @@ quitarceros(numero){
       correo: this.usuario.correo,
       nombres: this.usuario.nombres,
       apellidos: this.usuario.apellidos,
+=======
+  cargarDataAlFormulario() {
+
+    // this.forma.setValue({
+    this.formaForm.setValue({
+      correo: 'edissonalonso@gmail.com',
+      nombres: 'edisson andres',
+      apellidos: 'alonso',
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       cargo: 'alonso',
       celular: '3142082530',
       indicativo: 'arauca',

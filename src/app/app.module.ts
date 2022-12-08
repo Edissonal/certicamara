@@ -10,9 +10,12 @@ import { AppRoutingModule } from './rutas/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { DigitoDirective } from './directivas/digito.directive';
 
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -22,8 +25,11 @@ import { DigitoDirective } from './directivas/digito.directive';
     FooterComponent,
     NavbarComponent,
     FooterComponent,
+<<<<<<< HEAD
     DigitoDirective,
 
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
   ],
   imports: [
     BrowserModule,

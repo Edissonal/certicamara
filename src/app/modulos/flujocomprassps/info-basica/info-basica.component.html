@@ -21,10 +21,16 @@
             class="form-control" 
             placeholder="nombres completos"
             formControlName="nombre"
+<<<<<<< HEAD
             [(ngModel)]="usuario.nombres"
             [class.is-invalid]="camposvalidos('nombre')">
             <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
             *ngIf="camposvalidos('nombre')">Nombres inválidos</div>
+=======
+            [class.is-invalid]="camposvalidos('nombre')">
+            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('nombre')">nombres invalidos</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         </div>
         <div class="col">
         <label 
@@ -33,10 +39,16 @@
          class="form-control" 
          placeholder=" apellidos completos"
          formControlName="apellido"
+<<<<<<< HEAD
          [(ngModel)]="usuario.apellidos"
          [class.is-invalid]="camposvalidos('apellido')">
          <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
          *ngIf="camposvalidos('apellido')">Apellidos inválidos</div>
+=======
+         [class.is-invalid]="camposvalidos('apellido')">
+         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+         *ngIf="camposvalidos('apellido')">apellidos invalidos</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
         </div>
 
         <div class="mb-3">
@@ -44,16 +56,27 @@
             <div class="row">
                 <div class="col">
                     <label 
+<<<<<<< HEAD
                     class="form-label">Correo electrónico:</label>
+=======
+                    class="form-label">Correo electronico:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
              <input type="text" 
                     class="form-control" 
                     placeholder="correo electronico"
                     formControlName="correo"
+<<<<<<< HEAD
                     [(ngModel)]="usuario.correo"
                     appNocopiado
                     [class.is-invalid]="camposvalidos('correo')">
                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                     *ngIf="camposvalidos('correo')">Correo inválido</div>
+=======
+                    appNocopiado
+                    [class.is-invalid]="camposvalidos('correo')">
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo')">correo invalido</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
                 </div>
     
@@ -66,19 +89,32 @@
             <div class="row">
                 <div class="col">
                     <label 
+<<<<<<< HEAD
                     class="form-label">Correo electrónico:</label>
+=======
+                    class="form-label">Correo electronico:</label>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
              <input type="text" 
                     class="form-control" 
                     placeholder="correo electronico"
                     formControlName="correo1"
+<<<<<<< HEAD
                     [(ngModel)]="usuario.correo1"
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                     [class.is-invalid]="camposvalidos('correo1')"
                     appNocopiado
                     >
                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
                     *ngIf="camposvalidos('correo1')">Correo inválido</div>
                     <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
                     *ngIf="pass2NoValido">Los correos no son iguales</div>
+=======
+                    *ngIf="camposvalidos('correo1')">correo invalido</div>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="pass2NoValido">los correos no son iguales</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
                 </div>
     
@@ -96,7 +132,11 @@
                        (change)="documentos($event);"
                        >
                 <label class="form-check-label">
+<<<<<<< HEAD
                    Adjuntar copia de cédula
+=======
+                    Adjuntar copia de cedula
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
                 </label>
               </div>
 
@@ -107,7 +147,11 @@
 
         <div class="animate__animated animate__fadeIn animate__fast" *ngIf="documento">
           <label class="form-check-label">
+<<<<<<< HEAD
             Documentos <strong style="color:#44494d ;">{{usuario.nombres}}</strong> ({{cantidad}} de 1)
+=======
+            Documentos <strong style="color:#44494d ;">Edisson alonso</strong> ({{cantidad}} de 1)
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           </label>
           <div class="d-flex justify-content-center">
             <div id="div_file" class="text-center">
@@ -125,25 +169,40 @@
         
         
               <p id="texto">Documento de identidad</p>
+<<<<<<< HEAD
               <input type="file" id="enviar" 
                      #enviar 
                      formControlName="cargando"
                      [(ngModel)]="usuario.documentos"
                      (change)="estado(enviar.value);getFileDetails($event)">
+=======
+              <input type="file" id="enviar" #enviar formControlName="cargando" (change)="estado(enviar.value);getFileDetails($event)">
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
       
             </div>
           </div>
         </div>
         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+<<<<<<< HEAD
               *ngIf="archivos">El archivo adjunto supera los 10 mb</div>
         
         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
               *ngIf="tipos">Formato de archivo inválido</div>
+=======
+              *ngIf="archivos">el archivo adjunto superra los 10 mb</div>
+        
+        <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="tipos">el archivo no es pdf</div>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           <div class="mb-3">
 
             <button type="submit" 
             class="btn btn-primary" 
+<<<<<<< HEAD
            >Siguiente</button>
+=======
+           >siguiente</button>
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
           </div>
         </form>  
   </div>

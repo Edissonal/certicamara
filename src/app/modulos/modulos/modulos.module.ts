@@ -21,10 +21,13 @@ import { ContactoComponent } from '../flujocomprassps/contacto/contacto.componen
 import { EntregaComponent } from '../flujocomprassps/entrega/entrega.component';
 import { DatosEntregaNComponent } from '../flujocomprassps/datos-entrega-n/datos-entrega-n.component';
 import { DatosFacturacionComponent } from '../flujocomprassps/datos-facturacion/datos-facturacion.component';
+<<<<<<< HEAD
 import { InstalacionesComponent } from '../flujocomprassps/instalaciones/instalaciones.component';
 import { PaceToPlayComponent } from '../flujocomprassps/pace-to-play/pace-to-play.component';
 import { DatosempresaComponent } from '../flujocomprassps/datosempresa/datosempresa.component';
 import { SolicitantesComponent } from '../flujocomprassps/solicitantes/solicitantes.component';
+=======
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
 
 
@@ -51,11 +54,15 @@ import { SolicitantesComponent } from '../flujocomprassps/solicitantes/solicitan
     NocopiadoDirective,
     EntregaComponent,
     DatosEntregaNComponent,
+<<<<<<< HEAD
     DatosFacturacionComponent,
     PaceToPlayComponent,
     InstalacionesComponent,
     DatosempresaComponent,
     SolicitantesComponent
+=======
+    DatosFacturacionComponent
+>>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f
 
   ],
   imports: [
