@@ -1,0 +1,140 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+
+
+   
+   
+       <form [formGroup]="formaForm" (ngSubmit)="ngsubmit()">
+      
+
+        <div class="row mb-3">
+      
+      
+         <div class="col">
+               <label 
+               class="form-label">Nombres completos</label>
+               <input type="text" 
+               class="form-control" 
+               placeholder="nombres completos"
+               formControlName="nombre"
+               [class.is-invalid]="camposvalidos('nombre')">
+               <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+               *ngIf="camposvalidos('nombre')">Nombres inválidos</div>
+           </div>
+           <div class="col">
+           <label 
+            class="form-label">Apellidos completos</label>
+     <input type="text" 
+            class="form-control" 
+            placeholder=" apellidos completos"
+            formControlName="apellido"
+            [class.is-invalid]="camposvalidos('apellido')">
+            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('apellido')">Apellidos inválidos</div>
+           </div>
+   
+            </div>
+            <div class="row mb-3">
+                <div class="col ">
+            
+                    <label class="form-label">Tipo de identificación</label>
+                    <select class="form-select" 
+                            formControlName="tipo"
+                            [class.is-invalid]="camposvalidos('tipo')">
+                        <option class="form-control" value="cc">Cédula de Ciudadanía</option>
+                        <option class="form-control" value="ce">Cédula de Extranjería</option>
+                        <option class="form-control" value="pa">Pasaporte</option>
+                  
+                    </select>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('tipo')">Tipo de documento inválido</div>
+                </div>
+                <div class="col ">
+                    <label class="form-label">Número de identificación</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="número de identificación"
+                           formControlName="numero"
+                           [class.is-invalid]="camposvalidos('numero')"
+                           [(ngModel)]="quitar"
+                           #valores
+                           (keyup)="quitarceros(valores.value)"
+                           >
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('numero')">Identificación inválida</div>
+                </div>
+            </div>
+
+
+            <div class="col mb-3">
+                <label class="form-label">Cargo:</label>
+                <input type="text" 
+                        class="form-control" 
+                        placeholder="cargo" 
+                        formControlName="cargo"
+                        [class.is-invalid]="camposvalidos('cargo')">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('cargo')">Cargo inválido</div>
+      
+      
+      
+              </div>
+
+            <div class="mb-5 text-center"
+             
+                 >
+                <button type="button" 
+                class="btn btn-primary" 
+                (click)="solicitantes()"
+
+               >Agregar Solicitante</button>
+                
+            </div>
+            <div>
+                <table>
+                    <tr *ngFor="let data of datos; let i = index">
+                        <td>
+                            <label for="formFile" class="form-label">{{data.nombre}}</label>
+                            <input class="form-control" 
+                                   type="file"
+                                   id='file'
+                                   formControlName="cedula"
+                                   (change)="cambiodatos(i)"
+                                   >
+                                </td> 
+                        <td>
+                            <label for="formFile" class="form-label">representante</label>
+                            <input class="form-control" 
+                                   type="file"
+                                   id='file'
+                                   formControlName="representante"
+                                   (change)="cambiodatos(i)"
+                                   >
+                        </td> 
+                    </tr>
+                </table>
+            <div class="input-group mb-1"  >
+                    
+                
+              </div>
+            </div>
+             
+       
+            <div class="mb-3">
+                <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+                <button type="submit" class="btn btn-primary">Siguiente</button>
+                
+              </div>
+          
+           </form>  
+
+   
+   </div>
+       
+   <!--{{nuevosoli.value}}-->
+   <pre>{{ formaForm.value | json }}</pre>
+   
+   <input style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput>
+
+<button (click)="hiddenfileinput.click()"  class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Select PDF</button>`
+   

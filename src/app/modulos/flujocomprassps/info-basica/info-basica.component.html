@@ -1,0 +1,153 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+ <div class="row ms-1 mt-3">
+    <p class="margenparrafos"><strong>Tipo de identificación:</strong><strong class="titulosintu">{{usuario.tipo}}</strong></p>
+    <p class="margenparrafos"><strong>Numero de identificación</strong>:<strong class="titulosintu">{{usuario.numero}}</strong></p>
+    
+    <h6 class="titulosintu">este certificado se utilizara para la politica:{{usuario.politica}}</h6>
+    <h5 class="titulosintu2">Información básica</h5>
+    <br>
+
+
+
+    <form [formGroup]="formaForm" (ngSubmit)="ngsubmit()">
+    <div class="row">
+   
+   
+      <div class="col">
+            <label 
+            class="form-label">Nombres completos</label>
+            <input type="text" 
+            class="form-control" 
+            placeholder="nombres completos"
+            formControlName="nombre"
+            [(ngModel)]="usuario.nombres"
+            [class.is-invalid]="camposvalidos('nombre')">
+            <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('nombre')">Nombres inválidos</div>
+        </div>
+        <div class="col">
+        <label 
+         class="form-label">Apellidos completos</label>
+  <input type="text" 
+         class="form-control" 
+         placeholder=" apellidos completos"
+         formControlName="apellido"
+         [(ngModel)]="usuario.apellidos"
+         [class.is-invalid]="camposvalidos('apellido')">
+         <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+         *ngIf="camposvalidos('apellido')">Apellidos inválidos</div>
+        </div>
+
+        <div class="mb-3">
+
+            <div class="row">
+                <div class="col">
+                    <label 
+                    class="form-label">Correo electrónico:</label>
+             <input type="text" 
+                    class="form-control" 
+                    placeholder="correo electronico"
+                    formControlName="correo"
+                    [(ngModel)]="usuario.correo"
+                    appNocopiado
+                    [class.is-invalid]="camposvalidos('correo')">
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo')">Correo inválido</div>
+
+                </div>
+    
+            </div>
+        
+          </div> 
+
+          <div class="mb-3">
+
+            <div class="row">
+                <div class="col">
+                    <label 
+                    class="form-label">Correo electrónico:</label>
+             <input type="text" 
+                    class="form-control" 
+                    placeholder="correo electronico"
+                    formControlName="correo1"
+                    [(ngModel)]="usuario.correo1"
+                    [class.is-invalid]="camposvalidos('correo1')"
+                    appNocopiado
+                    >
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo1')">Correo inválido</div>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="pass2NoValido">Los correos no son iguales</div>
+
+                </div>
+    
+            </div>
+        
+          </div>
+
+          <div class="mb-3">
+
+            <div class="form-check">
+                <input class="form-check-input" 
+                       type="radio"
+                       value="true"
+                       formControlName="documentos"
+                       (change)="documentos($event);"
+                       >
+                <label class="form-check-label">
+                   Adjuntar copia de cédula
+                </label>
+              </div>
+
+          </div>
+
+            
+        </div>
+
+        <div class="animate__animated animate__fadeIn animate__fast" *ngIf="documento">
+          <label class="form-check-label">
+            Documentos <strong style="color:#44494d ;">{{usuario.nombres}}</strong> ({{cantidad}} de 1)
+          </label>
+          <div class="d-flex justify-content-center">
+            <div id="div_file" class="text-center">
+        
+              <div [class]="validar()" *ngIf="cambiologo">
+                <i class="fa-solid fa-upload fa-xl fa-border"
+                  style="--fa-border-color: ff4d4d; --fa-border-padding: 7px; --fa-border-radius: 100%; --fa-border-style:solid; --fa-border-width: 1px; background-color: #ff4d4d; color: #fff;"></i>
+              </div>
+        
+              <div class="animate__animated animate__fadeIn animate__fast" *ngIf="cambiologo2">
+                <i class="fa-solid fa-check fa-xl fa-border"
+                   style="--fa-border-color: ff4d4d; --fa-border-padding: 7px; --fa-border-radius: 100%; --fa-border-style:solid; --fa-border-width: 1px; background-color: #33f0b7; color: #2d3d3d;"></i>
+              </div>
+        
+        
+        
+              <p id="texto">Documento de identidad</p>
+              <input type="file" id="enviar" 
+                     #enviar 
+                     formControlName="cargando"
+                     [(ngModel)]="usuario.documentos"
+                     (change)="estado(enviar.value);getFileDetails($event)">
+      
+            </div>
+          </div>
+        </div>
+        <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="archivos">El archivo adjunto supera los 10 mb</div>
+        
+        <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="tipos">Formato de archivo inválido</div>
+          <div class="mb-3">
+
+            <button type="submit" 
+            class="btn btn-primary" 
+           >Siguiente</button>
+          </div>
+        </form>  
+  </div>
+
+</div>
+    
+

@@ -1,0 +1,30 @@
+
+#texto{
+text-align: center;
+color: #44494d;
+font-family: corisandebold;
+}
+
+#div_file{
+    position: relative ;
+    margin: 10px;
+    padding: 0px;
+    padding-top: 10px;
+    width: 38%;
+    background-color: #f8f7f5;
+    border: #6a6c6f 3px dashed;
+    border-radius: 15px;
+
+}
+
+#enviar{
+position: absolute;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+width: 100%;
+height: 100%;
+opacity: 0;
+}
+

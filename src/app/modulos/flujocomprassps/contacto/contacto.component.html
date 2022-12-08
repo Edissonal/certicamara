@@ -1,0 +1,187 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <div class="row ms-1 mt-3">
+
+    <h5 class="titulosintu2">Datos de contacto</h5>
+    <br>
+
+    <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+   
+   <div class="row">
+    <div class="col">
+      <div class="col">
+        <label class="form-label">Nombres:</label>
+        <input type="text" 
+                class="form-control" 
+                placeholder="nombres"
+                formControlName="nombres"
+                [(ngModel)]="contacto.nombres"
+          [class.is-invalid]="camposvalidos('nombres')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('nombres')">Nombres inválidos</div>
+
+
+
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="col">
+        <label class="form-label">Apellidos:</label>
+        <input type="text" 
+                class="form-control" 
+                placeholder="apellidos" 
+                formControlName="apellidos"
+                [(ngModel)]="contacto.apellidos"
+          [class.is-invalid]="camposvalidos('apellidos')">
+        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+          *ngIf="camposvalidos('apellidos')">Apellidos inválidos</div>
+
+
+
+      </div>
+
+    </div>
+   </div>
+   
+      <div class="row">
+
+        <div class="mb-3">
+
+
+      <div class="col mt-3">
+            <label class="form-label">Cargo:</label>
+            <input type="text" 
+                    class="form-control" 
+                    placeholder="cargo" 
+                    formControlName="cargo"
+                    [(ngModel)]="contacto.cargo"
+                    [class.is-invalid]="camposvalidos('cargo')">
+            <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+              *ngIf="camposvalidos('cargo')">Cargo inválido</div>
+  
+  
+  
+          </div>
+  
+        </div>
+
+      <div class="mb-3">
+
+
+        <div class="col">
+          <label class="form-label">Correo electrónico:</label>
+          <input type="text" 
+                  class="form-control" 
+                  placeholder="correo electronico" 
+                  formControlName="correo"
+                  [(ngModel)]="contacto.correo"
+            [class.is-invalid]="camposvalidos('correo')">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+            *ngIf="camposvalidos('correo')">Correo inválido</div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="mb-3">
+
+
+        <div class="col">
+          <label class="form-label">Cedular:</label>
+          <input type="number" class="form-control" 
+                 placeholder="celular" 
+                 formControlName="celular"
+                [(ngModel)]="contacto.celular"
+                [class.is-invalid]="camposvalidos('celular')"
+                #datos
+                value="{datos.toString()}"
+                (keyup)="quitarceros(datos.value)">
+          <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+               *ngIf="camposvalidos('celular')">Celular inválido</div>
+
+
+
+        </div>
+
+
+        <div class="mb-3">
+
+          <label class="form-label mt-3">Teléfono fijo:</label>
+          <div class="row">
+
+            <div class="col">
+
+                <input  class="form-control" 
+                        list="browsers" 
+                        formControlName="indicativo" 
+                        placeholder="indicativo"
+                        [(ngModel)]="contacto.indicativo"
+                        (change)="verficacion($event)"
+                        [class.is-invalid]="camposvalidos('indicativo')"
+                        (keyup)="noPuntoComa($event)"
+                >
+                <datalist id="browsers">
+                  <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                </datalist>
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="comas">El campo no puede tener decimales</div>
+            </div>
+            
+            <div class="col">
+
+              <input type="number" 
+                     class="form-control" 
+                     placeholder="telefono" 
+                     formControlName="telefono"
+                     [class.is-invalid]="camposvalidos('telefono')"
+                     #datos2
+                     [(ngModel)]="contacto.telefono"
+                     value="{datos2.toString()}"
+                     (keyup)="quitarceros2(datos2.value)"
+                     >
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('telefono')">Telefono inválido</div>
+            </div>
+            <div class="col">
+              <input type="number" 
+                     class="form-control" 
+                     placeholder="extension" 
+                     formControlName="extenxion"
+                     [class.is-invalid]="camposvalidos('extenxion')"
+                     #datos3
+                     [(ngModel)]="contacto.extenxion"
+                     value="{datos.toString()}"
+                     (keyup)="quitarceros3(datos3.value)">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('extenxion')">Extension inválido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="mb-3">
+      <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+      <button type="submit" class="btn btn-primary">Siguiente</button>
+      
+    </div>
+
+
+  </form>
+
+
+  
+
+
+</div>
+

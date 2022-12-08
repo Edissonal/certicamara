@@ -1,0 +1,71 @@
+.titulos{
+    font-family: corisandebold;
+    color:#e2e2e2 ;
+}
+
+.titulos2{
+    font-family: corisandebold;
+    color:#20191e ;
+
+}
+
+h1{
+    font-family: corisandebold;
+    color:#20191e ;
+}
+
+h4{
+    font-family: CalibriLight;
+    color:#34393e ;
+
+    }
+
+  h5{
+        font-family: CalibriRegular;
+        color:#34393e ;
+    
+        }
+
+    
+.imagenes{
+    height: 10em;
+}
+
+.enunciado{
+ color: #a9aaaa;
+ font-family: FuturaTBook;
+ margin-left: 2em;
+
+}
+
+@media (max-width: 1600px)  {
+    .enunciado {
+        font-size: 20px !important ;
+    }
+}
+
+@media (max-width: 700px)  {
+    .enunciado {
+        font-size: 15px !important ;
+    }
+}
+
+ .numeros {
+  float: left !important;
+  font-size: 2.4em !important;
+  line-height: 1 !important;
+  margin-right: .0rem !important;
+  font-family: corisandebold;
+  color: #e3e3e3;
+}
+
+.textos{
+margin-top: 5px !important;
+margin-bottom: 0% !important;
+}
+
+.contiene{
+    position:relative;
+    top: -100px;
+}
+

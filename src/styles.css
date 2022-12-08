@@ -1,0 +1,409 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*fuentes*/
+@font-face {
+    font-family: corisandebold;
+    src: url(../src/assets/fuentes/corisandebold/corisandebold.ttf);
+}
+
+@font-face {
+    font-family: CalibriBold;
+    src: url(../src/assets/fuentes/calibri/Calibri_Bold.ttf);
+}
+
+@font-face {
+    font-family: CalibriRegular;
+    src: url(../src/assets/fuentes/calibri/Calibri_Regular.ttf);
+}
+
+@font-face {
+    font-family: CalibriLight;
+    src: url(../src/assets/fuentes/calibri/CalibriLight.ttf);
+}
+
+@font-face {
+    font-family: FuturaTBook;
+    src: url(../src/assets/fuentes/FuturaTBook/FuturaTBook.ttf);
+}
+
+@font-face {
+    font-family: HarabaraBold;
+    src: url(../src/assets/fuentes/HarabaraBold/Harabara-Bold.ttf);
+}
+
+@font-face {
+    font-family: FuturaTBook;
+    src: url(../src/assets/fuentes/FuturaTBook/FuturaTBook.ttf);
+}
+
+/*span formularios*/
+.politicas{
+    font-family: CalibriBold !important;
+    color:#34393e;
+}
+
+.politicas:hover{
+    font-family: CalibriBold !important;
+    color:#838281;
+    cursor: pointer;
+}
+
+/*formularios*/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+/*Modal estilos*/
+
+.descargas{
+color: #34393e;
+font-family: corisandebold;
+margin-right: 8rem !important;
+text-align: center;
+
+}
+
+.margen2{
+   padding-left: 1rem  !important;
+    padding-right: 1rem !important;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #ffffff;
+    border-radius: 0px 0px 15px 15px;
+
+}
+
+.margen3{
+    padding-left: 1rem  !important;
+    padding-right: 1rem !important;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #ffffff;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.margen1{
+    padding-left: 1rem  !important;
+     padding-right: 1rem !important;
+   /*  padding-top:10px;
+     padding-bottom:10px;*/
+     margin-left: 1rem;
+     margin-right: 1rem;
+     background-color: #ffffff;
+    /* border-radius: 15px;*/
+    border-radius: 15px 15px 0px 0px;
+ 
+ }
+
+
+ .bolistas{
+
+    border-radius: 15px 15px 0px 0px !important;
+
+}
+
+.iconos{
+margin-left: 0px !important;
+padding-left: 0px !important;
+}
+
+/*texto modal*/
+.textomodal{
+font-family: CalibriBold;
+color:#34393e ;
+}
+
+.textomodal2{
+    font-family: CalibriBold !important;
+    color:#999696 ;
+    }
+.check{
+    margin-left: 2rem;
+   background-color: #f8f7f5;
+   
+}
+.fondo{
+    background-color: aqua;    
+    padding-left: inherit !important;
+    padding-right: inherit!important;
+    margin-left: inherit !important;
+    margin-right: inherit !important;
+}
+
+
+.alert-malo {
+    --bs-alert-color: #636464;
+    background-color:  #f8f7f5;
+    --bs-alert-border-color: #fdfdfe;
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+   /* width: 75%;*/
+    font-family: CalibriBold;
+    border-radius: .80rem;
+    padding-bottom: 2%;
+}
+.alert-malo >p{
+    font-family: CalibriRegular;
+    text-align: justify;
+    padding-left: 3%;
+    padding-right: 3%;
+
+
+}
+
+
+.texto{
+    font-family: CalibriRegular;
+    text-align: justify;
+    padding: 1rem;
+}
+
+/*estilos componete plpanes*/
+.planes{
+
+    background-color:  #ffffff;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    border-radius: .80rem;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 1%;
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.titulos{
+    font-family: CalibriBold;
+    color: #20191e;
+}
+
+.titulos2{
+    font-family: CalibriBold;
+    margin-left: 1%;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+.estilos{
+    color: #ff4d4d;
+}
+
+.precios{
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+    background-color:  #f8f7f5;
+    border-radius: .80rem;
+}
+
+/*estilos formulario contacto*/
+
+.margencon{
+    padding-left: 1rem  !important;
+     padding-right: 1rem !important;
+     padding-top:10px;
+     padding-bottom:10px;
+     margin-left: 1rem;
+     margin-right: 1rem;
+     background-color: #ffffff;
+     border-radius: 15px 15px 15px 15px;
+ }
+
+ .contiene{
+    background-color: #f8f7f5;
+    border-radius: 15px 15px 15px 15px;
+
+}
+
+.row-margenes{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+/*contenedor ssps*/
+.margenuni{
+     padding-left: 1rem  !important;
+     padding-right: 1rem !important;
+     padding-top:2rem;
+     padding-bottom:15px;
+     margin-left: 1rem;
+     margin-right: 1rem;
+     background-color: #ffffff;
+     border-radius: 15px;
+
+}
+
+/*implementacion estilos tabla historico*/
+td{
+    font-family: CalibriRegular;
+}
+
+.centrado{
+display: flex;
+justify-content: center;
+}
+
+.centrado{
+margin-left: 1rem !important;
+}
+
+.centrado > table  tr > td{
+
+    padding-left: 1rem;
+}
+
+ .textop{
+
+    font-size: xx-small;
+    width: 51% !important;
+    border-radius: 0.8rem !important;
+
+
+}
+
+
+
+/*estilos flujos de compras*/
+.soli{
+    margin-left: 5rem;
+    }
+
+.soli1{
+        margin-left: 15rem;
+        }
+
+
+/*estilos de componete barras*/
+.fondo{
+    background-color:#f8f7f5;
+}
+
+/*libreria botones*/
+/*.flujo{
+border-radius: 15px 15px 0px 0px !important;
+}*/
+.flujos{
+
+    background-color: #ff4d4d;
+    color: #f8f7f5;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px !important;
+  /*  margin-top: -5px !important;*/
+  animation:inicia 0.5s ;
+  animation-fill-mode:forwards;
+}
+
+/*animaciones flujos*/
+@keyframes inicia{
+    0%{opacity:0;}
+    100%{opacity: 1;}
+}
+
+.flujosin{
+
+    background-color: #ffffff;
+    color: #3a3e42;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px !important;
+  /*  margin-top: -5px !important;*/
+    
+}
+ .linea{
+
+    color: #ff4d4d;
+    margin-top: -16px !important;
+}  
+
+.contiene2{
+    background-color: #f8f7f5;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.flujos2{
+
+
+    background-color: #ffffff !important;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+/*estilos modulo info basica*/
+.margenparrafos{
+    margin-bottom: 5px !important;
+}
+
+/*textos titulos*/
+.titulosintu{
+color:#999696 !important;
+}
+
+.titulosintu2{
+    color:#ff4d4d;
+}
+.quitarextos{
+overflow: hidden !important;
+}
+
+/*estilos modulo de compras*/
+
+.compras{
+/*background-color: #ff4d4d;*/
+width: 100% !important;
+padding-top: 3% !important;
+padding-bottom:3%!important;
+margin-bottom: 1rem;
+border: 1px solid #ced4da;
+
+}
+
+.lineadetiempo  span {
+    display: block !important;
+/* text-align: center;*/
+}
+
+
+/*.margendere{
+margin-left: 10% !important;
+}
+*/
+
+.contiene3{
+    background-color: #fff;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.contiene3:hover{
+
+    box-shadow: 0 2px 5px 1px rgba(255, 77, 77, 16%);
+    border: 1px solid #ff4d4d;
+    cursor: pointer;
+}
+
+.contiene3 {
+    transition: border 0.2s linear 0.1s;
+}
+
+/*small button*/
+.butonsmall{
+
+    background-color: #ff4d4d;
+    color: #f8f7f5;
+    padding: 1px 2px 1px 2px;
+    border-radius: 5px 5px 5px 5px;
+
+}
+
+.link-dark{
+
+    text-decoration: none !important;
+
+}

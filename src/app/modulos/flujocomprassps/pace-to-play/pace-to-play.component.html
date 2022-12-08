@@ -1,0 +1,139 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+    <h5 class="titulosintu2">Informacion del pago a realizar</h5>
+      <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+  
+
+            <div class="mb-3">
+  
+  
+              <div class="col">
+                <label class="form-label">Referencia</label>
+                <input type="text" 
+                        class="form-control" 
+                        formControlName="referencia"
+                        [class.is-invalid]="camposvalidos('referencia')"
+                        [attr.disabled]="false"
+                        [(ngModel)]="pagos.orden">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('referencia')">Referencia inválido</div>
+      
+      
+      
+              </div>
+      
+            </div>
+        
+            <div class="mb-3">
+  
+  
+                <div class="col">
+                  <label class="form-label">Valor Total</label>
+                  <input type="text" 
+                          class="form-control"
+                          formControlName="valorTotal"
+                          [class.is-invalid]="camposvalidos('valorTotal')"
+                          [attr.disabled]="false"
+                          [(ngModel)]="pagos.costo">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                     *ngIf="camposvalidos('valorTotal')">Valor Total inválido</div>
+        
+        
+        
+                </div>
+        
+              </div>
+        
+                    
+              <div class="mb-3">
+  
+  
+                <div class="col">
+                  <label class="form-label">Impuestos</label>
+                  <input type="text" 
+                          class="form-control" 
+                          [class.is-invalid]="camposvalidos('impuestos')"
+                          [attr.disabled]="false"
+                          formControlName="impuestos"
+                          [(ngModel)]="pagos.impuestos"
+                          >
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('impuestos')">Impuestos inválidos</div>
+        
+        
+        
+                </div>
+        
+              </div>
+
+              <div class="mb-3">
+  
+        
+              </div>
+
+              <div class="mb-3">
+  
+  
+                <div class="col">
+                  <label class="form-label">Base devolución</label>
+                  <input type="text" 
+                          class="form-control" 
+                          formControlName="basedevolucion"
+                          [attr.disabled]="false"
+                          [class.is-invalid]="camposvalidos('basedevolucion')"
+                           value="0,0">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('basedevolucion')">Base devolución inválido</div>
+        
+        
+        
+                </div>
+        
+              </div>
+    
+        
+
+              <div class="mb-3">
+  
+  
+                <div class="col">
+                  <label class="form-label">Corredor comprador</label>
+                  <input type="text" 
+                          class="form-control" 
+                          formControlName="correoComprador"
+                          [class.is-invalid]="camposvalidos('correoComprador')"
+                          [attr.disabled]="false"
+                          [(ngModel)]="pagos.comprador">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correoComprador')">Corredor comprador inválido</div>
+        
+        
+        
+                </div>
+        
+              </div>
+
+
+    
+  
+            <div class="mb-3">
+              <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+              <button type="submit" class="btn btn-primary">Realizar pago electrónico</button>
+              
+            </div>
+          
+      </form>
+  
+
+
+      <ng-template  [ngIf]="pedido">
+
+        <div role="alert" class="alert alert-light text-center animate__animated animate__fadeIn animate__faster" style="top: 100px;">
+            <br>
+            <h3>No de radicado {{noradicado}}</h3>
+            <p>Estimado usuario su compra fue exitosa , por favor valide su correo electrónico</p>
+            <button type="submit" class="btn btn-primary " (click)="cerrar()">Aceptar</button>
+        </div>
+        
+        </ng-template>
+  </div>

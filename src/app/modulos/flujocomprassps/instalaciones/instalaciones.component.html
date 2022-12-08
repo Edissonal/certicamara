@@ -1,0 +1,40 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+    <h5 class="titulosintu2">Datos de Envío</h5>
+      <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+  
+
+            <div class="mb-3">
+  
+  
+              <div class="col">
+                <label class="form-label">Correo electronico:</label>
+                <input type="text" 
+                        class="form-control" 
+                        placeholder="correo electronico" 
+                        formControlName="correo"
+                        [class.is-invalid]="camposvalidos('correo')"
+                        [(ngModel)]="usuario.correo">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('correo')">correo inválido</div>
+      
+      
+      
+              </div>
+      
+            </div>
+  
+            <p class="text-danger">
+                En el correo se le notificará la dirección y el número de contacto de certicamara para que pueda retirar el dispositivo.
+             </p>
+    
+  
+            <div class="mb-3">
+              <a type="submit" class="btn btn-secondary" (click)="redireciona()">anterior</a>
+              <button type="submit" class="btn btn-primary">siguiente</button>
+              
+            </div>
+          
+      </form>
+  
+  </div>

@@ -1,0 +1,53 @@
+
+
+/*validacion de step*/
+
+.bs-stepper-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+
+.bs-stepper .line, .bs-stepper-line {
+    -ms-flex: 1 0 32px;
+    flex: 1 0 32px;
+    min-width: 1px;
+    min-height: 1px;
+    margin: auto;
+    background-color: rgba(0,0,0,.12);
+}
+
+.carrusel{
+
+    background-color:#f8f7f5 !important;
+    border: none;
+    background: none;
+}
+
+.textope{
+    font-size: small;
+    line-height: 1; 
+}
+
+.fechas{
+ color: #aeaeb2;
+}
+
+
+.iconos2{
+    padding: 10px;
+    border-radius:35px;
+    background-color: #33f0b7; 
+    color: #2d3d3d;
+
+}
+
+.bordes{
+    padding: 10px;
+    background-color: #7b7874;
+    border-radius:35px;
+    color:#fff ;
+}
