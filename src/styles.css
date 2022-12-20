@@ -61,10 +61,7 @@ input[type=number] { -moz-appearance:textfield; }
 /*Modal estilos*/
 
 .descargas{
-color: #34393e;
-font-family: corisandebold;
-margin-right: 8rem !important;
-text-align: center;
+text-decoration: none;
 
 }
 
@@ -391,7 +388,6 @@ margin-left: 10% !important;
 .contiene3 {
     transition: border 0.2s linear 0.1s;
 }
-<<<<<<< HEAD
 
 /*small button*/
 .butonsmall{
@@ -408,5 +404,3 @@ margin-left: 10% !important;
     text-decoration: none !important;
 
 }
-=======
->>>>>>> 6d421f22c532f457b7d4e74b6552484ea27ab72f

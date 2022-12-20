@@ -1,0 +1,251 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <h5 class="titulosintu2">Datos de  facturacion</h5>
+
+    <form [formGroup]="formaForm" 
+          (ngSubmit)="ngsubmit()">
+        <div class="row">
+       
+       
+          <div class="col">
+                <label 
+                class="form-label">Nit</label>
+                <input type="number" 
+                class="form-control" 
+                placeholder="nit"
+                formControlName="nit"
+                [class.is-invalid]="camposvalidos('nit')"
+                #datos
+                [(ngModel)]="facturacion.nit"
+                value="{datos.toString()}"
+                (keyup)="noPuntoComa($event)"
+                (keyup)="quitarceros(datos.value)">
+                <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('nit')"
+                     >Nit inválido</div>
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="comasnit">El campo no puede tener comas</div>
+            </div>
+            <div class="col">
+            <label 
+             class="form-label">Razón social</label>
+              <input type="text" 
+                    class="form-control" 
+                    placeholder="razón social"
+                    formControlName="razon"
+                    [(ngModel)]="facturacion.razon"
+                    [class.is-invalid]="camposvalidos('razon')"
+                    >
+             <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+             *ngIf="camposvalidos('razon')">Razon social inválida</div>
+             
+             
+            </div>
+    
+
+
+                
+            </div>
+
+
+
+            <div class="mb-3">
+
+
+                <div class="col">
+                  <label class="form-label">Dirección completa:</label>
+                  <input type="text" 
+                          class="form-control" 
+                          placeholder="direccion completa" 
+                          formControlName="direccionp"
+                          [(ngModel)]="facturacion.direccionp"
+                          [class.is-invalid]="camposvalidos('direccionp')"
+                          (keyup)="noPuntoComa($event)"
+                          >
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('direccionp')">Dirección  inválida</div>
+                </div>
+        
+              </div>
+
+              <div class="mb-3">
+
+                <label class="form-label mt-3">Teléfono fijo:</label>
+                <div class="row">
+      
+                  <div class="col">
+      
+                      <input  class="form-control" 
+                              list="browsers" 
+                              formControlName="indicativo" 
+                              placeholder="indicativo"
+                              [(ngModel)]="facturacion.indicativo"
+                              (change)="verficacion($event)"
+                              [class.is-invalid]="camposvalidos('indicativo')"
+                              (keyup)="noPuntoComacod($event)"
+                      >
+                      <datalist id="browsers">
+                        <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                      </datalist>
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
+                      <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="comas">El campo no puede tener decimales</div>
+                  
+                    </div>
+                  
+    
+                  <div class="col">
+      
+                    <input type="number" 
+                           class="form-control" 
+                           placeholder="telefono" 
+                           formControlName="telefono"
+                           [class.is-invalid]="camposvalidos('telefono')"
+                          #datos2
+                          [(ngModel)]="facturacion.telefono"
+                          value="{datos.toString()}"
+                          (keyup)="quitarceros2(datos2.value)"
+                          (keyup)="noPuntote($event)"
+                           >
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('telefono')">Teléfono inválido</div>
+                      <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="comastel2">El campo no puede tener comas</div>
+                    
+                  </div>
+                  <div class="col">
+                    <input type="number" 
+                           class="form-control" 
+                           placeholder="extension" 
+                           formControlName="extenxion"
+                           [class.is-invalid]="camposvalidos('extenxion')"
+                           #datos3
+                           [(ngModel)]="facturacion.extenxion"
+                           value="{datos3.toString()}"
+                           (keyup)="quitarceros3(datos3.value)"
+                           (keyup)="noPuntoex($event)">
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="camposvalidos('extenxion')">Extension inválido</div>
+                      <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                      *ngIf="comastex">El campo no puede tener comas</div>
+                  </div>
+    
+                </div>
+                  
+              </div>
+
+              <div class="mb-3">
+
+                <label class="form-label">Celular:</label>
+                <input type="number" class="form-control" 
+                       placeholder="celular" 
+                       formControlName="celular"
+                      [class.is-invalid]="camposvalidos('celular')"
+                      #datos4
+                      [(ngModel)]="facturacion.celular"
+                      value="{datos4.toString()}"
+                      (keyup)="quitarceros4(datos4.value)"
+                      (keyup)="noPuntotel($event)"
+                      >
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('celular')">Celular inválido</div>
+                
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="comastel">El campo no puede tener comas</div>
+      
+      
+      
+              </div>
+
+              <div class="mb-3">
+
+
+                <div class="col">
+                  <label class="form-label">Correo electronico:</label>
+                  <input type="text" 
+                          class="form-control" 
+                          placeholder="correo electronico" 
+                          formControlName="correo"
+                          [(ngModel)]="facturacion.correo"
+                          [class.is-invalid]="camposvalidos('correo')">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('correo')">Correo inválido</div>
+        
+        
+        
+                </div>
+        
+              </div>
+        
+              <div class="row mb-4">
+                <div class="col">
+                    <label class="form-label">Tipo de Capital</label>
+                    <select class="form-select" 
+                            formControlName="capital"
+                            [class.is-invalid]="camposvalidos('capital')"
+                            [(ngModel)]="facturacion.capital">
+                        <option class="form-control">Mixto</option>
+                        <option class="form-control">Privado</option>
+                        <option class="form-control">Público</option>
+                  
+                    </select>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('capital')">Capital inválido</div>
+                </div>
+                <div class="col">
+                    <label class="form-label">Régimen Tributario</label>
+                    <select class="form-select" 
+                            formControlName="regimentributario"
+                            [class.is-invalid]="camposvalidos('regimentributario')"
+                            [(ngModel)]="facturacion.regimentributario">
+                        <option class="form-control">Empresa del Estado.</option>
+                        <option class="form-control">Gran Contribuyente.</option>
+                        <option class="form-control">No Residente en el País.</option>
+                        <option class="form-control">Régimen Común.</option>
+                        <option class="form-control">Régimen Simplificado</option>
+                  
+                    </select>
+
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('regimentributario')">regimen tributario inválido</div>
+                </div>
+                     
+            </div>
+
+
+
+              <div class="mb-3">
+
+                <div class="row">
+                    <div class="col">
+                        <label 
+                        class="form-label">Código de actividad Económica</label>
+                 <input type="number" 
+                        class="form-control" 
+                        placeholder="codigo de actividad"
+                        formControlName="codigo"
+                        appNocopiado
+                        [class.is-invalid]="camposvalidos('codigo')"
+                        (keyup)="noPuntoComaeconomi($event)"
+                        [(ngModel)]="facturacion.codigo">
+                        <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                        *ngIf="camposvalidos('codigo')">Codigo actividad economica inválido</div>
+                        <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                        *ngIf="comasecnomi">El campo no puede tener decimales</div>
+                    </div>
+                </div>
+                 <a class="link-dark" href="https://www.dian.gov.co/normatividad/Normatividad/Resoluci%C3%B3n%20000114%20de%2021-12-2020.pdf"> <small>Información de código actividad económica</small></a>
+                </div>
+            
+
+
+
+                <div class="mb-3">
+                  <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+                  <button type="submit" class="btn btn-primary">Siguiente</button>
+                  
+                </div>
+            </form>  
+
+</div>

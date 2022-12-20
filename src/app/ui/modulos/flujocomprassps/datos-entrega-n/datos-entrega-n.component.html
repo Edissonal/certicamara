@@ -1,0 +1,108 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <h5 class="titulosintu2">Datos de Envío</h5>
+    <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+
+ 
+        <div class="mb-3">
+
+            <label class="form-label mt-3">Teléfono fijo:</label>
+            <div class="row">
+  
+              <div class="col">
+  
+                  <input   class="form-control" 
+                           list="browsers" 
+                            formControlName="indicativo" 
+                            placeholder="indicativo"
+                             [(ngModel)]="entrega.indicativo"
+                             (change)="verficacion($event)"
+                             [class.is-invalid]="camposvalidos('indicativo')"
+                            (keyup)="noPuntoComa($event)">
+
+                  <datalist id="browsers">
+                    <option *ngFor="let d of indicativos"  [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                  </datalist>
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="comas">El campo no puede tener decimales</div>
+              
+                </div>
+              
+
+              <div class="col">
+  
+                <input type="number" 
+                       class="form-control" 
+                       placeholder="telefono" 
+                       formControlName="telefono"
+                       [(ngModel)]="entrega.telefono"
+                       [class.is-invalid]="camposvalidos('telefono')"
+                       (keyup)="noPuntoComa2($event)"
+                       #datos3
+                       value="{datos3.toString()}"
+                       (keyup)="quitarceros3(datos3.value)"
+                       >
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('telefono')">Teléfono inválido</div>
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="comas2">El campo no puede tener decimales</div>
+    
+              </div>
+              
+              <div class="col">
+                <input type="number" 
+                       class="form-control" 
+                       placeholder="extension" 
+                       formControlName="extenxion"
+                       [(ngModel)]="entrega.extenxion"
+                       [class.is-invalid]="camposvalidos('extenxion')"
+                       (keyup)="noPuntoComa3($event)"
+                       #datos4
+                       value="{datos4.toString()}"
+                       (keyup)="quitarceros4(datos4.value)">
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="camposvalidos('extenxion')">Extension inválido</div>
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="comas3">El campo no puede tener decimales</div>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="mb-3">
+
+
+            <div class="col">
+              <label class="form-label">Correo electronico:</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="correo electronico" 
+                formControlName="correo"
+                [(ngModel)]="entrega.correo"
+                [class.is-invalid]="camposvalidos('correo')">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('correo')">Correo inválido</div>
+    
+    
+    
+            </div>
+    
+          </div>
+
+          <p class="text-danger">
+              En el documento se compartirá toda la información necesaria para la formación del producto.
+           </p>
+  
+
+          <div class="mb-3">
+            <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+            <button type="submit" class="btn btn-primary">Siguiente</button>
+            
+          </div>
+        
+    </form>
+
+</div>

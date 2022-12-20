@@ -1,0 +1,177 @@
+<div class=" animate__animated animate__fadeInLeftBig animate__faster">
+
+  <h5 class="titulosintu2">Datos de Entrega </h5>
+
+ 
+      <div class="mb-3">
+
+        <div class="mb-1 form-check">
+          <input type="checkbox" 
+                 class="form-check-input"
+                  (change)="instalaciones($event)"
+                 >
+          <label class="form-check-label" 
+                 for="exampleCheck1"><p>¿Entrega en instalaciones de certicamara ?</p></label>
+        </div>
+      </div>
+      <form [formGroup]="formaForm"  (ngSubmit)="ngsubmit()">
+        <div class="mb-3">
+        
+
+          <div class="mb-3">
+
+            <div class="col">
+              <label class="form-label">Direccion completa:</label>
+              <input type="text" 
+                      class="form-control" 
+                      placeholder="Direccion completa" 
+                      formControlName="direccionp"
+                      [class.is-invalid]="camposvalidos('direccionp')"
+                      [(ngModel)]="entrega.direccionp">
+              <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                *ngIf="camposvalidos('direccionp')">Direccion  inválida</div>
+            </div>
+    
+          </div>
+        
+        
+          </div>
+
+                     <div class="row mb-4">
+                <div class="col">
+                    <label class="form-label">Departamento</label>
+                    <select class="form-select" 
+                            formControlName="municipio"
+                            [class.is-invalid]="camposvalidos('municipio')"
+                            [(ngModel)]="entrega.municipio"
+                            placeholder="selecione un departamento">
+                              <option *ngFor="let muni of depar" 
+                                      [value]="muni.codigo_dep">{{muni.Departamento}}</option>
+                              
+                  
+                    </select>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                          *ngIf="camposvalidos('municipio')">Departamento inválido</div>
+                </div>
+                <div class="col">
+                    <label class="form-label">Municipio</label>
+                    <select class="form-select" 
+                            formControlName="departamento"
+                            [class.is-invalid]="camposvalidos('departamento')"
+                            [(ngModel)]="entrega.departamento"
+                            placeholder="selecione un municipio">
+                            <option class="form-control">Seleccione una opción</option>
+                            <option class="form-control" *ngFor="let muni of munifi"
+                                                         [value]="muni.Codigo_mu">{{muni.Municipio}}</option>
+                 
+                  
+                    </select>
+                    <div  class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                                *ngIf="camposvalidos('departamento')">Municipio inválido</div>
+                </div>                         
+            </div>
+
+            <div class="mb-3">
+
+              <div class="mb-3">
+      
+                <label class="form-label mt-3">Telefono fijo:</label>
+                <div class="row">
+      
+                  <div class="col">
+
+                    <input  class="form-control" 
+                            list="browsers" 
+                            formControlName="indicativo" 
+                            placeholder="indicativo"
+                            [(ngModel)]="entrega.indicativo"
+                            (change)="verficacion($event)"
+                            [class.is-invalid]="camposvalidos('indicativo')"
+                            (keyup)="noPuntoComa($event)"
+                    >
+                    <datalist id="browsers">
+                      <option *ngFor="let d of indicativos"  
+                              [value]="d.nomDepartamento" >{{d.nomDepartamento}}</option>
+                    </datalist>
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('indicativo')">Indicativo inválido</div>
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="comas">El campo no puede tener decimales</div>
+                </div>
+                <div class="col">
+      
+                  <input type="number" 
+                         class="form-control" 
+                         placeholder="telefono" 
+                         formControlName="telefono"
+                         [class.is-invalid]="camposvalidos('telefono')"
+                         #datos2
+                         [(ngModel)]="entrega.telefono"
+                         value="{datos2.toString()}"
+                         (keyup)="quitarceros3(datos2.value)"
+
+                         >
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('telefono')">Teléfono inválido</div>
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="comastel2">El campo no puede tener comas</div>
+                  
+                </div>
+                <div class="col">
+                  <input type="number" 
+                         class="form-control" 
+                         placeholder="extension" 
+                         formControlName="extenxion"
+                         [class.is-invalid]="camposvalidos('extenxion')"
+                         #datos
+                         [(ngModel)]="entrega.extenxion"
+                         value="{datos.toString()}"
+                         (keyup)="quitarceros2(datos.value)">
+                  <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="camposvalidos('extenxion')">Extension inválido</div>
+                    <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                    *ngIf="comastex">El campo no puede tener comas</div>
+                </div>
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+
+                <label class="form-label">Celular:</label>
+                <input type="number" class="form-control" 
+                       placeholder="celular" 
+                       formControlName="celular"
+                      [class.is-invalid]="camposvalidos('celular')"
+                      #datos3
+                      [(ngModel)]="entrega.celular"
+                      value="{datos3.toString()}"
+                      (keyup)="quitarceros(datos3.value)"
+                      (keyup)="noPuntotel($event)"
+                   
+                      >
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                     *ngIf="camposvalidos('celular')">Celular inválido</div>
+                
+                <div class="form-text text-danger animate__animated animate__fadeIn animate__fast"
+                  *ngIf="comastel">El campo no puede tener comas</div>
+      
+      
+      
+              </div>
+      
+
+            </div>
+      
+
+  
+
+          <div class="mb-3">
+            <a type="submit" class="btn btn-secondary" (click)="redireciona()">Anterior</a>
+            <button type="submit" class="btn btn-primary">Siguiente</button>
+            
+          </div>
+        
+    </form>
+
+</div>
